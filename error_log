@@ -1,0 +1,60 @@
+[13-Sep-2018 21:34:34 America/Mexico_City] PHP Warning:  include(modulos/login.php): failed to open stream: No such file or directory in /home/stasacco/sistema.stasac.com.mx/vistas/plantilla.php on line 228
+[13-Sep-2018 21:34:34 America/Mexico_City] PHP Warning:  include(modulos/login.php): failed to open stream: No such file or directory in /home/stasacco/sistema.stasac.com.mx/vistas/plantilla.php on line 228
+[13-Sep-2018 21:34:34 America/Mexico_City] PHP Warning:  include(): Failed opening 'modulos/login.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home/stasacco/sistema.stasac.com.mx/vistas/plantilla.php on line 228
+[13-Sep-2018 22:01:19 America/Mexico_City] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'admin'@'localhost' (using password: YES)' in /home/stasacco/sistema.stasac.com.mx/modelos/conexion.php:9
+Stack trace:
+#0 /home/stasacco/sistema.stasac.com.mx/modelos/conexion.php(9): PDO->__construct('mysql:host=loca...', 'admin', '@HS20172020')
+#1 /home/stasacco/sistema.stasac.com.mx/modelos/usuarios.modelo.php(15): Conexion::conectar()
+#2 /home/stasacco/sistema.stasac.com.mx/controladores/usuarios.controlador.php(23): ModeloUsuarios::mdlMostrarUsuarios('usuarios', 'usuario', 'admin')
+#3 /home/stasacco/sistema.stasac.com.mx/vistas/modulos/login.php(84): ControladorUsuarios::ctrIngresoUsuario()
+#4 /home/stasacco/sistema.stasac.com.mx/vistas/plantilla.php(228): include('/home/stasacco/...')
+#5 /home/stasacco/sistema.stasac.com.mx/controladores/plantilla.controlador.php(7): include('/home/stasacco/...')
+#6 /home/stasacco/sistema.stasac.com.mx/index.php(15): ControladorPlantilla::ctrPlantilla()
+#7 {main}
+  thrown in /home/stasacco/sistema.stasac.com.mx/modelos/conexion.php on line 9
+[20-Nov-2018 13:32:57 America/Mexico_City] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/stasacco/sistema.stasac.com.mx/modelos/conexion.php:9
+Stack trace:
+#0 /home/stasacco/sistema.stasac.com.mx/modelos/conexion.php(9): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home/stasacco/sistema.stasac.com.mx/modelos/usuarios.modelo.php(15): Conexion::conectar()
+#2 /home/stasacco/sistema.stasac.com.mx/controladores/usuarios.controlador.php(23): ModeloUsuarios::mdlMostrarUsuarios('usuarios', 'usuario', 'admin')
+#3 /home/stasacco/sistema.stasac.com.mx/vistas/modulos/login.php(84): ControladorUsuarios::ctrIngresoUsuario()
+#4 /home/stasacco/sistema.stasac.com.mx/vistas/plantilla.php(270): include('/home/stasacco/...')
+#5 /home/stasacco/sistema.stasac.com.mx/controladores/plantilla.controlador.php(7): include('/home/stasacco/...')
+#6 /home/stasacco/sistema.stasac.com.mx/index.php(21): ControladorPlantilla->ctrPlantilla()
+#7 {main}
+  thrown in /home/stasacco/sistema.stasac.com.mx/modelos/conexion.php on line 9
+[23-Nov-2018 12:48:11 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/11482/519.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 280
+[26-Nov-2018 13:07:41 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/12374/568.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 280
+[26-Nov-2018 13:07:41 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/12374/568.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 280
+[29-Nov-2018 14:05:31 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/02528/651.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 280
+[03-Dec-2018 12:14:57 America/Mexico_City] PHP Warning:  getimagesize(): Filename cannot be empty in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 29
+[03-Dec-2018 12:16:37 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 284
+[03-Dec-2018 12:16:37 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 284
+[03-Dec-2018 12:38:53 America/Mexico_City] PHP Warning:  getimagesize(): Filename cannot be empty in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 29
+[05-Dec-2018 13:14:12 America/Mexico_City] PHP Warning:  getimagesize(): Filename cannot be empty in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 29
+[05-Dec-2018 14:40:36 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 284
+[05-Dec-2018 14:40:36 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 284
+[05-Dec-2018 14:58:32 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 284
+[05-Dec-2018 14:58:32 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 284
+[07-Dec-2018 13:32:13 America/Mexico_City] PHP Warning:  getimagesize(): Filename cannot be empty in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 29
+[10-Dec-2018 11:08:22 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 291
+[10-Dec-2018 11:08:22 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 291
+[10-Dec-2018 12:08:11 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/14538/340.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 287
+[11-Dec-2018 10:52:50 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/12014/141.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 287
+[11-Dec-2018 12:42:52 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 40
+[12-Dec-2018 11:43:20 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 40
+[13-Dec-2018 10:59:26 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/53963/433.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 287
+[09-Jan-2019 13:03:47 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/15687/395.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 287
+[10-Jan-2019 12:33:44 America/Mexico_City] PHP Warning:  mkdir(): File exists in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 40
+[24-Jan-2019 13:30:06 America/Mexico_City] PHP Warning:  unlink(vistas/img/trabajadores/10017/690.jpg): No such file or directory in /home/stasacco/sistema.stasac.com.mx/controladores/trabajadores.controlador.php on line 287
+[30-Jan-2019 11:36:37 America/Mexico_City] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in /home/stasacco/sispruebas.stasac.com.mx/modelos/conexion.php:9
+Stack trace:
+#0 /home/stasacco/sispruebas.stasac.com.mx/modelos/conexion.php(9): PDO->__construct('mysql:host=loca...', 'root', '')
+#1 /home/stasacco/sispruebas.stasac.com.mx/modelos/usuarios.modelo.php(15): Conexion::conectar()
+#2 /home/stasacco/sispruebas.stasac.com.mx/controladores/usuarios.controlador.php(23): ModeloUsuarios::mdlMostrarUsuarios('usuarios', 'usuario', 'admin')
+#3 /home/stasacco/sispruebas.stasac.com.mx/vistas/modulos/login.php(86): ControladorUsuarios::ctrIngresoUsuario()
+#4 /home/stasacco/sispruebas.stasac.com.mx/vistas/plantilla.php(272): include('/home/stasacco/...')
+#5 /home/stasacco/sispruebas.stasac.com.mx/controladores/plantilla.controlador.php(7): include('/home/stasacco/...')
+#6 /home/stasacco/sispruebas.stasac.com.mx/index.php(21): ControladorPlantilla->ctrPlantilla()
+#7 {main}
+  th in /home/stasacco/sispruebas.stasac.com.mx/modelos/conexion.php on line 9
