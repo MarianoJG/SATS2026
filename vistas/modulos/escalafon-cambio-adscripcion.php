@@ -505,7 +505,7 @@ MODAL EDITAR CAMBIO DE ADSCRIPCION
 
                  </div>
                   </div>
-                      <input type="hidden" name="EditardepartamentoId" id="EditardepartamentoId" class="form-control" readonly=""   >
+                      <input type="text" name="EditardepartamentoId" id="EditardepartamentoId" class="form-control" readonly=""   >
                 </div>
 
  

@@ -16,7 +16,7 @@ if($_SESSION["perfil"] == "Capturista"){
 
 <body class="hold-transition sidebar-mini bg-p2-pages" style="height: auto;">
 
-   <div class="content-wrapper ">
+  <div class="content-wrapper ">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -28,7 +28,7 @@ if($_SESSION["perfil"] == "Capturista"){
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
               <li class="breadcrumb-item active">Administración</li>
-               <li class="breadcrumb-item active">Usuarios</li>
+              <li class="breadcrumb-item active">Usuarios</li>
             </ol>
           </div>
         </div>
@@ -39,19 +39,17 @@ if($_SESSION["perfil"] == "Capturista"){
     <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <!-- left column  buttom-->
+        
           <div>
-           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario"><i class="fa fa-plus nav-icon"></i>&nbsp;
-             Agregar Usuario
-           </button>
-         </div>
-          <!--/.col (left) -->
-          <!-- right column -->
-          
-          <!--/.col (right) -->
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAgregarUsuario"><i class="fa fa-plus nav-icon"></i>&nbsp;
+            Agregar Usuario
+          </button>
+        </div>
+        
         </div>
         <!-- /.row -->
-      </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.container-fluid -->
     </section>
 
     <section class="account-content">
@@ -59,34 +57,34 @@ if($_SESSION["perfil"] == "Capturista"){
         <table  class="table  tablas table-hover table-striped table-bordered dt-responsive nowrap" style="width:100%">
           <thead>
             <tr>
-             <th>Id</th>
-             <th>Nombres de Usuarios</th>
-             <th>Foto</th>
-             <th>Usuario Login</th>
-             <th>Perfil</th>
-             <th>Estado</th>
-             <th>Último Login</th>
-             <th>Acciones</th>
+
+              <th>Id</th>
+              <th>Nombres de Usuarios</th>
+              <th>Foto</th>
+              <th>Usuario Login</th>
+              <th>Perfil</th>
+              <th>Estado</th>
+              <th>Último Login</th>
+              <th>Acciones</th>
 
             </tr>
           </thead>
 
           <tbody>
 
-             <?php 
+            <?php 
 
               $item = null;
               $valor = null;
-
 
               $usuarios = ControladorUsuarios::ctrMostrarUsuarios($item, $valor);
             
               foreach ($usuarios as $key => $value){
 
               echo '
-               <tr>
+              <tr>
                 <td>'.$value["id"].'</td>
-               <td>'.$value["nombre"].'</td>';
+              <td>'.$value["nombre"].'</td>';
                       
 
                       if($value["foto"] != ""){
@@ -99,7 +97,7 @@ if($_SESSION["perfil"] == "Capturista"){
 
                       }
 
-                       echo '<td>'.$value["usuario"].'</td>';
+                      echo '<td>'.$value["usuario"].'</td>';
 
                       echo '<td>'.$value["perfil"].'</td>';
 
@@ -120,9 +118,9 @@ if($_SESSION["perfil"] == "Capturista"){
                         <span data-toggle="modal" data-target="#modalEditarUsuario"><button class="btn btn-info btnEditarUsuario" idUsuario="'.$value["id"].'"" data-toggle="tooltip" data-placement="top" title="Editar"><i class="fa fa-pencil-square-o"></i></button></span>
                         </div>
 
-                         <div class="btn-group">
+                        <div class="btn-group">
 
-                           <button class="btn btn-danger btnEliminarUsuario"  idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-times-circle"></i></button>
+                          <button class="btn btn-danger btnEliminarUsuario"  idUsuario="'.$value["id"].'" fotoUsuario="'.$value["foto"].'" usuario="'.$value["usuario"].'" data-toggle="tooltip" data-placement="top" title="Eliminar"><i class="fa fa-times-circle"></i></button>
                           
                         </div>  
 
@@ -132,7 +130,7 @@ if($_SESSION["perfil"] == "Capturista"){
               }
 
             ?>    
-           
+          
           </tbody>
 
         </table>
@@ -151,7 +149,7 @@ MODAL AGREGAR USUARIO
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
-       <!--=====================================
+      <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
@@ -163,7 +161,7 @@ MODAL AGREGAR USUARIO
         </button>
       </div>
 
-       <!--=====================================
+      <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
@@ -173,7 +171,7 @@ MODAL AGREGAR USUARIO
 
           <form method="post" name="registrationFormUsers" id ="registrationFormUsers" role="form" enctype="multipart/form-data">
 
-             <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA EL NOMBRE -->
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -191,7 +189,7 @@ MODAL AGREGAR USUARIO
               <input type="text" name="nuevoUsuario" id="nuevoUsuario" class="form-control" placeholder=" Usuario del Sistema (Alias)" autocomplete="off" required="" >
             </div>
 
-             <!-- ENTRADA PARA EL PASSWORD -->
+            <!-- ENTRADA PARA EL PASSWORD -->
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -209,13 +207,15 @@ MODAL AGREGAR USUARIO
               </div>
 
               <select class="form-control" name="nuevoPerfil" required="">
-                 <option value="">Seleccionar Perfil</option>
-                 <option value="Administrador">Administrador</option>
-                 <option value="Super Usuario">Super Usuario</option>
-                 <option value="Capturista">Capturista</option>
-                 <option value="Admin Finanzas">Admin Finanzas</option>
-                 <option value="Admin Escalafon">Admin Escalafon</option>
-                 <option value="Admin Actas y Acuerdos">Admin Actas y Acuerdos</option>
+                <option value="">Seleccionar Perfil</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Super Usuario">Super Usuario</option>
+                <option value="Secretario General">Secretario General</option>
+                <option value="Capturista">Capturista</option>
+                <option value="Admin Finanzas">Admin Finanzas</option>
+                <option value="Personal Finanzas">Personal Finanzas</option>
+                <option value="Admin Escalafon">Admin Escalafon</option>
+                <option value="Admin Actas y Acuerdos">Admin Actas y Acuerdos</option>
               </select>
 
             </div>
@@ -250,7 +250,7 @@ MODAL AGREGAR USUARIO
             $crearUsuario = new ControladorUsuarios();
             $crearUsuario -> ctrCrearUsuario();
 
-             ?>
+            ?>
 
 
           </form>
@@ -272,7 +272,7 @@ MODAL EDITAR USUARIO
   <div class="modal-dialog" role="document">
     <div class="modal-content">
 
-       <!--=====================================
+      <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
@@ -284,7 +284,7 @@ MODAL EDITAR USUARIO
         </button>
       </div>
 
-       <!--=====================================
+      <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
@@ -294,7 +294,7 @@ MODAL EDITAR USUARIO
 
           <form method="post" name="editFormUsers" id ="editFormUsers" role="form" enctype="multipart/form-data">
 
-             <!-- ENTRADA PARA EL NOMBRE -->
+            <!-- ENTRADA PARA EL NOMBRE -->
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -312,7 +312,7 @@ MODAL EDITAR USUARIO
               <input type="text" class="form-control" id="editarUsuario" name="editarUsuario"   value="" readonly >
             </div>
 
-             <!-- ENTRADA PARA EL PASSWORD -->
+            <!-- ENTRADA PARA EL PASSWORD -->
 
             <div class="input-group mb-3">
               <div class="input-group-prepend">
@@ -332,13 +332,15 @@ MODAL EDITAR USUARIO
               </div>
 
               <select class="form-control" name="editarPerfil" required="">
-               <option value="" id="editarPerfil"></option>
-               <option value="Administrador">Administrador</option>
-               <option value="Super Usuario">Super Usuario</option>
-               <option value="Capturista">Capturista</option>
-               <option value="Admin Finanzas">Admin Finanzas</option>
-               <option value="Admin Escalafon">Admin Escalafon</option>
-               <option value="Admin Actas y Acuerdos">Admin Actas y Acuerdos</option>
+                <option value="" id="editarPerfil"></option>
+                <option value="Administrador">Administrador</option>
+                <option value="Super Usuario">Super Usuario</option>
+                <option value="Secretario General">Secretario General</option>
+                <option value="Capturista">Capturista</option>
+                <option value="Admin Finanzas">Admin Finanzas</option>
+                <option value="Personal Finanzas">Personal Finanzas</option>
+                <option value="Admin Escalafon">Admin Escalafon</option>
+                <option value="Admin Actas y Acuerdos">Admin Actas y Acuerdos</option>
               </select>
 
             </div>
@@ -357,7 +359,7 @@ MODAL EDITAR USUARIO
             <div class="img-thumbnail" >
               <img src="vistas/img/usistema/default/cam.png" class="rounded previsualizarE " width="80px">
 
-               <input type="hidden" name="fotoActual" id="fotoActual">
+              <input type="hidden" name="fotoActual" id="fotoActual">
 
             </div>
 
@@ -371,14 +373,13 @@ MODAL EDITAR USUARIO
               <button type="submit" class="btn btn-outline-success"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp; Actualizar</button>
             </div>
 
-             <?php
-             
-             $editarUsuario = new ControladorUsuarios();
-             $editarUsuario -> ctrEditarUsuario();
-             
-             ?> 
+            <?php
+            
+            $editarUsuario = new ControladorUsuarios();
+            $editarUsuario -> ctrEditarUsuario();
+            
+            ?> 
 
-      
 
           </form>
           

@@ -1,586 +1,1519 @@
- <div class="content-wrapper">
+<style type="text/css">
+  .fv-form-bootstrap4 .fv-control-feedback {
+    width: 0px;
+    height: 38px;
+    line-height: 38px;
+    right: -1px;
+  }
+</style>
+
+<body class="hold-transition sidebar-mini bg-p2-pages" style="height: auto;">
+
+  <div class="content-wrapper ">
     <!-- Content Header (Page header) -->
-    <div class="content-header">
+    <section class="content-header">
       <div class="container-fluid">
-         <div class="row mt-5 pt-2">
-          <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Registro Prestamos</h1>
-          </div><!-- /.col -->
+        <div class="row mt-5 pt-2">
+          <div class="col-sm-6 pl-3">
+            <h1><span><i class="fa fa-credit-card" aria-hidden="true"></i></span>&nbsp;&nbsp;Finanzas - Préstamos</h1>
+          </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
               <li class="breadcrumb-item active">Finanzas</li>
-              <li class="breadcrumb-item active">Registro Prestamos</li>
+              <li class="breadcrumb-item active">Préstamos</li>
             </ol>
-          </div><!-- /.col -->
-        </div><!-- /.row -->
-      </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
+          </div>
+        </div>
+      </div>
+      <!-- /.container-fluid -->
+    </section>
 
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- Small boxes (Stat box) -->
         <div class="row">
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-info">
-              <div class="inner">
-                <h3>150</h3>
+          <!-- left column  buttom-->
+          <div class="pl-3">
 
-                <p>New Orders</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-bag"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-success">
-              <div class="inner">
-                <h3>53<sup style="font-size: 20px">%</sup></h3>
+            <?php
+        /* PERMISO PARA VER BOTON AGREGAR SOLO ADMINISTRADOR, SECRETARIO GENERAL Y ADMIN FINANZAS */
 
-                <p>Bounce Rate</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-stats-bars"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-warning">
-              <div class="inner">
-                <h3>44</h3>
+        if($_SESSION["perfil"] == "Administrador"  || $_SESSION["perfil"] == "Secretario General" || $_SESSION["perfil"] == "Admin Finanzas")
+          {
 
-                <p>User Registrations</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-person-add"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
-          </div>
-          <!-- ./col -->
-          <div class="col-lg-3 col-6">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-              <div class="inner">
-                <h3>65</h3>
+            echo '<button type="button" class="btn btn-primary btnAgregarPrestamo" data-toggle="modal" data-target="#modalAgregarPrestamo"><i class="fa fa-plus nav-icon"></i>&nbsp;
+          Agregar Registro
+        </button>
+                  ';
+        }
+        
+        ?>
 
-                <p>Unique Visitors</p>
-              </div>
-              <div class="icon">
-                <i class="ion ion-pie-graph"></i>
-              </div>
-              <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
-            </div>
           </div>
-          <!-- ./col -->
+
         </div>
         <!-- /.row -->
-        <!-- Main row -->
-        <div class="row">
-          <!-- Left col -->
-          <section class="col-lg-7 connectedSortable">
-            <!-- Custom tabs (Charts with tabs)-->
-            <div class="card">
-              <div class="card-header d-flex p-0">
-                <h3 class="card-title p-3">
-                  <i class="fa fa-pie-chart mr-1"></i>
-                  Sales
-                </h3>
-                <ul class="nav nav-pills ml-auto p-2">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#revenue-chart" data-toggle="tab">Area</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#sales-chart" data-toggle="tab">Donut</a>
-                  </li>
-                </ul>
-              </div><!-- /.card-header -->
-              <div class="card-body">
-                <div class="tab-content p-0">
-                  <!-- Morris chart - Sales -->
-                  <div class="chart tab-pane active" id="revenue-chart"
-                       style="position: relative; height: 300px;"></div>
-                  <div class="chart tab-pane" id="sales-chart" style="position: relative; height: 300px;"></div>
-                </div>
-              </div><!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-
-            <!-- DIRECT CHAT -->
-            <div class="card direct-chat direct-chat-primary">
-              <div class="card-header">
-                <h3 class="card-title">Direct Chat</h3>
-
-                <div class="card-tools">
-                  <span data-toggle="tooltip" title="3 New Messages" class="badge badge-primary">3</span>
-                  <button type="button" class="btn btn-tool" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-toggle="tooltip" title="Contacts"
-                          data-widget="chat-pane-toggle">
-                    <i class="fa fa-comments"></i>
-                  </button>
-                  <button type="button" class="btn btn-tool" data-widget="remove"><i class="fa fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <!-- Conversations are loaded here -->
-                <div class="direct-chat-messages">
-                  <!-- Message. Default to the left -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-left">Alexander Pierce</span>
-                      <span class="direct-chat-timestamp float-right">23 Jan 2:00 pm</span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" src="vistas/dist/img/user1-128x128.jpg" alt="message user image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      Is this template really for free? That's unbelievable!
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                  <!-- Message to the right -->
-                  <div class="direct-chat-msg right">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-right">Sarah Bullock</span>
-                      <span class="direct-chat-timestamp float-left">23 Jan 2:05 pm</span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" src="vistas/dist/img/user3-128x128.jpg" alt="message user image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      You better believe it!
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                  <!-- Message. Default to the left -->
-                  <div class="direct-chat-msg">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-left">Alexander Pierce</span>
-                      <span class="direct-chat-timestamp float-right">23 Jan 5:37 pm</span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" src="vistas/dist/img/user1-128x128.jpg" alt="message user image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      Working with AdminLTE on a great new app! Wanna join?
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                  <!-- Message to the right -->
-                  <div class="direct-chat-msg right">
-                    <div class="direct-chat-info clearfix">
-                      <span class="direct-chat-name float-right">Sarah Bullock</span>
-                      <span class="direct-chat-timestamp float-left">23 Jan 6:10 pm</span>
-                    </div>
-                    <!-- /.direct-chat-info -->
-                    <img class="direct-chat-img" src="vistas/dist/img/user3-128x128.jpg" alt="message user image">
-                    <!-- /.direct-chat-img -->
-                    <div class="direct-chat-text">
-                      I would love to.
-                    </div>
-                    <!-- /.direct-chat-text -->
-                  </div>
-                  <!-- /.direct-chat-msg -->
-
-                </div>
-                <!--/.direct-chat-messages-->
-
-                <!-- Contacts are loaded here -->
-                <div class="direct-chat-contacts">
-                  <ul class="contacts-list">
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="vistas/dist/img/user1-128x128.jpg">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Count Dracula
-                            <small class="contacts-list-date float-right">2/28/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">How have you been? I was...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="vistas/dist/img/user7-128x128.jpg">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Sarah Doe
-                            <small class="contacts-list-date float-right">2/23/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">I will be waiting for...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="vistas/dist/img/user3-128x128.jpg">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Nadia Jolie
-                            <small class="contacts-list-date float-right">2/20/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">I'll call you back at...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="vistas/dist/img/user5-128x128.jpg">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Nora S. Vans
-                            <small class="contacts-list-date float-right">2/10/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">Where is your new...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="vistas/dist/img/user6-128x128.jpg">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            John K.
-                            <small class="contacts-list-date float-right">1/27/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">Can I take a look at...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                    <li>
-                      <a href="#">
-                        <img class="contacts-list-img" src="vistas/dist/img/user8-128x128.jpg">
-
-                        <div class="contacts-list-info">
-                          <span class="contacts-list-name">
-                            Kenneth M.
-                            <small class="contacts-list-date float-right">1/4/2015</small>
-                          </span>
-                          <span class="contacts-list-msg">Never mind I found...</span>
-                        </div>
-                        <!-- /.contacts-list-info -->
-                      </a>
-                    </li>
-                    <!-- End Contact Item -->
-                  </ul>
-                  <!-- /.contacts-list -->
-                </div>
-                <!-- /.direct-chat-pane -->
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer">
-                <form action="#" method="post">
-                  <div class="input-group">
-                    <input type="text" name="message" placeholder="Type Message ..." class="form-control">
-                    <span class="input-group-append">
-                      <button type="button" class="btn btn-primary">Send</button>
-                    </span>
-                  </div>
-                </form>
-              </div>
-              <!-- /.card-footer-->
-            </div>
-            <!--/.direct-chat -->
-
-            <!-- TO DO List -->
-            <div class="card">
-              <div class="card-header">
-                <h3 class="card-title">
-                  <i class="ion ion-clipboard mr-1"></i>
-                  To Do List
-                </h3>
-
-                <div class="card-tools">
-                  <ul class="pagination pagination-sm">
-                    <li class="page-item"><a href="#" class="page-link">&laquo;</a></li>
-                    <li class="page-item"><a href="#" class="page-link">1</a></li>
-                    <li class="page-item"><a href="#" class="page-link">2</a></li>
-                    <li class="page-item"><a href="#" class="page-link">3</a></li>
-                    <li class="page-item"><a href="#" class="page-link">&raquo;</a></li>
-                  </ul>
-                </div>
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body">
-                <ul class="todo-list">
-                  <li>
-                    <!-- drag handle -->
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <!-- checkbox -->
-                    <input type="checkbox" value="" name="">
-                    <!-- todo text -->
-                    <span class="text">Design a nice theme</span>
-                    <!-- Emphasis label -->
-                    <small class="badge badge-danger"><i class="fa fa-clock-o"></i> 2 mins</small>
-                    <!-- General tools such as edit or delete-->
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Make the theme responsive</span>
-                    <small class="badge badge-info"><i class="fa fa-clock-o"></i> 4 hours</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-warning"><i class="fa fa-clock-o"></i> 1 day</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-success"><i class="fa fa-clock-o"></i> 3 days</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Check your messages and notifications</span>
-                    <small class="badge badge-primary"><i class="fa fa-clock-o"></i> 1 week</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                  <li>
-                    <span class="handle">
-                      <i class="fa fa-ellipsis-v"></i>
-                      <i class="fa fa-ellipsis-v"></i>
-                    </span>
-                    <input type="checkbox" value="" name="">
-                    <span class="text">Let theme shine like a star</span>
-                    <small class="badge badge-secondary"><i class="fa fa-clock-o"></i> 1 month</small>
-                    <div class="tools">
-                      <i class="fa fa-edit"></i>
-                      <i class="fa fa-trash-o"></i>
-                    </div>
-                  </li>
-                </ul>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer clearfix">
-                <button type="button" class="btn btn-info float-right"><i class="fa fa-plus"></i> Add item</button>
-              </div>
-            </div>
-            <!-- /.card -->
-          </section>
-          <!-- /.Left col -->
-          <!-- right col (We are only adding the ID to make the widgets sortable)-->
-          <section class="col-lg-5 connectedSortable">
-
-            <!-- Map card -->
-            <div class="card bg-primary-gradient">
-              <div class="card-header no-border">
-                <h3 class="card-title">
-                  <i class="fa fa-map-marker mr-1"></i>
-                  Visitors
-                </h3>
-                <!-- card tools -->
-                <div class="card-tools">
-                  <button type="button"
-                          class="btn btn-primary btn-sm daterange"
-                          data-toggle="tooltip"
-                          title="Date range">
-                    <i class="fa fa-calendar"></i>
-                  </button>
-                  <button type="button"
-                          class="btn btn-primary btn-sm"
-                          data-widget="collapse"
-                          data-toggle="tooltip"
-                          title="Collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                </div>
-                <!-- /.card-tools -->
-              </div>
-              <div class="card-body">
-                <div id="world-map" style="height: 250px; width: 100%;"></div>
-              </div>
-              <!-- /.card-body-->
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <div id="sparkline-1"></div>
-                    <div class="text-white">Visitors</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-2"></div>
-                    <div class="text-white">Online</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <div id="sparkline-3"></div>
-                    <div class="text-white">Sales</div>
-                  </div>
-                  <!-- ./col -->
-                </div>
-                <!-- /.row -->
-              </div>
-            </div>
-            <!-- /.card -->
-
-            <!-- solid sales graph -->
-            <div class="card bg-info-gradient">
-              <div class="card-header no-border">
-                <h3 class="card-title">
-                  <i class="fa fa-th mr-1"></i>
-                  Sales Graph
-                </h3>
-
-                <div class="card-tools">
-                  <button type="button" class="btn bg-info btn-sm" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn bg-info btn-sm" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-              </div>
-              <div class="card-body">
-                <div class="chart" id="line-chart" style="height: 250px;"></div>
-              </div>
-              <!-- /.card-body -->
-              <div class="card-footer bg-transparent">
-                <div class="row">
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="20" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">Mail-Orders</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="50" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">Online</div>
-                  </div>
-                  <!-- ./col -->
-                  <div class="col-4 text-center">
-                    <input type="text" class="knob" data-readonly="true" value="30" data-width="60" data-height="60"
-                           data-fgColor="#39CCCC">
-
-                    <div class="text-white">In-Store</div>
-                  </div>
-                  <!-- ./col -->
-                </div>
-                <!-- /.row -->
-              </div>
-              <!-- /.card-footer -->
-            </div>
-            <!-- /.card -->
-
-            <!-- Calendar -->
-            <div class="card bg-success-gradient">
-              <div class="card-header no-border">
-
-                <h3 class="card-title">
-                  <i class="fa fa-calendar"></i>
-                  Calendar
-                </h3>
-                <!-- tools card -->
-                <div class="card-tools">
-                  <!-- button with a dropdown -->
-                  <div class="btn-group">
-                    <button type="button" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown">
-                      <i class="fa fa-bars"></i></button>
-                    <div class="dropdown-menu float-right" role="menu">
-                      <a href="#" class="dropdown-item">Add new event</a>
-                      <a href="#" class="dropdown-item">Clear events</a>
-                      <div class="dropdown-divider"></div>
-                      <a href="#" class="dropdown-item">View calendar</a>
-                    </div>
-                  </div>
-                  <button type="button" class="btn btn-success btn-sm" data-widget="collapse">
-                    <i class="fa fa-minus"></i>
-                  </button>
-                  <button type="button" class="btn btn-success btn-sm" data-widget="remove">
-                    <i class="fa fa-times"></i>
-                  </button>
-                </div>
-                <!-- /. tools -->
-              </div>
-              <!-- /.card-header -->
-              <div class="card-body p-0">
-                <!--The calendar -->
-                <div id="calendar" style="width: 100%"></div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </section>
-          <!-- right col -->
-        </div>
-        <!-- /.row (main row) -->
-      </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+
+    <section class="account-content">
+      <div class="card-body">
+        <table class="table TablaPrestamos display table-hover table-striped table-bordered dt-responsive "
+          style="width:100%">
+          <thead>
+            <tr>
+
+              <th>Id</th>
+              <th>#Empleado</th>
+              <th>Nombre del Trabajador</th>
+              <th>Adscripción</th>
+              <th>Tipo de Préstamo </th>
+              <th>Monto </th>
+              <th>Estatus </th>
+              <th>Capturista</th>
+              <th>Fecha de Registro</th>
+              <th>Acciones</th>
+
+            </tr>
+          </thead>
+
+        </table>
+        <input type="hidden" class="form-control is-invalid" value="<?php echo $_SESSION['perfil']; ?>"
+          id="perfilOculto" readonly>
+      </div>
+
+    </section>
   </div>
+  <!-- content-wrapper -->
+
+  <!--=====================================
+MODAL AGREGAR PRESTAMO
+======================================-->
+
+  <div class="modal fade bd-example-modal-lg" id="modalAgregarPrestamo" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+        <!--=====================================
+CABEZA DEL MODAL PRESTAMO
+======================================-->
+
+        <div class="modal-header modal-header-primary">
+
+          <h5 class="modal-title text-ligth" id="exampleModalLabel"><i class="fa fa-plus-circle fa-lg"
+              aria-hidden="true"></i>&nbsp; Agregar - Nuevo Préstamo</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!--=====================================
+CUERPO DEL MODAL PRESTAMO
+======================================-->
+
+        <div class="modal-body  modal-lg">
+
+          <div class="card-header  ">
+
+            <form method="post" name="registrationForm-Prestamos" id="registrationForm-Prestamos"
+              enctype="multipart/form-data">
+
+              <!--AQUI-->
+
+              <!--SECCION 1-->
+
+              <div class="form-group card-body callout callout-success ">
+
+                <div class="row seccion1">
+
+                  <div class=" col-md-3  ">
+
+                    <!-- ENTRADA PARA EL CAPTURISTA DE REGISTROS -->
+                    <input type="hidden" name="Capturista-Prestamo" value="<?php  echo $_SESSION["nombre"]; ?>"
+                      class="form-control is-invalid" readonly="">
+
+                    <!-- ENTRADA PARA BUSCAR Y CAPTURAR TRABAJADOR -->
+                    <div class="form-group ">
+                      <label for="buscaTrabajador">Buscar:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="buscaTrabajador" id="buscaTrabajador" required="">
+                          <option value=""># Empleado</option>
+
+                          <?php
+
+                          $item = null;
+                          $valor = null;
+
+                          $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
+
+                          foreach ($mostrarTrabajador as $key => $value) {
+
+                            echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                          }
+
+                          ?>
+
+                        </select>
+
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="trabajadorId" id="trabajadorId" class="form-control is-invalid"
+                      readonly="">
+                  </div>
+
+                  <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
+                  <div class=" col-md-6 pl-3">
+                    <div class="form-group  ">
+                      <label for="nomTrabajador">Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-user "></i></span>
+                        </div>
+                        <input type="text" name="nomTrabajador" id="nomTrabajador" class="form-control"
+                          placeholder="Empleado" readonly="">
+
+                      </div>
+                    </div>
+
+                  </div>
+
+                  <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
+                  <div class=" col-md-3  ">
+                    <div class="form-group  ">
+                      <label for="tipoEmpleado">Tipo Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
+                        </div>
+                        <input type="text" name="tipoEmpleado" id="tipoEmpleado" class="form-control" placeholder="Tipo"
+                          readonly="">
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!--en row-->
+
+              </div>
+
+              <!--ENTRADA PARA AGREGAR NUEVO TIPO DE PRESTAMO-->
+              <!--SECCION 2-->
+
+              <div class="form-group card-body callout callout-warning mt-5 OcultarSeccion2">
+                <div class="row seccion2">
+
+                  <!-- ENTRADA PARA SELECCIONAR TIPO DE CATEGORIA -->
+                  <div class=" col-md-5  ">
+
+                    <div class="form-group  ">
+                      <label for="nuevoPrestamo">Tipo de Préstamo:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="nuevoPrestamo" id="nuevoPrestamo" required="">
+                          <option value="">Seleccionar...</option>
+
+                          <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+
+                  foreach ($mostrarTipoPrestamo as $key => $value) {
+
+                    echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                  }
+
+                  ?>
+
+                        </select>
+
+                      </div>
+                    </div>
+                    <input type="hidden" name="prestamoId" id="prestamoId" class="form-control is-invalid" readonly=""
+                      placeholder="prestamoId">
+
+                  </div>
+
+                  <!--ENTRADA PARA AGREGAR MONTO CAMBIO DE CATEGORIA-->
+
+                  <div class=" col-md-3 pl-4  ">
+                    <div class="form-group  ">
+                      <label for="nuevoMontoPrestamo">Monto:</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="nuevoMontoPrestamo" id="nuevoMontoPrestamo"
+                          autocomplete="off" placeholder="0,000.00">
+
+                      </div>
+                    </div>
+                    <input class="form-control is-invalid" type="hidden" name="MontoPrestamo" id="MontoPrestamo"
+                      autocomplete="off" readonly="">
+                  </div>
+
+                  <!--ENTRADA PARA AGREGAR FECHA DE REGISTRO EN APOYO DE TRANSPORTE-->
+
+                  <div class="col-md-4  ">
+                    <div class="form-group   ">
+                      <label for="nuevoFechaPrestamo">Fecha de Registro:</label>
+
+                      <div class="input-group date" id="nuevoFechaPrestamo" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#nuevoFechaPrestamo"
+                          name="nuevoFechaPrestamo" id="nuevoFechaPrestamo" readonly="" />
+                        <div class="input-group-append" data-target="#nuevoFechaPrestamo" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!--/form-group-->
+                  </div>
+
+                  <div class="col-md-5">
+
+                    <div class="form-group  ">
+                      <label for="nuevoEstatus">Estatus:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-check-square-o "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="nuevoEstatus" id="nuevoEstatus">
+                          <option value="">Seleccionar...</option>
+                          <option value="Autorizado">Autorizado</option>
+                          <!-- <option value="Aplicado" >Aplicar Préstamo</option> -->
+
+                        </select>
+
+                      </div>
+                    </div>
+
+                  </div>
+                  <!-- /col-md-5 -->
+
+                </div>
+              </div>
+
+              <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+              <div class="modal-footer">
+
+                <!--   <button type="button" id="CancelarRegrescar-ApoyoTransporte" class="btn btn-outline-info " data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Refrescar</button> -->
+
+                <button type="button" id="CancelarAgregar-Prestamo" class="btn btn-outline-danger "
+                  data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancelar</button>
+
+                <button type="submit" id="btnGuardar" class="btn btn-outline-success"><i class="fa fa-check"
+                    aria-hidden="true"></i>&nbsp;Agregar</button>
+              </div>
+
+              <?php 
+
+          $CrearNuevoPrestamo = new ControladorPrestamos();
+          $CrearNuevoPrestamo -> ctrCrearPrestamo();
+
+          ?>
+
+            </form>
+
+          </div>
+          <!-- Fin card-header -->
+        </div>
+        <!-- Fin modal-body  modal-lg -->
+      </div>
+      <!-- modal-content -->
+    </div>
+    <!-- "modal-dialog modal-lg -->
+  </div>
+  <!-- "modal fade bd-example-modal-lg -->
+
+  <!--=====================================
+MODAL EDITAR PRESTAMO
+======================================-->
+
+  <div class="modal fade bd-example-modal-lg" id="modalEditarPrestamo" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+        <!--=====================================
+CABEZA DEL MODAL EDITAR PRESTAMO
+======================================-->
+
+        <div class="modal-header modal-header-primary">
+
+          <h5 class="modal-title text-ligth" id="exampleModalLabel"><i class="fa fa-pencil-square-o fa-lg"
+              aria-hidden="true"></i>&nbsp; Editar - Tipo de Préstamo &nbsp;&nbsp; </h5>
+
+          <div class="form-group  ">
+
+            <div class="input-group  input-group-sm  ">
+
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+              </div>
+
+              <input type="text" name="BarCodePrestamoEditarId" id="BarCodePrestamoEditarId" class="form-control"
+                size="1" readonly="">
+
+            </div>
+
+          </div>
+          <!--/form-group -->
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!--=====================================
+CUERPO DEL MODAL EDITAR PRESTAMO
+======================================-->
+
+        <div class="modal-body  modal-lg">
+
+          <div class="card-header  ">
+
+            <form method="post" name="registrationForm-EditarPrestamo" id="registrationForm-EditarPrestamo"
+              enctype="multipart/form-data">
+
+              <!--AQUI-->
+
+              <div class="form-group card-body callout callout-warning ">
+
+                <div class="row seccion1">
+
+                  <div class=" col-md-3  ">
+
+                    <!-- ENTRADA PARA EDITAR EL CAPTURISTA DE REGISTROS -->
+                    <input type="hidden" name="Capturista-EditarPrestamo" value="<?php  echo $_SESSION["nombre"]; ?>"
+                      class="form-control is-invalid" readonly="">
+
+                    <!-- ENTRADA PARA BUSCAR Y CAPTURAR TRABAJADOR -->
+                    <div class="form-group  ">
+                      <label for="EditarbuscaTrabajador">Buscar:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="EditarbuscaTrabajador" id="EditarbuscaTrabajador">
+                          <option value=""># Empleado</option>
+
+                          <?php
+
+                      $item = null;
+                      $valor = null;
+
+                      $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
+
+                      foreach ($mostrarTrabajador as $key => $value) {
+
+                        echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                      }
+
+                      ?>
+
+                        </select>
+
+                        </select>
+
+                      </div>
+                    </div>
+                    <input type="hidden" name="EditartrabajadorId" id="EditartrabajadorId"
+                      class="form-control is-invalid" readonly="">
+                  </div>
+
+                  <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
+                  <div class=" col-md-6 pl-3">
+                    <div class="form-group  ">
+                      <label for="EditarnomTrabajador">Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-user "></i></span>
+                        </div>
+                        <input type="text" name="EditarnomTrabajador" id="EditarnomTrabajador" class="form-control"
+                          placeholder="Empleado" readonly="">
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
+                  <div class=" col-md-3  ">
+                    <div class="form-group  ">
+                      <label for="EditartipoEmpleado">Tipo Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
+                        </div>
+                        <input type="text" name="EditartipoEmpleado" id="EditartipoEmpleado" class="form-control"
+                          placeholder="Tipo" readonly="">
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!--en row-->
+
+              </div>
+
+              <!--ENTRADA PARA EDITAR TIPO DE PRESTAMO-->
+
+              <div class="form-group card-body callout callout-warning mt-5 OcultarSeccion2">
+
+                <div class="row ">
+
+                  <!-- ENTRADA PARA SELECCIONAR TIPO DE PRESTAMO -->
+                  <div class=" col-md-5  ">
+
+                    <div class="form-group  ">
+                      <label for="buscarEditarPrestamo">Tipo de Préstamo:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="buscarEditarPrestamo" id="buscarEditarPrestamo"
+                          required="">
+                          <option value="">Seleccionar...</option>
+
+                          <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+
+                  foreach ($mostrarTipoPrestamo as $key => $value) {
+
+                    echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                  }
+                  
+                  ?>
+
+                        </select>
+
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="EditarPrestamo" id="EditarPrestamo" class="form-control is-invalid"
+                      required="" readonly="">
+                    <input type="hidden" name="EditarprestamoId" id="EditarprestamoId" class="form-control is-invalid"
+                      readonly="">
+
+                  </div>
+
+                  <!--ENTRADA PARA EDITAR MONTO-->
+
+                  <div class=" col-md-3 pl-4  ">
+                    <div class="form-group  ">
+                      <label for="EditarnuevoMontoPrestamo">Monto:</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="EditarnuevoMontoPrestamo"
+                          id="EditarnuevoMontoPrestamo" autocomplete="off" placeholder="0,000.00">
+
+                      </div>
+                    </div>
+                    <input class="form-control is-invalid" type="hidden" name="EditarMontoPrestamo"
+                      id="EditarMontoPrestamo" autocomplete="off" readonly="" required>
+                  </div>
+
+                  <!--ENTRADA PARA EDITAR FECHA DE REGISTRO -->
+
+                  <div class=" col-md-4  ">
+                    <div class="form-group   ">
+                      <label for="EditarFechaPrestamo">Fecha de Registro:</label>
+
+                      <div class="input-group date" id="EditarFechaPrestamo" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input" data-target="#EditarFechaPrestamo"
+                          name="EditarFechaPrestamo" id="EditarFechaPrestamo" readonly="" />
+                        <div class="input-group-append" data-target="#EditarFechaPrestamo" data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!--/form-group-->
+                    <input class="form-control is-invalid" type="hidden" name="EditaridPrestamo" id="EditaridPrestamo"
+                      readonly="" required>
+                  </div>
+
+                  <!--ENTRADA PARA EDITAR ESTATUS DE PRESTAMO-->
+                  <div class="col-md-5">
+                    <div class="form-group  ">
+
+                      <label for="EditarEstatus">Estatus:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-check-square-o "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="EditarEstatus" id="EditarEstatus" required="">
+                          <option value="">Seleccionar...</option>
+                          <option value="Autorizado">Autorizado</option>
+                          <!-- <option value="Aplicado" >Aplicar Préstamo</option> -->
+                        </select>
+
+                      </div>
+                      <!-- class="input-group" -->
+                    </div>
+                    <!-- class="form-group" -->
+                  </div>
+                  <!-- /"col-md-5" -->
+
+                </div>
+              </div>
+
+              <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+              <div class="modal-footer">
+                <button type="button" id="CancelarEditar-Prestamos" class="btn btn-outline-danger "
+                  data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancelar</button>
+
+                <button type="submit" id="btnActualizarEditar" class="btn btn-outline-success"><i class="fa fa-refresh"
+                    aria-hidden="true"></i>&nbsp;Actualizar</button>
+              </div>
+
+              <?php 
+
+        $EditarPrestamo = new ControladorPrestamos();
+        $EditarPrestamo -> ctrEditarPrestamo();
+
+        ?>
+
+            </form>
+
+          </div>
+          <!-- /fin card-header -->
+        </div>
+        <!-- /fin modal-body  modal-lg-->
+      </div>
+      <!-- /fin modal-content-->
+    </div>
+    <!-- /fin modal-dialog modal-lg-->
+  </div>
+  <!-- /finmodal fade bd-example-modal-lg-->
+
+  <!--=====================================
+MODAL APLICAR PRESTAMO 
+======================================-->
+  <div class="modal fade bd-example-modal-lg" id="modalAplicarPrestamo" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+        <!--=====================================
+CABEZA DEL MODAL APLICAR PRESTAMO
+======================================-->
+
+        <div class="modal-header modal-header-info">
+
+          <h5 class="modal-title text-ligth" id="exampleModalLabel"><i class="fa fa-check-square-o fa-lg"
+              aria-hidden="true"></i>&nbsp; Aplicar - Préstamo &nbsp;</h5>
+
+          <div class="form-group  ">
+            <div class="input-group  input-group-sm  ">
+
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+              </div>
+
+              <input type="text" name="BarCodePrestamoAplicarId" id="BarCodePrestamoAplicarId" class="form-control"
+                size="1" readonly="">
+
+            </div>
+          </div>
+          <!--/form-group -->
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!--=====================================
+CUERPO DEL MODAL APLICAR PRESTAMO
+======================================-->
+
+        <div class="modal-body  modal-lg">
+
+          <div class="card-header  ">
+
+            <form method="post" name="registrationForm-AplicarPrestamo" id="registrationForm-AplicarPrestamo"
+              enctype="multipart/form-data">
+
+              <!--AQUI-->
+
+              <div class="form-group card-body callout callout-info ">
+
+                <div class="row seccion1">
+
+                  <div class=" col-md-3  ">
+
+                    <!-- ENTRADA PARA BUSCAR Y CAPTURAR TRABAJADOR -->
+                    <div class="form-group  ">
+                      <label for="EditarAplicarbuscaTrabajador">Buscar:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="EditarAplicarbuscaTrabajador"
+                          id="EditarAplicarbuscaTrabajador" disabled>
+                          <option value=""># Empleado</option>
+
+                          <?php
+
+                      $item = null;
+                      $valor = null;
+
+                      $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
+
+                      foreach ($mostrarTrabajador as $key => $value) {
+
+                        echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                      }
+
+                      ?>
+
+                        </select>
+
+                        </select>
+
+                      </div>
+                    </div>
+                    <input type="hidden" name="EditarAplicarTrabajadorId" id="EditarAplicarTrabajadorId"
+                      class="form-control form-control is-invalid" readonly="">
+                  </div>
+
+                  <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
+                  <div class=" col-md-6 pl-3">
+                    <div class="form-group  ">
+                      <label for="EditarAplicarnomTrabajador">Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-user "></i></span>
+                        </div>
+                        <input type="text" name="EditarAplicarnomTrabajador" id="EditarAplicarnomTrabajador"
+                          class="form-control" placeholder="Empleado" readonly="">
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
+                  <div class=" col-md-3  ">
+                    <div class="form-group  ">
+                      <label for="EditarAplicartipoEmpleado">Tipo Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
+                        </div>
+                        <input type="text" name="EditarAplicartipoEmpleado" id="EditarAplicartipoEmpleado"
+                          class="form-control" placeholder="Tipo" readonly="">
+
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <!--en row-->
+
+              </div>
+
+              <!--ENTRADA PARA EDITAR TIPO DE PRESTAMO-->
+
+              <div class="form-group card-body callout callout-warning mt-5 OcultarSeccion2">
+
+                <div class="row ">
+
+                  <!-- ENTRADA PARA SELECCIONAR TIPO DE CATEGORIA -->
+                  <div class=" col-md-5  ">
+
+                    <div class="form-group  ">
+                      <label for="buscarEditarAplicarPrestamo">Tipo de Préstamo:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="buscarEditarAplicarPrestamo"
+                          id="buscarEditarAplicarPrestamo" required="" disabled>
+                          <option value="">Tipo de Préstamo</option>
+
+                          <?php
+
+                  $item = null;
+                  $valor = null;
+
+                  $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+
+                  foreach ($mostrarTipoPrestamo as $key => $value) {
+
+                    echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                  }
+                  
+                  ?>
+
+                        </select>
+
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="EditarAplicarPrestamo" id="EditarAplicarPrestamo"
+                      class="form-control form-control is-invalid" readonly="" placeholder="EditarAplicarPrestamo"
+                      required>
+                    <input type="hidden" name="EditarAplicarprestamoId" id="EditarAplicarprestamoId"
+                      class="form-control form-control is-invalid" readonly="" placeholder="EditarAplicarprestamoId"
+                      required>
+
+                  </div>
+
+                  <!--ENTRADA PARA EDITAR MONTO -->
+
+                  <div class=" col-md-3 pl-4  ">
+                    <div class="form-group  ">
+                      <label for="EditarAplicarnuevoMontoPrestamo">Monto:</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="EditarAplicarnuevoMontoPrestamo"
+                          id="EditarAplicarnuevoMontoPrestamo" autocomplete="off" placeholder="0,000.00" readonly="">
+
+                      </div>
+                    </div>
+                    <input class="form-control is-invalid" type="hidden" name="EditarAplicarMontoPrestamo"
+                      id="EditarAplicarMontoPrestamo" autocomplete="off" required readonly=""
+                      placeholder="EditarAplicarMontoPrestamo">
+                  </div>
+
+                  <!--ENTRADA PARA EDITAR FECHA DE REGISTRO -->
+
+                  <div class=" col-md-4  ">
+                    <div class="form-group   ">
+                      <label for="EditarAplicarFechaPrestamo">Fecha de Aplicación:</label>
+
+                      <div class="input-group date" id="EditarAplicarFechaPrestamo" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input"
+                          data-target="#EditarAplicarFechaPrestamo" name="EditarAplicarFechaPrestamo"
+                          id="EditarAplicarFechaPrestamo" readonly="" />
+                        <div class="input-group-append" data-target="#EditarAplicarFechaPrestamo"
+                          data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!--/form-group-->
+                    <input class="form-control is-invalid" type="hidden" name="EditarAplicaridPrestamo"
+                      id="EditarAplicaridPrestamo" required placeholder="EditarAplicaridPrestamo" readonly="">
+                  </div>
+                  <input type="hidden" name="CapturistaEditarAplicaPrestamo" value="<?php  echo $_SESSION["nombre"]; ?>"
+                    class="form-control is-invalid" required readonly="CapturistaEditarAplicaPrestamo">
+
+                  <!--ENTRADA PARA EDITAR ESTATUS DE PRESTAMO-->
+                  <div class="col-md-5">
+                    <div class="form-group  ">
+
+                      <label for="EditarAplicarEstatus">Estatus:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-check-square-o "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="EditarAplicarEstatus" id="EditarAplicarEstatus"
+                          required="">
+                          <option value="">Seleccionar...</option>
+                          <!-- <option value="Autorizado" >Autorizado</option> -->
+                          <option value="Aplicado">Aplicar Préstamo</option>
+                        </select>
+
+                      </div>
+                      <!-- class="input-group" -->
+                    </div>
+                    <!-- class="form-group" -->
+                  </div>
+                  <!-- /"col-md-5" -->
+
+                </div>
+              </div>
+
+              <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+              <div class="modal-footer">
+                <button type="button" id="CancelarEditarAplicar-Prestamos" class="btn btn-outline-danger "
+                  data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancelar</button>
+
+                <button type="submit" id="btnActualizarAplicar" class="btn btn-outline-success"><i class="fa fa-check"
+                    aria-hidden="true"></i>&nbsp;Aplicar</button>
+              </div>
+
+              <?php 
+
+        $EditarAplicarPrestamo = new ControladorPrestamos();
+        $EditarAplicarPrestamo -> ctrEditarAplicarPrestamo();
+
+        ?>
+
+            </form>
+
+          </div>
+          <!-- /fin card-header -->
+        </div>
+        <!-- /fin modal-body  modal-lg-->
+      </div>
+      <!-- /fin modal-content-->
+    </div>
+    <!-- /fin modal-dialog modal-lg-->
+  </div>
+  <!-- /finmodal fade bd-example-modal-lg-->
+
+<!--=====================================
+MODAL ENTREGAR PRESTAMO
+======================================-->
+
+  <div class="modal fade bd-example-modal-lg" id="modalEntregarPrestamo" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+<!--=====================================
+CABEZA DEL MODAL ENTREGAR PRESTAMO
+======================================-->
+
+        <div class="modal-header modal-header-success">
+
+          <h5 class="modal-title text-ligth" id="exampleModalLabel"><i class="fa fa-arrow-right"
+              aria-hidden="true"></i>&nbsp; Entregar - Préstamo &nbsp;</h5>
+
+          <div class="form-group  ">
+            <div class="input-group  input-group-sm  ">
+
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+              </div>
+
+              <input type="text" name="BarCodePrestamoEntregarId" id="BarCodePrestamoEntregarId" class="form-control"
+                size="1" readonly="">
+
+            </div>
+          </div>
+          <!--/form-group -->
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <!--=====================================
+CUERPO DEL MODAL ENTREGAR PRESTAMO
+======================================-->
+        <div class="modal-body  modal-lg">
+
+          <div class="card-header  ">
+
+            <form method="post" name="registrationForm-EntregarPrestamo" id="registrationForm-EntregarPrestamo"
+              enctype="multipart/form-data">
+
+              <!--AQUI-->
+              <div class="form-group card-body callout callout-success ">
+
+                <div class="row seccion1">
+
+                  <div class=" col-md-3">
+
+                    <!-- ENTRADA PARA BUSCAR Y CAPTURAR TRABAJADOR -->
+                    <div class="form-group  ">
+                      <label for="EditarEntregarbuscaTrabajador">Buscar:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="EditarEntregarbuscaTrabajador"
+                          id="EditarEntregarbuscaTrabajador" disabled>
+                          <option value=""># Empleado</option>
+
+                          <?php
+
+                      $item = null;
+                      $valor = null;
+
+                      $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
+
+                      foreach ($mostrarTrabajador as $key => $value) {
+
+                        echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                      }
+
+                      ?>
+
+                        </select>
+
+                        </select>
+
+                      </div>
+                    </div>
+                    <input type="hidden" name="EditarEntregarTrabajadorId" id="EditarEntregarTrabajadorId"
+                      class="form-control form-control is-invalid" readonly="">
+                  </div>
+                <!--  /col-md-3 -->
+
+                  <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
+                  <div class="col-md-6 pl-3">
+                    <div class="form-group  ">
+                      <label for="EditarEntregarnomTrabajador">Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-user "></i></span>
+                        </div>
+                        <input type="text" name="EditarEntregarnomTrabajador" id="EditarEntregarnomTrabajador"
+                          class="form-control" placeholder="Empleado" readonly="">
+
+                      </div>
+                    </div>
+                  </div>
+                <!--  /col-md-6 pl-3 -->
+
+                  <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
+                  <div class="col-md-3">
+                    <div class="form-group  ">
+                      <label for="EditarEntregartipoEmpleado">Tipo Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
+                        </div>
+                        <input type="text" name="EditarEntregartipoEmpleado" id="EditarEntregartipoEmpleado"
+                          class="form-control" placeholder="Tipo" readonly="">
+
+                      </div>
+                    </div>
+                  </div>
+                <!--  col-md-3 -->
+
+                </div>
+                <!--en row-->
+
+              </div>
+
+              <!--ENTRADA PARA EDITAR CAMBIO DE CATEGORIA-->
+
+              <div class="form-group card-body callout callout-warning mt-5 OcultarSeccion2">
+
+                <div class="row ">
+
+                  <!-- ENTRADA PARA SELECCIONAR TIPO DE PRESTAMO -->
+                  <div class="col-md-5">
+
+                    <div class="form-group  ">
+                      <label for="buscarEditarEntregarrPrestamo">Tipo de Préstamo:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="buscarEditarEntregarPrestamo"
+                          id="buscarEditarEntregarPrestamo" required="" disabled>
+                          <option value="">Tipo de Préstamo</option>
+
+                          <?php
+
+                            $item = null;
+                            $valor = null;
+
+                            $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+
+                            foreach ($mostrarTipoPrestamo as $key => $value) {
+
+                              echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                            }
+                        ?>
+
+                        </select>
+
+                      </div>
+                    <!--  /input-group -->
+                    </div>
+                    <!--/form-group -->
+
+                    <input type="hidden" name="EditarEntregarPrestamo" id="EditarEntregarPrestamo"
+                      class="form-control form-control is-invalid" readonly="" placeholder="EditarEntregarPrestamo"
+                      required>
+                    <input type="hidden" name="EditarAplicarprestamoId" id="EditarEntregarprestamoId"
+                      class="form-control form-control is-invalid" readonly="" placeholder="EditarEntregarprestamoId"
+                      required>
+
+                  </div>
+                  <!-- /col-md-5 -->
+
+                  <!--ENTRADA PARA EDITAR MONTO -->
+
+                  <div class="col-md-3 pl-4">
+                    <div class="form-group  ">
+                      <label for="EditarEntregarnuevoMontoPrestamo">Monto:</label>
+                      <div class="input-group">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="EditarEntregarnuevoMontoPrestamo"
+                          id="EditarEntregarnuevoMontoPrestamo" autocomplete="off" placeholder="0,000.00" readonly="">
+
+                      </div>
+                      <!--/input-group-->
+                    </div>
+                    <!--/form-group-->
+
+                    <input class="form-control is-invalid" type="hidden" name="EditarEntregarMontoPrestamo"
+                      id="EditarEntregarMontoPrestamo" autocomplete="off" required readonly=""
+                      placeholder="EditarEntregarMontoPrestamo">
+                  </div>
+                <!--/col-md-3 pl-4  -->
+
+                  <!--ENTRADA PARA EDITAR FECHA DE REGISTRO -->
+
+                  <div class=" col-md-4  ">
+                    <div class="form-group   ">
+                      <label for="EditarEntregarFechaPrestamo">Fecha de Aplicación:</label>
+
+                      <div class="input-group date" id="EditarEntregarFechaPrestamo" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input"
+                          data-target="#EditarEntregarFechaPrestamo" name="EditarEntregarFechaPrestamo"
+                          id="EditarEntregarFechaPrestamo" readonly="" />
+                        <div class="input-group-append" data-target="#EditarEntregarFechaPrestamo"
+                          data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!--/form-group-->
+
+                    <input class="form-control is-invalid" type="hidden" name="EditarEntregaridPrestamo"
+                      id="EditarEntregaridPrestamo" required placeholder="EditarEntregaridPrestamo" readonly="">
+                  </div>
+                  <!--/col-md-4-->
+
+                  <!-- INPUT OCULTO -->
+                  <input type="hidden" name="CapturistaEditarEntregarPrestamo"
+                    value="<?php  echo $_SESSION["nombre"]; ?>" class="form-control is-invalid" required
+                    readonly="CapturistaEditarEntregarPrestamo">
+                  <!-- /INPUT OCULTO -->
+
+                  <!--ENTRADA PARA EDITAR ESTATUS DE PRESTAMO-->
+                  <div class="col-md-5">
+                    <div class="form-group  ">
+
+                      <label for="EditarEntregarEstatus">Estatus:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-check-square-o "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="EditarEntregarEstatus" id="EditarEntregarEstatus"
+                          required="">
+                          <option value="">Seleccionar...</option>
+                          <!-- <option value="Autorizado" >Autorizado</option> -->
+                          <option value="Entregado">Entregar Préstamo</option>
+                        </select>
+
+                      </div>
+                      <!-- class="input-group" -->
+                    </div>
+                    <!-- class="form-group" -->
+                  </div>
+                  <!-- /"col-md-5" -->
+
+                </div>
+              </div>
+
+        <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+              <div class="modal-footer">
+                <button type="button" id="CancelarEditarEntregar-Prestamos" class="btn btn-outline-danger "
+                  data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancelar</button>
+
+                <button type="submit" id="btnActualizarEntregar" class="btn btn-outline-success"><i class="fa fa-check"
+                    aria-hidden="true"></i>&nbsp;Entregar</button>
+              </div>
+
+              <?php 
+
+                $EditarEntregarPrestamo = new ControladorPrestamos();
+                $EditarEntregarPrestamo -> ctrEditarEntregarPrestamo();
+
+              ?>
+
+            </form>
+
+          </div>
+          <!-- /fin card-header -->
+        </div>
+        <!-- /fin modal-body  modal-lg-->
+      </div>
+      <!-- /fin modal-content-->
+    </div>
+    <!-- /fin modal-dialog modal-lg-->
+  </div>
+  <!-- /finmodal fade bd-example-modal-lg-->
+
+<!--=====================================
+MODAL CANCELAR PRESTAMO
+======================================-->
+
+  <div class="modal fade bd-example-modal-lg" id="modalCancelarPrestamo" role="dialog"
+    aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+
+        <!--=====================================
+CABEZA DEL MODAL CANCELAR PRESTAMO
+======================================-->
+
+        <div class="modal-header modal-header-danger">
+
+          <h5 class="modal-title text-ligth" id="exampleModalLabel"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;
+            Cancelar - Préstamo &nbsp;</h5>
+
+          <div class="form-group  ">
+            <div class="input-group  input-group-sm  ">
+
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fa fa-barcode"></i></span>
+              </div>
+
+              <input type="text" name="BarCodePrestamoCancelarId" id="BarCodePrestamoCancelarId" class="form-control"
+                size="1" readonly="">
+
+            </div>
+          </div>
+          <!--/form-group -->
+
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <!--=====================================
+CUERPO DEL MODAL CANCELAR PRESTAMO
+======================================-->
+        <div class="modal-body  modal-lg">
+
+          <div class="card-header  ">
+            <form method="post" name="registrationForm-CancelarPrestamo" id="registrationForm-CancelarPrestamo">
+
+              <div class="form-group card-body callout callout-default ">
+
+                <div class="row seccion1">
+
+                  <div class=" col-md-3  ">
+
+                    <!-- ENTRADA PARA BUSCAR Y CAPTURAR TRABAJADOR -->
+                    <div class="form-group  ">
+                      <label for="EditarCancelarbuscaTrabajador">Buscar:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="EditarCancelarbuscaTrabajador"
+                          id="EditarCancelarbuscaTrabajador" disabled>
+                          <option value=""># Empleado</option>
+
+                          <?php
+
+                      $item = null;
+                      $valor = null;
+
+                      $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
+
+                      foreach ($mostrarTrabajador as $key => $value) {
+
+                        echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                      }
+
+                      ?>
+
+                        </select>
+
+                      </div>
+                      <!-- input-group -->
+                    </div>
+                    <!-- form-group -->
+                    <input type="hidden" name="EditarCancelarTrabajadorId" id="EditarCancelarTrabajadorId"
+                      class="form-control form-control is-invalid" readonly="">
+                  </div>
+
+                  <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
+                  <div class=" col-md-6 pl-3">
+                    <div class="form-group  ">
+                      <label for="EditarCancelarnomTrabajador">Empleado:</label>
+
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-user "></i></span>
+                        </div>
+                        <input type="text" name="EditarCancelarnomTrabajador" id="EditarCancelarnomTrabajador"
+                          class="form-control" placeholder="Empleado" readonly="">
+
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
+                  <div class="col-md-3">
+                    <div class="form-group  ">
+                      <label for="EditarCancelartipoEmpleado">Tipo Empleado:</label>
+
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
+                        </div>
+                        <input type="text" name="EditarCancelartipoEmpleado" id="EditarCancelartipoEmpleado"
+                          class="form-control" placeholder="Tipo" readonly="">
+                      </div>
+
+                    </div>
+                    <!--form-group-->
+                  </div>
+                  <!--col-md-3 -->
+
+                </div>
+                <!--end row seccion1-->
+
+              </div>
+              <!-- form-group card-body callout callout-default -->
+
+              <div class="form-group card-body callout callout-default">
+
+                <div class="row ">
+
+                  <!-- ENTRADA PARA SELECCIONAR TIPO DE PRESTAMO -->
+                  <div class=" col-md-5">
+
+                    <div class="form-group  ">
+                      <label for="buscarCancelaPrestamo">Tipo de Préstamo:</label>
+                      <div class="input-group ">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-search "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="buscarCancelaPrestamo" id="buscarCancelaPrestamo"
+                          required="" disabled>
+                          <option value="">Tipo de Préstamo</option>
+
+                          <?php
+
+                              $item = null;
+                              $valor = null;
+
+                              $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+
+                              foreach ($mostrarTipoPrestamo as $key => $value) {
+
+                                echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                              }
+                            
+                            ?>
+
+                        </select>
+
+                      </div>
+                    </div>
+
+                    <input type="hidden" name="EditarCancelarPrestamo" id="EditarCancelarPrestamo"
+                      class="form-control form-control is-invalid" readonly="" placeholder="EditarCancelarPrestamo"
+                      required>
+                    <input type="hidden" name="EditarCancelarprestamoId" id="EditarCancelarprestamoId"
+                      class="form-control form-control is-invalid" readonly="" placeholder="EditarCancelarprestamoId"
+                      required>
+
+                  </div>
+                  <!-- FIN PARA SELECCIONAR TIPO DE PRESTAMO -->
+
+                  <!--ENTRADA PARA EDITAR MONTO -->
+                  <div class=" col-md-3 pl-4  ">
+                    <div class="form-group  ">
+                      <label for="EditarCancelarnuevoMontoPrestamo">Monto:</label>
+                      <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
+                        </div>
+                        <input class="form-control" type="text" name="EditarCancelarnuevoMontoPrestamo"
+                          id="EditarCancelarnuevoMontoPrestamo" autocomplete="off" placeholder="0,000.00" readonly="">
+
+                      </div>
+                    </div>
+                    <input class="form-control is-invalid" type="hidden" name="EditarCancelarMontoPrestamo"
+                      id="EditarCancelarMontoPrestamo" autocomplete="off" required readonly=""
+                      placeholder="EditarCancelarMontoPrestamo">
+                  </div>
+                  <!--FIN PARA EDITAR MONTO -->
+
+                  <!--ENTRADA PARA EDITAR FECHA DE REGISTRO -->
+                  <div class=" col-md-4  ">
+                    <div class="form-group   ">
+                      <label for="EditarCancelarFechaPrestamo">Fecha de Aplicación:</label>
+                      <div class="input-group date" id="EditarCancelarFechaPrestamo" data-target-input="nearest">
+                        <input type="text" class="form-control datetimepicker-input"
+                          data-target="#EditarCancelarFechaPrestamo" name="EditarCancelarFechaPrestamo"
+                          id="EditarCancelarFechaPrestamo" readonly="" />
+                        <div class="input-group-append" data-target="#EditarCancelarFechaPrestamo"
+                          data-toggle="datetimepicker">
+                          <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                        </div>
+                      </div>
+
+                    </div>
+                    <!--/form-group-->
+
+                    <input class="form-control is-invalid" type="hidden" name="EditarCancelaridPrestamo"
+                      id="EditarCancelaridPrestamo" required placeholder="EditarCancelaridPrestamo" readonly="">
+                  </div>
+                  <!--FIN PARA EDITAR FECHA DE REGISTRO -->
+
+                  <input type="hidden" name="CapturistaCancelarEntregarPrestamo"
+                    value="<?php  echo $_SESSION["nombre"]; ?>" class="form-control is-invalid" required
+                    readonly="CapturistaCancelarEntregarPrestamo">
+
+                  <!--ENTRADA PARA LA DESCRIPCION-->
+                  <div class=" col-md-12 pr-4 pl-3 ">
+
+                    <div class="form-group">
+
+                      <label for="nuevoCancelarMotivo">Motivo de Cancelación:</label>
+
+                      <textarea class="form-control" id="nuevoCancelarMotivo" name="nuevoCancelarMotivo"
+                        placeholder="Descripción..." rows="3" autocomplete="off" autofocus="true"></textarea>
+
+                    </div>
+                    <!--/form-group -->
+
+                  </div>
+
+                  <!--ENTRADA PARA EDITAR ESTATUS DE PRESTAMO-->
+                  <div class="col-md-5">
+                    <div class="form-group  ">
+
+                      <label for="EditarCancelarEstatus">Estatus:</label>
+                      <div class="input-group">
+
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-check-square-o "></i></span>
+                        </div>
+
+                        <select class="form-control  " name="EditarCancelarEstatus" id="EditarCancelarEstatus"
+                          required="">
+                          <option value="">Seleccionar...</option>
+                          <!-- <option value="Autorizado" >Autorizado</option> -->
+                          <option value="Cancelado">Cancelar Préstamo</option>
+                        </select>
+
+                      </div>
+                      <!-- class="input-group" -->
+                    </div>
+                    <!-- class="form-group" -->
+                  </div>
+                  <!-- /"col-md-5" -->
+                  <!--END ENTRADA PARA EDITAR ESTATUS DE PRESTAMO-->
+
+                </div>
+                <!--EN ROW-->
+              </div>
+              <!-- form-group card-body callout callout-default -->
+
+              <!--=====================================
+        PIE DEL MODAL
+        ======================================-->
+
+              <div class="modal-footer">
+                <button type="button" id="CancelarEditarCancelar-Prestamos" class="btn btn-outline-danger "
+                  data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cerrar</button>
+
+                <button type="submit" id="btnActualizarCancelar" class="btn btn-outline-success"><i class="fa fa-check"
+                    aria-hidden="true"></i>&nbsp;Cancelar Préstamo</button>
+              </div>
+
+              <?php 
+
+        $CancelarPrestamo = new ControladorPrestamos();
+        $CancelarPrestamo -> ctrCancelarPrestamo();
+
+        ?>
+
+            </form>
+
+          </div>
+          <!-- /fin card-header -->
+        </div>
+        <!-- /fin modal-body  modal-lg-->
+      </div>
+      <!-- /fin modal-content-->
+    </div>
+    <!-- /fin modal-dialog modal-lg-->
+  </div>
+  <!-- /finmodal fade bd-example-modal-lg-->
+
+</body>

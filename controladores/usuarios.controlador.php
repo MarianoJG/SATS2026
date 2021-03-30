@@ -11,9 +11,9 @@ class ControladorUsuarios{
 		if(isset($_POST["ingUsuario"])){
 
 			if(preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingUsuario"]) &&
-			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])){
+			preg_match('/^[a-zA-Z0-9]+$/', $_POST["ingPassword"])){
 
-			   	$encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
+			$encriptar = crypt($_POST["ingPassword"], '$2a$07$asxx54ahjppf45sd87a5a4dDDGsystemdev$');
 
 				$tabla = "usuarios";
 
@@ -22,7 +22,7 @@ class ControladorUsuarios{
 
 				$respuesta = ModeloUsuarios::MdlMostrarUsuarios($tabla, $item, $valor);
 
-				if($respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
+				if(is_array($respuesta) && $respuesta["usuario"] == $_POST["ingUsuario"] && $respuesta["password"] == $encriptar){
 
 					if($respuesta["estado"] == 1){
 
@@ -125,10 +125,10 @@ class ControladorUsuarios{
 		if(isset($_POST["nuevoUsuario"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNombre"]) &&
-			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
-			   preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
+			preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoUsuario"]) &&
+			preg_match('/^[a-zA-Z0-9]+$/', $_POST["nuevoPassword"])){
 
-			   	/*=============================================
+			/*=============================================
 				VALIDAR IMAGEN
 				=============================================*/
 
@@ -373,11 +373,11 @@ class ControladorUsuarios{
 						echo'<script>
 
 								swal({
-									  type: "error",
-									  title: "¡La contraseña no puede ir vacía o llevar caracteres especiales!",
-									  showConfirmButton: true,
-									  confirmButtonText: "Cerrar"
-									  }).then(function(result){
+									type: "error",
+									title: "¡La contraseña no puede ir vacía o llevar caracteres especiales!",
+									showConfirmButton: true,
+									confirmButtonText: "Cerrar"
+									}).then(function(result){
 										if (result.value) {
 
 										window.location = "usuarios";
@@ -385,7 +385,7 @@ class ControladorUsuarios{
 										}
 									})
 
-						  	</script>';
+						</script>';
 
 					}
 
@@ -426,11 +426,11 @@ class ControladorUsuarios{
 				echo'<script>
 
 					swal({
-						  type: "error",
-						  title: "¡El nombre no puede ir vacío o llevar caracteres especiales!",
-						  showConfirmButton: true,
-						  confirmButtonText: "Cerrar"
-						  }).then(function(result){
+						type: "error",
+						title: "¡El nombre no puede ir vacío o llevar caracteres especiales!",
+						showConfirmButton: true,
+						confirmButtonText: "Cerrar"
+						}).then(function(result){
 							if (result.value) {
 
 							window.location = "usuarios";
@@ -438,7 +438,7 @@ class ControladorUsuarios{
 							}
 						})
 
-			  	</script>';
+			</script>';
 
 			}
 
@@ -471,12 +471,12 @@ class ControladorUsuarios{
 				echo'<script>
 
 				swal({
-					  type: "success",
-					  title: "Usuario Eliminado Con Exito!",
-					  showConfirmButton: true,
-					  confirmButtonText: "Cerrar"
+					type: "success",
+					title: "Usuario Eliminado Con Exito!",
+					showConfirmButton: true,
+					confirmButtonText: "Cerrar"
 
-					  }).then(function(result){
+					}).then(function(result){
 								if (result.value) {
 
 								window.location = "usuarios";

@@ -13,17 +13,17 @@ require_once "../modelos/trabajadores.modelo.php";
 class TablaTrabajadores {
 
   /**
- MOSTRAR LA TABLA DE TRABAJADORES 
+MOSTRAR LA TABLA DE TRABAJADORES 
  */
 
-	 public function mostrarTablaTrabajadores()
-	 	{
+	public function mostrarTablaTrabajadores()
+	{
 
-     $item = null;
-     $valor = null;
+    $item = null;
+    $valor = null;
 
 
-     $trabajadores = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor);
+    $trabajadores = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor);
 
       $datosJson = '{
       "data": [';
@@ -69,18 +69,18 @@ class TablaTrabajadores {
 
         if(isset($_GET["perfilOculto"]) && $_GET["perfilOculto"] == "Capturista" ) {
 
-           $botonEditar ="<div class='btn-group'><span data-toggle='modal' data-target='#modalEditarTrabajador'><button class='btn btn-info btnEditarTrabajador' idTrabajador='".$trabajadores[$i]["id_trabajador"]."' data-toggle='tooltip' data-placement='top' title='Editar'><i class='fa fa-pencil-square-o'></i></button></span></div>";
+          $botonEditar ="<div class='btn-group'><span data-toggle='modal' data-target='#modalEditarTrabajador'><button class='btn btn-info btnEditarTrabajador' idTrabajador='".$trabajadores[$i]["id_trabajador"]."' data-toggle='tooltip' data-placement='top' title='Editar'><i class='fa fa-pencil-square-o'></i></button></span></div>";
 
-           $botonImprimir ="<div class='btn-group'></div><div class='btn-group'></div>";//boton imprimir oculto
+          $botonImprimir ="<div class='btn-group'></div><div class='btn-group'></div>";//boton imprimir oculto
 
         }
 
 
         if(isset($_GET["perfilOculto"]) && $_GET["perfilOculto"] == "Admin Escalafon" ) {
 
-           $botonEditar ="<div class='btn-group'><button class='btn btn-info  disabled'  aria-pressed='false'  data-toggle='tooltip' data-placement='top' title=' Editar'><i class='fa fa-pencil-square-o'></i></button></span></div>";//boton Desactivado
+          $botonEditar ="<div class='btn-group'><button class='btn btn-info  disabled'  aria-pressed='false'  data-toggle='tooltip' data-placement='top' title=' Editar'><i class='fa fa-pencil-square-o'></i></button></span></div>";//boton Desactivado
 
-           $botonImprimir ="<div class='btn-group'></div><div class='btn-group'></div>";//boton imprimir oculto
+          $botonImprimir ="<div class='btn-group'></div><div class='btn-group'></div>";//boton imprimir oculto
 
 
         }

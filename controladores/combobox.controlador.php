@@ -17,6 +17,21 @@ class ControladorCombobox{
 	
 	}
 
+
+	/*=============================================
+	MOSTRAR COMBO TIPO PRESTAMOS
+	=============================================*/
+
+	/* static public function ctrMostrarComboTipoPrestamos($item, $valor){
+
+		$tabla = "tipo_prestamos";
+
+		$respuesta = ModeloCombobox::mdlMostrarComboTipoPrestamos($tabla, $item, $valor);
+
+		return $respuesta;
+	
+	} */
+
 	/*=============================================
 	MOSTRAR COMBO DEPARTAMENTOS
 	=============================================*/

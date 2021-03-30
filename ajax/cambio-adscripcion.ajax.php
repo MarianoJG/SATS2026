@@ -26,8 +26,6 @@ class AjaxCambioAdscripcion{
 
   }
 
-
-
   /*=============================================
   BUSCAR CATEGORIA
   =============================================*/ 
@@ -45,8 +43,6 @@ class AjaxCambioAdscripcion{
 
   }
 
-
-  
 
 }
 

@@ -10,6 +10,6 @@ echo "<script>
 
 </script>";
 
- ?>
+?>
 
 </body>

@@ -2295,6 +2295,41 @@ fieldset:disabled a.btn {
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
 }
 
+.btn-purple {
+  color: #ffffff;
+  background-color: #6f42c1;
+  border-color: #6f42c1;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.btn-orange {
+  color: #ffffff;
+  background-color: #fd7e14;
+  border-color: #fd7e14;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.btn-blue {
+  color: #ffffff;
+  background-color: #007bff;
+  border-color: #007bff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.btn-white {
+  color: #6f42c1;
+  background-color: #ffffff;
+  border-color: #ffffff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.btn-gray {
+  color: #f8f9fa;
+  background-color: #6c757d;
+  border-color: #6c757d;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
 .btn-info:hover {
   color: #ffffff;
   background-color: #138496;
@@ -4531,6 +4566,18 @@ input[type="button"].btn-block {
   border-radius: 0.25rem;
 }
 
+.badge2 {
+  display: inline-block;
+  padding: 0.20em 0.8em;
+  font-size: 76%;
+  font-weight: 700;
+  line-height: 1.5;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
 .badge:empty {
   display: none;
 }
@@ -4579,6 +4626,17 @@ input[type="button"].btn-block {
   background-color: #1e7e34;
 }
 
+.badge-successligth {
+  color: #28a745;
+  background-color: #dae0e5;
+}
+
+.badge-succsuccessligthess[href]:hover, .badge-success[href]:focus {
+  color: #1e7e34;
+  text-decoration: none;
+  background-color: #dae0e5;
+}
+
 .badge-info {
   color: #ffffff;
   background-color: #17a2b8;
@@ -4610,6 +4668,39 @@ input[type="button"].btn-block {
   color: #ffffff;
   text-decoration: none;
   background-color: #bd2130;
+}
+
+.badge-orange {
+  color: #ffffff;
+  background-color: #fd7e14;
+}
+
+.badge-orange[href]:hover, .badge-danger[href]:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #fd7e14;
+}
+
+.badge-purple {
+  color: #ffffff;
+  background-color: #6f42c1;
+}
+
+.badge-purple[href]:hover, .badge-danger[href]:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #6f42c1;
+}
+
+.badge-pink {
+  color: #ffffff;
+  background-color: #e83e8c;
+}
+
+.badge-pink[href]:hover, .badge-danger[href]:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #e83e8c;
 }
 
 .badge-light {
@@ -5878,6 +5969,10 @@ button.bg-dark:focus {
 
 .bg-white {
   background-color: #ffffff !important;
+}
+
+.bg-orange {
+  background-color: #fd7e14 !important;
 }
 
 .bg-transparent {
@@ -13206,7 +13301,7 @@ a.text-muted:hover {
   color:#fff;
     padding:9px 15px;
     border-bottom:1px solid #eee;
-    background-color: #f0ad4e;
+    background-color: #ffc107;
     -webkit-border-top-left-radius: 5px;
     -webkit-border-top-right-radius: 5px;
     -moz-border-radius-topleft: 5px;
@@ -13364,6 +13459,14 @@ a.text-muted:hover {
     left: 100px;
     top: 0;
   }
+}
+
+td.nowrap {
+    white-space: nowrap;
+}
+
+td.normal {
+    white-space: normal
 }
 
 

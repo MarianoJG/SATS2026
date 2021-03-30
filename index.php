@@ -12,6 +12,7 @@ require_once "controladores/cambio-categoria.controlador.php";
 require_once "controladores/cambio-adscripcion.controlador.php";
 require_once "controladores/comision.controlador.php";
 require_once "controladores/escalafon.controlador.php";
+require_once "controladores/prestamos.controlador.php";
 
 
 
@@ -26,6 +27,7 @@ require_once "modelos/cambio-categoria.modelo.php";
 require_once "modelos/cambio-adscripcion.modelo.php";
 require_once "modelos/comision.modelo.php";
 require_once "modelos/escalafon.modelo.php";
+require_once "modelos/prestamos.modelo.php";
 
 
 

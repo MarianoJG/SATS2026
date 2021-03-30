@@ -75,7 +75,7 @@
                     <div class="row m-t-50">
                         <div class="col-sm-12 text-center">
 
-                            <p class="text-muted">STASAC <a href="#" class="text-dark m-l-5"><b>&nbsp; 2020-2023</b></a></p>
+                            <p class="text-light">STASAC <a href="#" class="text-warning m-l-5"><b>&nbsp; 2020-2023</b></a></p>
                         </div>
                         
                     </div>
