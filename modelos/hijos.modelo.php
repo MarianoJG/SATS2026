@@ -43,9 +43,17 @@ class ModeloHijos{
 
 	static public function mdlCrearHijo($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(id_trabajador, nombre_completo, f_nacimiento, nom_capturistaH) VALUES (:id_trabajador,:nombre_completo, :f_nacimiento, :nom_capturistaH )");
+		$stmt = Conexion::conectar()->prepare("INSERT INTO $tabla(num_empleado, id_trabajador, nombre_completo_trabajador,tipo_empleado,departamento, nombre_completo, f_nacimiento, nom_capturistaH) VALUES (:num_empleado, :id_trabajador,:nombre_completo_trabajador, :tipo_empleado, :departamento, :nombre_completo, :f_nacimiento, :nom_capturistaH )");
+
+		$stmt->bindParam(":num_empleado", $datos["num_empleado"], PDO::PARAM_STR);
 
 		$stmt->bindParam(":id_trabajador", $datos["id_trabajador"], PDO::PARAM_STR);
+
+		$stmt->bindParam(":nombre_completo_trabajador", $datos["nombre_completo_trabajador"], PDO::PARAM_STR);
+
+		$stmt->bindParam(":tipo_empleado", $datos["tipo_empleado"], PDO::PARAM_STR);
+		
+		$stmt->bindParam(":departamento", $datos["departamento"], PDO::PARAM_STR);
 
 		$stmt->bindParam(":nombre_completo", $datos["nombre_completo"], PDO::PARAM_STR);
 		
@@ -77,14 +85,18 @@ class ModeloHijos{
 
 	static public function mdlEditarHijo($tabla, $datos){
 
-		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET nombre_completo = :nombre_completo, id_trabajador = :id_trabajador, f_nacimiento = :f_nacimiento, nom_capturistaH = :nom_capturistaH  WHERE id_hijo = :id_hijo");
+		$stmt = Conexion::conectar()->prepare("UPDATE $tabla SET num_empleado = :num_empleado, id_trabajador = :id_trabajador,  nombre_completo_trabajador = :nombre_completo_trabajador, departamento = :departamento,  nombre_completo = :nombre_completo, f_nacimiento = :f_nacimiento, nom_capturistaH = :nom_capturistaH  WHERE id_hijo = :id_hijo");
 
 
-		$stmt -> bindParam(":nombre_completo", $datos["nombre_completo"], PDO::PARAM_STR);
+		$stmt -> bindParam(":num_empleado", $datos["num_empleado"], PDO::PARAM_STR);
 		$stmt->bindParam(":id_trabajador", $datos["id_trabajador"], PDO::PARAM_STR);
+		$stmt -> bindParam(":nombre_completo_trabajador", $datos["nombre_completo_trabajador"], PDO::PARAM_STR);
+		$stmt->bindParam(":departamento", $datos["departamento"], PDO::PARAM_STR);
+		$stmt->bindParam(":nombre_completo", $datos["nombre_completo"], PDO::PARAM_STR);
 		$stmt -> bindParam(":f_nacimiento", $datos["f_nacimiento"], PDO::PARAM_STR);
-		$stmt -> bindParam(":id_hijo", $datos["id_hijo"], PDO::PARAM_INT);
 		$stmt->bindParam(":nom_capturistaH", $datos["nom_capturistaH"], PDO::PARAM_STR);
+		$stmt -> bindParam(":id_hijo", $datos["id_hijo"], PDO::PARAM_INT);
+		
 
 		if($stmt->execute()){
 

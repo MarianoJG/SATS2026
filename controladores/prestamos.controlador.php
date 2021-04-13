@@ -48,10 +48,10 @@ CREAR Cambio de Categoría
 							timer: 1500
 
 						}).then(function() {
-						// Redirect the user
+						
 						window.location.href = "finanzas-prestamos";
 						})
-						},200);
+						},3000);
 					</script>';
 			}
 

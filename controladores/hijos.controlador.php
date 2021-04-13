@@ -6,18 +6,22 @@ class ControladorHijos{
 	CREAR HIJOS
 	=============================================*/
 
-	 static public function ctrCrearHijo(){
+	static public function ctrCrearHijo(){
 
 		if(isset($_POST["nuevoNomHijo"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoNomHijo"])){
 			
 			
-		   
+		
 				$tabla = "hijos";
 		
 				$datos = array(
-								"id_trabajador" => $_POST["trabajadorId"],	
+								"num_empleado"   => ucwords($_POST["nuevoNumEmpleado"]),
+								"id_trabajador" => $_POST["trabajadorId"],
+								"nombre_completo_trabajador"   => ucwords($_POST["nomTrabajador"]),
+								"tipo_empleado"   => ucwords($_POST["tipoEmpleado"]),
+								"departamento"   => ucwords($_POST["nuevoDepartamento"]),
 								"nombre_completo"   => ucwords($_POST["nuevoNomHijo"]),
 								"f_nacimiento" => $_POST["nuevoFechaNacH"],
 								"nom_capturistaH"  => $_POST["CapturistaH"]
@@ -32,7 +36,7 @@ class ControladorHijos{
 					'<script type="text/javascript">
 							$(document).ready(function() {
 								swal({ 
-								position: "top-end",
+								position: "top-center",
 								title: "Excelente..",
 								text: "Hijo Registrado Con Exito!",
 								type: "success",
@@ -86,18 +90,21 @@ class ControladorHijos{
 	EDITAR HIJOS
 	=============================================*/
 
-	 static public function ctrEditarHijo(){
+	static public function ctrEditarHijo(){
 
 		if(isset($_POST["EditarnuevoNomHijo"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["EditarnuevoNomHijo"])){
 			
 			
-		   
+		
 				$tabla = "hijos";
 		
 				$datos = array(
+								"num_empleado"   => ucwords($_POST["EditarNumEmpleado"]),
 								"id_trabajador" => $_POST["EditartrabajadorId"],
+								"nombre_completo_trabajador"   => ucwords($_POST["EditarnomTrabajador"]),
+								"departamento"   => ucwords($_POST["editarDepartamento"]),
 								"nombre_completo"   => ucwords($_POST["EditarnuevoNomHijo"]),
 								"f_nacimiento" => $_POST["EditarnuevoFechaNacH"],
 								"id_hijo"=>$_POST["idHijo"],
@@ -116,7 +123,7 @@ class ControladorHijos{
 					'<script type="text/javascript">
 							$(document).ready(function() {
 								swal({ 
-								position: "top-end",
+								position: "top-center",
 								title: "Excelente..",
 								text: "Hijo Actualizado Con Exito!",
 								type: "success",
@@ -170,17 +177,17 @@ class ControladorHijos{
 
 
 /*=============================================
-  MOSTRAR HIJOS
-  =============================================*/
+MOSTRAR HIJOS
+=============================================*/
 
-  static public function ctrMostrarHijos($item, $valor){
+static public function ctrMostrarHijos($item, $valor){
 
     $tabla = "hijos";
 
     $respuesta = ModeloHijos::mdlMostrarHijos($tabla, $item, $valor);
 
     return $respuesta;
-  
-  }
+
+}
 }
 	

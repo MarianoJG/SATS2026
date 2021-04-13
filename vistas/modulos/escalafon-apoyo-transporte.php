@@ -35,10 +35,10 @@
         <div class="row">
           <!-- left column  buttom-->
           <div>
-           <button type="button" class="btn btn-primary btnAgregarApoyoTransporte" data-toggle="modal" data-target="#modalAgregarApoyoTransporte"><i class="fa fa-plus nav-icon"></i>&nbsp;
-             Agregar Registro
-           </button>
-         </div>
+          <button type="button" class="btn btn-primary btnAgregarApoyoTransporte" data-toggle="modal" data-target="#modalAgregarApoyoTransporte"><i class="fa fa-plus nav-icon"></i>&nbsp;
+            Agregar Registro
+          </button>
+        </div>
           <!--/.col (left) -->
           <!-- right column -->
           

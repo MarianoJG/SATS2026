@@ -47,10 +47,8 @@ class TablaHijos {
 
       if (is_array($trabajadores) && $trabajadores["id_trabajador"]) {
 
-    
-
           /*=============================================
-    TRAEMOS LAS ACCIONES
+                TRAEMOS LAS ACCIONES
           ============================================= */
 
 
@@ -66,7 +64,7 @@ class TablaHijos {
           "'.$trabajadores["departamento"].'",
           "'.$botonEditar.'"
         ],';
-      }
+      } /* fin array */
     }
 
     $datosJson = substr($datosJson, 0, -1);

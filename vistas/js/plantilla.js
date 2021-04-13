@@ -103,9 +103,9 @@ $(function () {
 
 //Display Overlay Cargando Datos Ajax
 
-
 $(document).ajaxStart(function () {
   $.LoadingOverlaySetup({
+
     background: "rgba(0, 0, 0, 0.5)",
     image: "vistas/img/gif/index.triple-gears-loading-icon.svg",
     //image           : "vistas/img/preloaders.svg/loader8.svg",
@@ -115,7 +115,9 @@ $(document).ajaxStart(function () {
 
     imageColor: "#ffffff"
     //imageColor      : "#B70000"
-    //imageColor      : "#ffcc00"
+    //imageColor: "#ffcc00",
+
+
 
   });
 
@@ -126,6 +128,7 @@ $(document).ajaxStart(function () {
 $(document).ajaxStop(function () {
   $.LoadingOverlay("hide");
 });
+//END Display Overlay Cargando Datos Ajax
 
 
 

@@ -9,7 +9,7 @@
 
 <body class="hold-transition sidebar-mini bg-p2-pages" style="height: auto;">
 
-   <div class="content-wrapper ">
+  <div class="content-wrapper ">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -21,7 +21,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
               <li class="breadcrumb-item active">Administración</li>
-               <li class="breadcrumb-item active">Registros Hijos</li>
+              <li class="breadcrumb-item active">Registros Hijos</li>
             </ol>
           </div>
         </div>
@@ -34,10 +34,10 @@
         <div class="row">
           <!-- left column  buttom-->
           <div>
-           <button type="button" class="btn btn-primary btnAgregarHijos" data-toggle="modal" data-target="#modalAgregarHijos"><i class="fa fa-plus nav-icon"></i>&nbsp;
-             Agregar Hijos
-           </button>
-         </div>
+          <button type="button" class="btn btn-primary btnAgregarHijos" data-toggle="modal" data-target="#modalAgregarHijos"><i class="fa fa-plus nav-icon"></i>&nbsp;
+            Agregar Hijos
+          </button>
+        </div>
           <!--/.col (left) -->
           <!-- right column -->
           
@@ -49,21 +49,23 @@
 
     <section class="account-content">
       <div class="card-body">
-        <table  class="table TablaHijos display  table-hover table-striped table-bordered dt-responsive nowrap" style="width:100%">
+        <table  class="table TablaHijos display table-hover table-striped table-bordered dt-responsive" style="width:100%">
           <thead>
             <tr>
-             <th>Id</th>
-             <th>Nombres</th>
-             <th>Fecha de Nacimiento</th>
-             <th>Padre o Tutor</th>
-             <th>Nº Empleado</th>
-             <th>Adscripción</th>
-             <th>Acciones</th>
+            <th>Id</th>
+            <th>Nombres</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Padre o Tutor</th>
+            <th>Nº Empleado</th>
+            <th>Adscripción</th>
+            <th>Acciones</th>
 
             </tr>
           </thead>
 
         </table>
+        <input type="hidden" class="form-control is-invalid" value="<?php echo $_SESSION['perfil']; ?>"
+          id="perfilOculto" readonly>
       </div>
 
     </section>
@@ -82,7 +84,7 @@ MODAL AGREGAR HIJO
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
 
-       <!--=====================================
+      <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
@@ -94,7 +96,7 @@ MODAL AGREGAR HIJO
         </button>
       </div>
 
-       <!--=====================================
+      <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
@@ -112,7 +114,7 @@ MODAL AGREGAR HIJO
 
                 <div class=" col-md-3  ">
 
-                   <!-- ENTRADA PARA EL CAPTURISTA DE REGISTROS -->
+                  <!-- ENTRADA PARA EL CAPTURISTA DE REGISTROS -->
 
                       <input type="hidden" name="CapturistaH" value="<?php  echo $_SESSION["nombre"]; ?>" class="form-control"  >
 
@@ -125,30 +127,33 @@ MODAL AGREGAR HIJO
                         <span class="input-group-text"><i class="fa fa-search "></i></span>
                       </div>
 
-                       <select class="form-control  " name="buscaTrabajador" id="buscaTrabajador" >
+                      <select class="form-control  " name="buscaTrabajador" id="buscaTrabajador" >
                           <option value="" ># Empleado</option>
 
-                           <?php
+                          <?php
 
                           $item = null;
                           $valor = null;
 
-                          $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor);
+                          $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
 
                           foreach ($mostrarTrabajador as $key => $value) {
 
-                           echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
-                         }
+                          echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                        }
 
-                         ?>
- 
+                        ?>
+
                         </select>
+                      </div>
+                      <input type="hidden" name="nuevoNumEmpleado" id="nuevoNumEmpleado" class="form-control">
+                      <input type="hidden" name="trabajadorId" id="trabajadorId" class="form-control">
+                      
 
-                         <input type="hidden" name="trabajadorId" id="trabajadorId" class="form-control"   >
-                       </div>
                   </div>
 
                 </div> 
+                
 
                 <div class=" col-md-6  ">
                   <div class="form-group  ">
@@ -160,12 +165,12 @@ MODAL AGREGAR HIJO
                         <span class="input-group-text"><i class="fa fa-user "></i></span>
                       </div>
                         <input type="text" name="nomTrabajador" id="nomTrabajador" class="form-control" placeholder="Empleado" readonly="" >
-                     
-                       </div>
+                    
+                      </div>
                   </div>
                 </div> 
 
-                 <div class=" col-md-3  ">
+                <div class=" col-md-3  ">
                   <div class="form-group  ">
                     <label for="tipoEmpleado">Tipo Empleado:</label>
                     
@@ -175,12 +180,26 @@ MODAL AGREGAR HIJO
                         <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
                       </div>
                         <input type="text" name="tipoEmpleado" id="tipoEmpleado" class="form-control" placeholder="Tipo" readonly="" >
-                     
-                       </div>
+                    
+                      </div>
                   </div>
                 </div> 
 
               </div> <!--en row-->
+
+              <div class="row">
+              <div class="col-3"></div>
+
+              <div class=" col-9">
+                  <div class="form-group  ">
+                    <div class="input-group ">
+                        <input type="text" name="nuevoDepartamento" id="nuevoDepartamento" class="form-control" placeholder="Departamento" readonly="" >
+                    
+                      </div>
+                  </div>
+                </div> 
+                
+                </div>
 
             </div>
 
@@ -190,14 +209,14 @@ MODAL AGREGAR HIJO
             <div class="form-group card-body callout callout-warning mt-5">
               <div class="row">
 
-                <div class=" col-md-6 ">
+                <div class=" col-md-7">
                   <div class="form-group  ">
                     <label for="nuevoNomHijo">Nombre Completo:</label>
                     <input type="text" name="nuevoNomHijo" id="nuevoNomHijo" class="form-control"  placeholder="Nombres & Apellidos"  autocomplete="off" style="text-transform:capitalize;"  >
                   </div>
                 </div>
 
-                <div class=" col-md-5  ">
+                <div class=" col-md-5">
                   <div class="form-group  ">
                     <label for="nuevoFechaNacH">Fecha de Nacimiento:</label>
                     <div class="input-group">
@@ -209,14 +228,14 @@ MODAL AGREGAR HIJO
                   </div>
                 </div> 
 
-                <div class=" col-md-1  ">
+                <!-- <div class=" col-md-1  ">
                   <div class="form-group ">
                     <label for="Agregar">Agregar</label>
                     <div class="input-group">
                       <button type="button" class="btn btn-default addButton"><i class="fa fa-plus"></i></button>
                     </div>
                   </div>
-                </div> 
+                </div>  -->
 
 
               </div>
@@ -225,19 +244,19 @@ MODAL AGREGAR HIJO
 
               <!--ENTRADA PARA AGREGAR HIJOS HIDE
 
-             <div class="form-group hide card-body callout callout-warning mt-1" id="hijosTemplate">
+            <div class="form-group hide card-body callout callout-warning mt-1" id="hijosTemplate">
               <div class="row">
 
                 <div class=" col-md-6 ">
                   <div class="form-group  ">
-                   
+                  
                     <input type="text" name="nuevoNomHijoHide" id="nuevoNomHijoHide" class="form-control"  placeholder="Nombres & Apellidos"  autocomplete="off" style="text-transform:capitalize;"  >
                   </div>
                 </div>
 
                 <div class=" col-md-5  ">
                   <div class="form-group  ">
-                   
+                  
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -249,9 +268,9 @@ MODAL AGREGAR HIJO
 
                 <div class=" col-md-1  ">
                   <div class="form-group ">
-                   
+                  
                     <div class="input-group">
-                       <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+                      <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
                     </div>
                   </div>
                 </div> 
@@ -259,7 +278,7 @@ MODAL AGREGAR HIJO
 
               </div>
             </div> -->
-           
+          
 
 
 
@@ -283,10 +302,10 @@ MODAL AGREGAR HIJO
             ?>
 
             
- 
-       </form>
 
-     </div>
+      </form>
+
+    </div>
 
       </div>
       
@@ -305,7 +324,7 @@ MODAL EDITAR HIJO
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
 
-       <!--=====================================
+      <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
@@ -317,7 +336,7 @@ MODAL EDITAR HIJO
         </button>
       </div>
 
-       <!--=====================================
+      <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
@@ -335,7 +354,7 @@ MODAL EDITAR HIJO
 
                 <div class=" col-md-3  ">
 
-                   <!-- EDITAR PARA EL CAPTURISTA DE REGISTROS -->
+                  <!-- EDITAR PARA EL CAPTURISTA DE REGISTROS -->
                       <input type="hidden" name="editarCapturistaH" value="<?php  echo $_SESSION["nombre"]; ?>" class="form-control"  >
 
 
@@ -348,10 +367,10 @@ MODAL EDITAR HIJO
                         <span class="input-group-text"><i class="fa fa-search "></i></span>
                       </div>
 
-                       <select class="form-control  " name="EditarbuscaTrabajador" id="EditarbuscaTrabajador" >
+                      <select class="form-control  " name="EditarbuscaTrabajador" id="EditarbuscaTrabajador" >
                           <option value="" ># Empleado</option>
 
-                           <?php
+                          <?php
 
                           $item = null;
                           $valor = null;
@@ -360,15 +379,17 @@ MODAL EDITAR HIJO
 
                           foreach ($mostrarTrabajador as $key => $value) {
 
-                           echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
-                         }
+                          echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                        }
 
-                         ?>
- 
+                        ?>
+
                         </select>
 
-                         <input type="hidden" name="EditartrabajadorId" id="EditartrabajadorId" class="form-control"   >
-                       </div>
+                        
+                      </div>
+                      <input type="hidden" name="EditarNumEmpleado" id="EditarNumEmpleado" class="form-control">
+                        <input type="hidden" name="EditartrabajadorId" id="EditartrabajadorId" class="form-control">
                   </div>
 
                 </div> 
@@ -383,12 +404,12 @@ MODAL EDITAR HIJO
                         <span class="input-group-text"><i class="fa fa-user "></i></span>
                       </div>
                         <input type="text" name="EditarnomTrabajador" id="EditarnomTrabajador" class="form-control" placeholder="Empleado" readonly="" >
-                     
-                       </div>
+                    
+                      </div>
                   </div>
                 </div> 
 
-                 <div class=" col-md-3  ">
+                <div class=" col-md-3  ">
                   <div class="form-group  ">
                     <label for="EditartipoEmpleado">Tipo Empleado:</label>
                     
@@ -398,8 +419,18 @@ MODAL EDITAR HIJO
                         <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
                       </div>
                         <input type="text" name="EditartipoEmpleado" id="EditartipoEmpleado" class="form-control" placeholder="Tipo" readonly="" >
-                     
-                       </div>
+                    
+                      </div>
+                  </div>
+                </div> 
+                <!-- /col-md-3 -->
+                <div class="col-3"></div>            
+                <div class=" col-9">
+                  <div class="form-group  ">
+                    <div class="input-group ">
+                        <input type="text" name="editarDepartamento" id="editarDepartamento" class="form-control" placeholder="Departamento" readonly="" >
+                    
+                      </div>
                   </div>
                 </div> 
 
@@ -429,7 +460,7 @@ MODAL EDITAR HIJO
                       </div>
                       <input class="form-control" type="date"  name="EditarnuevoFechaNacH" id="EditarnuevoFechaNacH" >
 
-                       <input type="hidden"  name="idHijo" id="idHijo" required>
+                      <input type="hidden"  name="idHijo" id="idHijo" required>
                     </div>
                   </div>
                 </div> 
@@ -450,19 +481,19 @@ MODAL EDITAR HIJO
 
               <!--ENTRADA PARA AGREGAR HIJOS HIDE
 
-             <div class="form-group hide card-body callout callout-warning mt-1" id="hijosTemplate">
+            <div class="form-group hide card-body callout callout-warning mt-1" id="hijosTemplate">
               <div class="row">
 
                 <div class=" col-md-6 ">
                   <div class="form-group  ">
-                   
+                  
                     <input type="text" name="nuevoNomHijoHide" id="nuevoNomHijoHide" class="form-control"  placeholder="Nombres & Apellidos"  autocomplete="off" style="text-transform:capitalize;"  >
                   </div>
                 </div>
 
                 <div class=" col-md-5  ">
                   <div class="form-group  ">
-                   
+                  
                     <div class="input-group">
                       <div class="input-group-prepend">
                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
@@ -474,9 +505,9 @@ MODAL EDITAR HIJO
 
                 <div class=" col-md-1  ">
                   <div class="form-group ">
-                   
+                  
                     <div class="input-group">
-                       <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
+                      <button type="button" class="btn btn-default removeButton"><i class="fa fa-minus"></i></button>
                     </div>
                   </div>
                 </div> 
@@ -484,7 +515,7 @@ MODAL EDITAR HIJO
 
               </div>
             </div> -->
-           
+          
 
 
 
@@ -492,14 +523,14 @@ MODAL EDITAR HIJO
             PIE DEL MODAL
             ======================================-->
 
-           <div class="modal-footer">
+          <div class="modal-footer">
               <button type="button" id="CancelarEditarHijo" class="btn btn-outline-danger " data-dismiss="modal"><i class="fa fa-times
                 " aria-hidden="true"></i>&nbsp;Cancelar</button>
               <button type="submit" class="btn btn-outline-success"><i class="fa fa-refresh" aria-hidden="true"></i>&nbsp; Actualizar</button>
             </div>
 
 
-         <?php 
+        <?php 
 
             $editarHijo = new ControladorHijos();
             $editarHijo -> ctrEditarHijo();
@@ -508,10 +539,10 @@ MODAL EDITAR HIJO
             ?> 
 
             
- 
-       </form>
 
-     </div>
+      </form>
+
+    </div>
 
       </div>
       

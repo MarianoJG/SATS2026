@@ -32,10 +32,12 @@ $('#modalAgregarHijos').on('shown.bs.modal', function () {
 
 
         $("#trabajadorId").val(respuesta["id_trabajador"]);
+        $("#nuevoNumEmpleado").val(respuesta["num_empleado"]);
 
         $("#nomTrabajador").val(respuesta["nombres"] + " " + (respuesta["a_paterno"]) + " " + (respuesta["a_materno"]));
 
         $("#tipoEmpleado").val(respuesta["tipo_empleado"]);
+        $("#nuevoDepartamento").val(respuesta["departamento"]);
 
 
       }
@@ -79,10 +81,13 @@ $('#modalEditarHijo').on('shown.bs.modal', function () {
 
 
         $("#EditartrabajadorId").val(respuesta["id_trabajador"]);
+        $("#EditarNumEmpleado").val(respuesta["num_empleado"]);
 
         $("#EditarnomTrabajador").val(respuesta["nombres"] + " " + (respuesta["a_paterno"]) + " " + (respuesta["a_materno"]));
 
         $("#EditartipoEmpleado").val(respuesta["tipo_empleado"]);
+
+        $("#editarDepartamento").val(respuesta["departamento"]);
 
 
       }
@@ -139,6 +144,14 @@ $(".TablaHijos").on("click", ".btnEditarHijo", function () {
     processData: false,
     dataType: "json",
     success: function (respuesta) {
+      $("#EditarbuscaTrabajador").val(respuesta["id_trabajador"]);
+      $("#EditarNumEmpleado").val(respuesta["num_empleado"]);
+      $("#EditartrabajadorId").val(respuesta["id_trabajador"]);
+      $("#editarDepartamento").val(respuesta["departamento"]);
+      $("#EditartipoEmpleado").val(respuesta["tipo_empleado"]);
+
+
+      $("#EditarnomTrabajador").val(respuesta["nombre_completo_trabajador"]);
 
       $("#EditarnuevoNomHijo").val(respuesta["nombre_completo"]);
       $("#EditarnuevoFechaNacH").val(respuesta["f_nacimiento"]);
@@ -212,12 +225,66 @@ $(document).ready(function () {
 CARGAR LA TABLA DINAMICA DE TRABAJADORES
 =============================================*/
 
-
+var perfilOculto = $("#perfilOculto").val();
 $('.TablaHijos').DataTable({
-  "ajax": "ajax/datatable-hijos.ajax.php",
+  "ajax": "ajax/datatable-hijos.ajax.php?perfilOculto=" + perfilOculto,
   "deferRender": true,
   "retrieve": true,
-  "processing": true,
+
+  "lengthChange": false,
+
+  "order": [[0, "desc"]],
+
+  "dom": 'Bfrtip',
+
+  "columnDefs": [
+    { targets: [1], class: "nowrap" },
+    { targets: [2], class: "normal" },
+    { targets: [3], class: "nowrap" },
+    { targets: [4], class: "nowrap" },
+    { targets: [5], class: "normal" },
+    { targets: [6], class: "normal" }
+
+
+
+    ,
+  ],
+
+  "buttons": [
+
+    {
+      extend: 'copyHtml5',
+      text: '<i class="fa fa-files-o"></i> Copiar',
+      titleAttr: 'Copiar'
+    },
+    {
+      extend: 'excel',
+      text: '<i class="fa fa-file-excel-o" aria-hidden="true"></i>  Excel',
+      messageTop: 'Personal Sindicalizado Beneficiados con Cambio de Categoría.',
+      titleAttr: 'Excel'
+    },
+    {
+      extend: 'pdfHtml5',
+      text: '<i class="fa fa-file-pdf-o"></i>  PDF',
+      titleAttr: 'PDF',
+
+      orientation: 'landscape',
+      pageSize: 'LEGAL'
+    },
+    {
+      extend: 'print',
+      text: '<i class="fa fa-print" aria-hidden="true"></i>  Imprimir',
+      titleAttr: 'Imprimir',
+      autoPrint: false,
+      messageTop: 'Hijos de Trabajadores Sindicalizados.'
+    }
+  ],
+
+
+
+
+
+
   "language": {
 
     "sProcessing": "Procesando",

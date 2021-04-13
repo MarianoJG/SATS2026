@@ -6,7 +6,7 @@ class Controlador_ApoyoTransporte{
 	CREAR APOYO DE TRANSPORTE
 	=============================================*/
 
-	 static public function ctr_CrearApoyoTransporte(){
+	static public function ctr_CrearApoyoTransporte(){
 
 		if(isset($_POST["nuevoApoyoTransporte"])){
 
@@ -16,7 +16,7 @@ class Controlador_ApoyoTransporte{
 
 		){
 			
-		   
+		
 				$tabla = "escalafon_apoyo_transporte";
 		
 				$datos = array(
@@ -53,6 +53,7 @@ class Controlador_ApoyoTransporte{
 							})
 							},200);
 						</script>';
+						
 
 				}
 

@@ -55,7 +55,7 @@ class ModeloTrabajadores{
 
 		}else{
 
-			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE tipo_empleado='Sindicalizado'");
+			$stmt = Conexion::conectar()->prepare("SELECT * FROM $tabla WHERE tipo_empleado='Sindicalizado' OR tipo_empleado='Jubilado'");
 
 			$stmt -> execute();
 

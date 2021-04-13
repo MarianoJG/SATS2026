@@ -10,7 +10,7 @@
 <body class="hold-transition sidebar-mini bg-p2-pages" style="height: auto;">
 
 
-   <div class="content-wrapper ">
+  <div class="content-wrapper ">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -22,7 +22,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
               <li class="breadcrumb-item active">Administración</li>
-               <li class="breadcrumb-item active">Reg. Trabajadores</li>
+              <li class="breadcrumb-item active">Reg. Trabajadores</li>
             </ol>
           </div>
         </div>
@@ -37,28 +37,28 @@
         <div class="row">
           <!-- left column  buttom-->
 
-           <?php 
+          <?php 
 
-           if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Capturista" )
-           {
+          if($_SESSION["perfil"] == "Administrador" || $_SESSION["perfil"] == "Capturista" )
+          {
 
-             echo ' <button type="buttom" class="btn btn-primary" data-toggle="modal" id="btnLimpiar" data-target="#modalAgregarTrabajador"><i class="fa fa-plus nav-icon"></i>&nbsp;
-             Agregar Trabajador
-           </button>   ';
+            echo ' <button type="buttom" class="btn btn-primary" data-toggle="modal" id="btnLimpiar" data-target="#modalAgregarTrabajador"><i class="fa fa-plus nav-icon"></i>&nbsp;
+            Agregar Trabajador
+          </button>   ';
 
 
           }             
-         
+        
 
 
-           
-           
-           ?>
-         <!--  <div>
-           <button type="buttom" class="btn btn-primary" data-toggle="modal" id="btnLimpiar" data-target="#modalAgregarTrabajador"><i class="fa fa-plus nav-icon"></i>&nbsp;
-             Agregar Trabajador
-           </button>
-         </div> -->
+          
+          
+          ?>
+        <!--  <div>
+          <button type="buttom" class="btn btn-primary" data-toggle="modal" id="btnLimpiar" data-target="#modalAgregarTrabajador"><i class="fa fa-plus nav-icon"></i>&nbsp;
+            Agregar Trabajador
+          </button>
+        </div> -->
           <!--/.col (left) -->
           <!-- right column -->
           
@@ -72,8 +72,8 @@
       <div class="card-body">
         <table  class="table TablaTrabajadores table-hover table-striped table-bordered dt-responsive nowrap " style="width:100%">
           <thead>
-           
-           <tr>
+          
+          <tr>
               <th>Id</th>
               <th># Empleado</th>
               <th>Nombre (s)</th>
@@ -84,13 +84,13 @@
               <th>Categoría</th>
               <th>Departamento</th>
               <th>Acciones</th>
-           </tr>
+          </tr>
 
-         </thead>
+        </thead>
 
         </table>
 
-         <input type="hidden" value="<?php echo $_SESSION['perfil']; ?>" id="perfilOculto">
+        <input type="hidden" value="<?php echo $_SESSION['perfil']; ?>" id="perfilOculto">
       </div>
 
     </section>
@@ -106,7 +106,7 @@ MODAL AGREGAR TRABAJADOR
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
 
-       <!--=====================================
+      <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
@@ -118,7 +118,7 @@ MODAL AGREGAR TRABAJADOR
         </button>
       </div>
 
-       <!--=====================================
+      <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
@@ -139,8 +139,8 @@ MODAL AGREGAR TRABAJADOR
                       <input type="hidden" name="capturista" value="<?php  echo $_SESSION["nombre"]; ?>" class="form-control"  >
 
                       <!-- ENTRADA PARA EL Número DE EMPLEADO -->
-                       
-                     <div class="form-group  ">
+                      
+                    <div class="form-group  ">
                       <label for="nuevoNumEmpleado">Número de Empleado:</label>
                       <input type="text" name="nuevoNumEmpleado" id="nuevoNumEmpleado" class="form-control" maxlength="5" placeholder="Número de Empleado" autocomplete="off"  >
 
@@ -149,8 +149,8 @@ MODAL AGREGAR TRABAJADOR
 
                       <!--ENTRADA PARA EL NOMBRE-->
 
-                       <div class="form-group  ">
-                       <label for="nuevoNombreTrabajador">Nombre (s) :</label>
+                      <div class="form-group  ">
+                      <label for="nuevoNombreTrabajador">Nombre (s) :</label>
                        <input type="text" name="nuevoNombreTrabajador" id="nuevoNombreTrabajador" class="form-control" placeholder=" Nombres" autocomplete="off" style="text-transform:capitalize;"  >
                      </div>
 
@@ -801,14 +801,14 @@ MODAL EDITAR TRABAJADOR
 						ENTRADA PARA EDITAR FOTO TRABAJADOR
 						======================================-->
 
-                     <div class="form-group   ">
+                    <div class="form-group   ">
 
                       <label for="editarFotoT">Fotografia:</label>
-                      <div class="custom-file">
+                        <div class="custom-file">
 
-                        <input type="file"  class=" custom-file-input EditarnuevaFotoT" name="editarFotoT" >
-                        <label class="custom-file-label" for="customFile">Seleccionar Imagen</label>
-                      </div>
+                          <input type="file"  class=" custom-file-input EditarnuevaFotoT" name="editarFotoT" >
+                          <label class="custom-file-label" for="customFile">Seleccionar Imagen</label>
+                        </div>
                     </div>
 
                     <p >Peso máximo de la imagen 2 MB &nbsp; <span ><i class="  fa fa-upload"></i></span></p>
@@ -819,12 +819,15 @@ MODAL EDITAR TRABAJADOR
                       
                       <img src="vistas/img/trabajadores/default/icon-jpeg.png" class="rounded previsualizarE" width="107px">
 
-                       <input type="hidden" name="fotoActual" id="fotoActual">
+                      <input type="hidden" name="fotoActual" id="fotoActual">
                       
                       </div>
+                      <!--img-thumbnail==-->
                       </div>
+                      <!--/form-group=====-->
 
-                </div>   <!--====end col-md-6 1=========-->
+                </div> 
+                  <!--====end col-md-6 1=========-->
             
             
 
