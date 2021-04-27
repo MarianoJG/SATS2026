@@ -146,8 +146,8 @@ MODAL AGREGAR HIJO
 
                         </select>
                       </div>
-                      <input type="hidden" name="nuevoNumEmpleado" id="nuevoNumEmpleado" class="form-control">
-                      <input type="hidden" name="trabajadorId" id="trabajadorId" class="form-control">
+                      <input type="text" name="nuevoNumEmpleado" id="nuevoNumEmpleado" class="form-control" placeholder="num empleado" readonly="">
+                      <input type="text" name="trabajadorId" id="trabajadorId" class="form-control" placeholder="trabajador id" readonly="">
                       
 
                   </div>

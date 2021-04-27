@@ -38,25 +38,28 @@ class TablaApoyoTransporte {
         $item = "id_trabajador";
         $valor = $apoyotransporte[$i]["id_trabajador"];
 
-        $trabajadores = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor); 
+        $trabajadores = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor);
+        
+        if (is_array($trabajadores) && $trabajadores["id_trabajador"]) {
 
         /*=============================================
-      TRAEMOS LAS ACCIONES
+                TRAEMOS LAS ACCIONES
         ============================================= */
 
-          $botonEditar ="<div class='btn-group'><span data-toggle='modal' data-target='#modalEditarApoyoTransporte'><button class='btn btn-info btnEditar-ApoyoTransporte' idApoyoTransporte='".$apoyotransporte[$i]["id_transporte"]."' data-toggle='tooltip' data-placement='top' title='Editar'><i class='fa fa-pencil-square-o'></i></button></span></div>";
+            $botonEditar ="<div class='btn-group'><span data-toggle='modal' data-target='#modalEditarApoyoTransporte'><button class='btn btn-info btnEditar-ApoyoTransporte' idApoyoTransporte='".$apoyotransporte[$i]["id_transporte"]."' data-toggle='tooltip' data-placement='top' title='Editar'><i class='fa fa-pencil-square-o'></i></button></span></div>";
 
      
-        $datosJson .='[
+            $datosJson .='[
             "'.$apoyotransporte[$i]["id_transporte"].'",
             "'.$trabajadores["num_empleado"].'",
-            "'.$trabajadores["nombres"].' '.$trabajadores["a_paterno"].' '.$trabajadores["a_materno"].'",
+            "'.$apoyotransporte[$i]["nombre_completo"].'",
             "'.$trabajadores["departamento"].'",
             "'.$apoyotransporte[$i]["apoyo_transporte"].'",
-            "'."$".''.number_format($apoyotransporte[$i]["monto_transporte"],2).'",
+            "'."$".''.number_format($apoyotransporte[$i]["monto_transporte"], 2).'",
             "'.$apoyotransporte[$i]["f_registro_AT"].'",
             "'.$botonEditar.'"
           ],';
+        }
 
       }
 

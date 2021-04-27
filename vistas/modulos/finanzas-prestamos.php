@@ -37,7 +37,7 @@
           <div class="pl-3">
 
             <?php
-        /* PERMISO PARA VER BOTON AGREGAR SOLO ADMINISTRADOR, SECRETARIO GENERAL Y ADMIN FINANZAS */
+        /* PERMISO PARA VER BOTON AGREGAR, SOLO ADMINISTRADOR, SECRETARIO GENERAL Y ADMIN FINANZAS */
 
         if($_SESSION["perfil"] == "Administrador"  || $_SESSION["perfil"] == "Secretario General" || $_SESSION["perfil"] == "Admin Finanzas")
           {
@@ -60,6 +60,7 @@
 
     <section class="account-content">
       <div class="card-body">
+
         <table class="table TablaPrestamos display table-hover table-striped table-bordered dt-responsive "
           style="width:100%">
           <thead>
@@ -80,26 +81,29 @@
           </thead>
 
         </table>
+
         <input type="hidden" class="form-control is-invalid" value="<?php echo $_SESSION['perfil']; ?>"
           id="perfilOculto" readonly>
+
       </div>
+      <!--  class="card-body" -->
 
     </section>
   </div>
   <!-- content-wrapper -->
 
-  <!--=====================================
-MODAL AGREGAR PRESTAMO
-======================================-->
+<!--==================================================
+          MODAL AGREGAR PRESTAMO
+===================================================-->
 
   <div class="modal fade bd-example-modal-lg" id="modalAgregarPrestamo" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
 
-        <!--=====================================
-CABEZA DEL MODAL PRESTAMO
-======================================-->
+<!--==================================================
+          CABEZA DEL MODAL AGREGAR PRESTAMO
+===================================================-->
 
         <div class="modal-header modal-header-primary">
 
@@ -110,9 +114,9 @@ CABEZA DEL MODAL PRESTAMO
           </button>
         </div>
 
-        <!--=====================================
-CUERPO DEL MODAL PRESTAMO
-======================================-->
+<!--==================================================
+          CUERPO DEL MODAL AGREGAR PRESTAMO
+===================================================-->
 
         <div class="modal-body  modal-lg">
 
@@ -166,8 +170,8 @@ CUERPO DEL MODAL PRESTAMO
 
                       </div>
                     </div>
-
-                    <input type="hidden" name="trabajadorId" id="trabajadorId" class="form-control is-invalid"
+                    <input type="hidden" name="nuevoNumEmpleado" id="nuevoNumEmpleado" class="form-control is-invalid" placeholder="num empleado" readonly="">      
+                    <input type="hidden" name="trabajadorId" id="trabajadorId" placeholder="Id Trabajador" class="form-control is-invalid"
                       readonly="">
                   </div>
 
@@ -185,6 +189,7 @@ CUERPO DEL MODAL PRESTAMO
                           placeholder="Empleado" readonly="">
 
                       </div>
+                      <input type="hidden" name="nuevoDepartamento" id="nuevoDepartamento" class="form-control is-invalid" placeholder="Departamento" readonly="">  
                     </div>
 
                   </div>
@@ -233,17 +238,17 @@ CUERPO DEL MODAL PRESTAMO
 
                           <?php
 
-                  $item = null;
-                  $valor = null;
+                          $item = null;
+                          $valor = null;
 
-                  $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+                          $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
 
-                  foreach ($mostrarTipoPrestamo as $key => $value) {
+                          foreach ($mostrarTipoPrestamo as $key => $value) {
 
-                    echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
-                  }
+                            echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                          }
 
-                  ?>
+                          ?>
 
                         </select>
 
@@ -264,7 +269,7 @@ CUERPO DEL MODAL PRESTAMO
                           <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
                         </div>
                         <input class="form-control" type="text" name="nuevoMontoPrestamo" id="nuevoMontoPrestamo"
-                          autocomplete="off" placeholder="0,000.00">
+                          autocomplete="off" placeholder="0,000.00" maxlength="9">
 
                       </div>
                     </div>
@@ -316,13 +321,14 @@ CUERPO DEL MODAL PRESTAMO
                 </div>
               </div>
 
-              <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+<!--==================================================
+          MODAL FOOTER 
+===================================================-->
+
 
               <div class="modal-footer">
 
-                <!--   <button type="button" id="CancelarRegrescar-ApoyoTransporte" class="btn btn-outline-info " data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Refrescar</button> -->
+                  <!-- <button type="button" id="limpiar" class="btn btn-outline-info " data-dismiss="modal"><i class="fa fa-eraser" aria-hidden="true"></i>&nbsp;Limpiar</button> -->
 
                 <button type="button" id="CancelarAgregar-Prestamo" class="btn btn-outline-danger "
                   data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancelar</button>
@@ -351,18 +357,21 @@ CUERPO DEL MODAL PRESTAMO
   </div>
   <!-- "modal fade bd-example-modal-lg -->
 
-  <!--=====================================
-MODAL EDITAR PRESTAMO
-======================================-->
+
+
+<!--==================================================
+          MODAL EDITAR PRESTAMO
+===================================================-->
 
   <div class="modal fade bd-example-modal-lg" id="modalEditarPrestamo" role="dialog" aria-labelledby="myLargeModalLabel"
     aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
 
-        <!--=====================================
-CABEZA DEL MODAL EDITAR PRESTAMO
-======================================-->
+<!--==================================================
+          CABEZA DEL MODAL EDITAR PRESTAMO
+===================================================-->
+
 
         <div class="modal-header modal-header-primary">
 
@@ -390,9 +399,10 @@ CABEZA DEL MODAL EDITAR PRESTAMO
           </button>
         </div>
 
-        <!--=====================================
-CUERPO DEL MODAL EDITAR PRESTAMO
-======================================-->
+
+<!--==================================================
+          CUERPO DEL MODAL EDITAR PRESTAMO
+===================================================-->
 
         <div class="modal-body  modal-lg">
 
@@ -446,8 +456,9 @@ CUERPO DEL MODAL EDITAR PRESTAMO
 
                       </div>
                     </div>
+                    <input type="hidden" name="editarNumEmpleado" id="editarNumEmpleado" class="form-control is-invalid" placeholder="num empleado" readonly="">  
                     <input type="hidden" name="EditartrabajadorId" id="EditartrabajadorId"
-                      class="form-control is-invalid" readonly="">
+                      class="form-control is-invalid" placeholder="Trabajador ID" readonly="">
                   </div>
 
                   <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
@@ -465,6 +476,7 @@ CUERPO DEL MODAL EDITAR PRESTAMO
 
                       </div>
                     </div>
+                    <input type="hidden" name="editarDepartamento" id="editarDepartamento" class="form-control is-invalid" placeholder="Departamento" readonly="">  
                   </div>
 
                   <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
@@ -512,17 +524,17 @@ CUERPO DEL MODAL EDITAR PRESTAMO
 
                           <?php
 
-                  $item = null;
-                  $valor = null;
+                          $item = null;
+                          $valor = null;
 
-                  $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+                          $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
 
-                  foreach ($mostrarTipoPrestamo as $key => $value) {
+                          foreach ($mostrarTipoPrestamo as $key => $value) {
 
-                    echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
-                  }
-                  
-                  ?>
+                            echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                          }
+                          
+                          ?>
 
                         </select>
 
@@ -546,7 +558,7 @@ CUERPO DEL MODAL EDITAR PRESTAMO
                           <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
                         </div>
                         <input class="form-control" type="text" name="EditarnuevoMontoPrestamo"
-                          id="EditarnuevoMontoPrestamo" autocomplete="off" placeholder="0,000.00">
+                          id="EditarnuevoMontoPrestamo" autocomplete="off" placeholder="0,000.00" maxlength="9">
 
                       </div>
                     </div>
@@ -601,9 +613,10 @@ CUERPO DEL MODAL EDITAR PRESTAMO
                 </div>
               </div>
 
-              <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+
+<!--==================================================
+            MODAL FOOTER 
+===================================================-->
 
               <div class="modal-footer">
                 <button type="button" id="CancelarEditar-Prestamos" class="btn btn-outline-danger "
@@ -633,17 +646,21 @@ CUERPO DEL MODAL EDITAR PRESTAMO
   </div>
   <!-- /finmodal fade bd-example-modal-lg-->
 
-  <!--=====================================
-MODAL APLICAR PRESTAMO 
-======================================-->
+
+
+
+<!--==================================================
+            MODAL APLICAR PRESTAMO 
+===================================================-->
+
   <div class="modal fade bd-example-modal-lg" id="modalAplicarPrestamo" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
 
-        <!--=====================================
-CABEZA DEL MODAL APLICAR PRESTAMO
-======================================-->
+<!--==================================================
+            CABEZA DEL MODAL APLICAR PRESTAMO
+===================================================-->
 
         <div class="modal-header modal-header-info">
 
@@ -669,9 +686,9 @@ CABEZA DEL MODAL APLICAR PRESTAMO
           </button>
         </div>
 
-        <!--=====================================
-CUERPO DEL MODAL APLICAR PRESTAMO
-======================================-->
+<!--==================================================
+            CUERPO DEL MODAL APLICAR PRESTAMO
+===================================================-->
 
         <div class="modal-body  modal-lg">
 
@@ -699,7 +716,7 @@ CUERPO DEL MODAL APLICAR PRESTAMO
                         </div>
 
                         <select class="form-control  " name="EditarAplicarbuscaTrabajador"
-                          id="EditarAplicarbuscaTrabajador" disabled>
+                          id="EditarAplicarbuscaTrabajador" >
                           <option value=""># Empleado</option>
 
                           <?php
@@ -722,12 +739,15 @@ CUERPO DEL MODAL APLICAR PRESTAMO
 
                       </div>
                     </div>
+                    <input type="hidden" name="EditarAplicarNumEmpleado" id="EditarAplicarNumEmpleado" class="form-control is-invalid" placeholder="num empleado" readonly=""> 
                     <input type="hidden" name="EditarAplicarTrabajadorId" id="EditarAplicarTrabajadorId"
                       class="form-control form-control is-invalid" readonly="">
                   </div>
+                  <!-- /class=" col-md-3 -->
+
 
                   <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
-                  <div class=" col-md-6 pl-3">
+                  <div class="col-md-6 pl-3">
                     <div class="form-group  ">
                       <label for="EditarAplicarnomTrabajador">Empleado:</label>
 
@@ -740,8 +760,12 @@ CUERPO DEL MODAL APLICAR PRESTAMO
                           class="form-control" placeholder="Empleado" readonly="">
 
                       </div>
+                      
                     </div>
+                      
+                    <input type="hidden" name="EditarAplicarDepartamento" id="EditarAplicarDepartamento" class="form-control is-invalid" placeholder="Departamento" readonly=""> 
                   </div>
+                  <!-- /class="col-md-6 pl-3 -->
 
                   <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
                   <div class=" col-md-3  ">
@@ -757,53 +781,62 @@ CUERPO DEL MODAL APLICAR PRESTAMO
                           class="form-control" placeholder="Tipo" readonly="">
 
                       </div>
+                    
                     </div>
                   </div>
+                  <!-- /class="col-md-3-->
+                  
 
                 </div>
-                <!--en row-->
+                <!--  </class="row seccion1"> -->
 
               </div>
+              <!--/form-group card-body callout callout-info-->
+
 
               <!--ENTRADA PARA EDITAR TIPO DE PRESTAMO-->
 
-              <div class="form-group card-body callout callout-warning mt-5 OcultarSeccion2">
+              <div class="form-group card-body callout callout-warning mt-5 ">
 
                 <div class="row ">
 
                   <!-- ENTRADA PARA SELECCIONAR TIPO DE CATEGORIA -->
                   <div class=" col-md-5  ">
 
-                    <div class="form-group  ">
+                    <div class="form-group">
                       <label for="buscarEditarAplicarPrestamo">Tipo de Préstamo:</label>
-                      <div class="input-group ">
+
+                      <div class="input-group">
 
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-search "></i></span>
                         </div>
 
                         <select class="form-control  " name="buscarEditarAplicarPrestamo"
-                          id="buscarEditarAplicarPrestamo" required="" disabled>
-                          <option value="">Tipo de Préstamo</option>
+                          id="buscarEditarAplicarPrestamo" required="" >
+                          <option value="">Seleccionar Tipo de Préstamo</option>
 
-                          <?php
+                            <?php
 
-                  $item = null;
-                  $valor = null;
+                            $item  = null;
+                            $valor = null;
 
-                  $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+                            $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
 
-                  foreach ($mostrarTipoPrestamo as $key => $value) {
+                            foreach ($mostrarTipoPrestamo as $key => $value) {
 
-                    echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
-                  }
-                  
-                  ?>
+                              echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                            }
+                            
+                            ?>
 
                         </select>
 
                       </div>
+                      <!--/class="input-group"-->
                     </div>
+                    <!--/class="form-group"-->
+
 
                     <input type="hidden" name="EditarAplicarPrestamo" id="EditarAplicarPrestamo"
                       class="form-control form-control is-invalid" readonly="" placeholder="EditarAplicarPrestamo"
@@ -813,52 +846,75 @@ CUERPO DEL MODAL APLICAR PRESTAMO
                       required>
 
                   </div>
+                  <!--/class=" col-md-5" -->
 
                   <!--ENTRADA PARA EDITAR MONTO -->
 
-                  <div class=" col-md-3 pl-4  ">
+                  <div class="col-md-3 pl-4">
                     <div class="form-group  ">
+
                       <label for="EditarAplicarnuevoMontoPrestamo">Monto:</label>
+
                       <div class="input-group">
+
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
                         </div>
+
                         <input class="form-control" type="text" name="EditarAplicarnuevoMontoPrestamo"
                           id="EditarAplicarnuevoMontoPrestamo" autocomplete="off" placeholder="0,000.00" readonly="">
 
                       </div>
+                      <!--  /class="input-group-->
+
                     </div>
+                    <!--  /class="form-group  -->
+
                     <input class="form-control is-invalid" type="hidden" name="EditarAplicarMontoPrestamo"
                       id="EditarAplicarMontoPrestamo" autocomplete="off" required readonly=""
                       placeholder="EditarAplicarMontoPrestamo">
+                      
                   </div>
+                  <!--/class="col-md-3 pl-4"-->
 
                   <!--ENTRADA PARA EDITAR FECHA DE REGISTRO -->
 
-                  <div class=" col-md-4  ">
-                    <div class="form-group   ">
+                  <div class=" col-md-4">
+
+                    <div class="form-group">
+
                       <label for="EditarAplicarFechaPrestamo">Fecha de Aplicación:</label>
 
                       <div class="input-group date" id="EditarAplicarFechaPrestamo" data-target-input="nearest">
+
                         <input type="text" class="form-control datetimepicker-input"
                           data-target="#EditarAplicarFechaPrestamo" name="EditarAplicarFechaPrestamo"
                           id="EditarAplicarFechaPrestamo" readonly="" />
+
                         <div class="input-group-append" data-target="#EditarAplicarFechaPrestamo"
                           data-toggle="datetimepicker">
                           <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
+
                       </div>
+                      <!-- /class="input-group date" -->
 
                     </div>
                     <!--/form-group-->
+
                     <input class="form-control is-invalid" type="hidden" name="EditarAplicaridPrestamo"
                       id="EditarAplicaridPrestamo" required placeholder="EditarAplicaridPrestamo" readonly="">
-                  </div>
-                  <input type="hidden" name="CapturistaEditarAplicaPrestamo" value="<?php  echo $_SESSION["nombre"]; ?>"
+
+                    <input type="hidden" name="CapturistaEditarAplicaPrestamo" value="<?php  echo $_SESSION["nombre"]; ?>"
                     class="form-control is-invalid" required readonly="CapturistaEditarAplicaPrestamo">
+
+                  </div>
+                  <!--/class=" col-md-4"-->
+                
 
                   <!--ENTRADA PARA EDITAR ESTATUS DE PRESTAMO-->
                   <div class="col-md-5">
+
                     <div class="form-group  ">
 
                       <label for="EditarAplicarEstatus">Estatus:</label>
@@ -877,17 +933,19 @@ CUERPO DEL MODAL APLICAR PRESTAMO
 
                       </div>
                       <!-- class="input-group" -->
+
                     </div>
                     <!-- class="form-group" -->
+
                   </div>
-                  <!-- /"col-md-5" -->
+                  <!--/"col-md-5" -->
 
                 </div>
+                <!--  <div class="row "> -->
               </div>
+              <!--/form-group card-body callout callout-warning mt-5 -->
 
-              <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+            
 
               <div class="modal-footer">
                 <button type="button" id="CancelarEditarAplicar-Prestamos" class="btn btn-outline-danger "
@@ -896,15 +954,18 @@ CUERPO DEL MODAL APLICAR PRESTAMO
                 <button type="submit" id="btnActualizarAplicar" class="btn btn-outline-success"><i class="fa fa-check"
                     aria-hidden="true"></i>&nbsp;Aplicar</button>
               </div>
+              <!--/class="modal-footer"-->
 
-              <?php 
-
-        $EditarAplicarPrestamo = new ControladorPrestamos();
-        $EditarAplicarPrestamo -> ctrEditarAplicarPrestamo();
-
-        ?>
+              
 
             </form>
+
+            <?php 
+
+              $EditarAplicarPrestamo = new ControladorPrestamos();
+              $EditarAplicarPrestamo -> ctrEditarAplicarPrestamo();
+
+              ?>
 
           </div>
           <!-- /fin card-header -->
@@ -917,18 +978,18 @@ CUERPO DEL MODAL APLICAR PRESTAMO
   </div>
   <!-- /finmodal fade bd-example-modal-lg-->
 
-<!--=====================================
-MODAL ENTREGAR PRESTAMO
-======================================-->
+<!--==================================================
+          MODAL ENTREGAR PRESTAMO
+===================================================-->
 
   <div class="modal fade bd-example-modal-lg" id="modalEntregarPrestamo" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
 
-<!--=====================================
-CABEZA DEL MODAL ENTREGAR PRESTAMO
-======================================-->
+<!--==================================================
+          CABEZA DEL MODAL ENTREGAR PRESTAMO
+===================================================-->
 
         <div class="modal-header modal-header-success">
 
@@ -936,7 +997,7 @@ CABEZA DEL MODAL ENTREGAR PRESTAMO
               aria-hidden="true"></i>&nbsp; Entregar - Préstamo &nbsp;</h5>
 
           <div class="form-group  ">
-            <div class="input-group  input-group-sm  ">
+            <div class="input-group  input-group-sm">
 
               <div class="input-group-prepend">
                 <span class="input-group-text"><i class="fa fa-barcode"></i></span>
@@ -946,17 +1007,20 @@ CABEZA DEL MODAL ENTREGAR PRESTAMO
                 size="1" readonly="">
 
             </div>
+            <!--/input-group  input-group-sm -->
           </div>
           <!--/form-group -->
 
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>
 
-        <!--=====================================
-CUERPO DEL MODAL ENTREGAR PRESTAMO
-======================================-->
+        </div>
+        <!-- /class="modal-header modal-header-success" -->
+      
+<!--==================================================
+          CUERPO DEL MODAL ENTREGAR PRESTAMO
+===================================================-->
         <div class="modal-body  modal-lg">
 
           <div class="card-header  ">
@@ -987,32 +1051,36 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
 
                           <?php
 
-                      $item = null;
-                      $valor = null;
+                          $item = null;
+                          $valor = null;
 
-                      $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
+                          $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
 
-                      foreach ($mostrarTrabajador as $key => $value) {
+                          foreach ($mostrarTrabajador as $key => $value) {
 
-                        echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
-                      }
+                            echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                          }
 
-                      ?>
-
-                        </select>
+                          ?>
 
                         </select>
 
                       </div>
+                      <!-- class="input-group -->
+
                     </div>
+                    <!-- class="form-group -->
+
                     <input type="hidden" name="EditarEntregarTrabajadorId" id="EditarEntregarTrabajadorId"
                       class="form-control form-control is-invalid" readonly="">
+
                   </div>
                 <!--  /col-md-3 -->
 
                   <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
                   <div class="col-md-6 pl-3">
-                    <div class="form-group  ">
+                    <div class="form-group">
+
                       <label for="EditarEntregarnomTrabajador">Empleado:</label>
 
                       <div class="input-group ">
@@ -1024,13 +1092,16 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
                           class="form-control" placeholder="Empleado" readonly="">
 
                       </div>
+                      <!-- class="input-group -->
                     </div>
+                    <!-- class="form-group -->
                   </div>
                 <!--  /col-md-6 pl-3 -->
 
                   <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
                   <div class="col-md-3">
-                    <div class="form-group  ">
+                    <div class="form-group">
+                    
                       <label for="EditarEntregartipoEmpleado">Tipo Empleado:</label>
 
                       <div class="input-group ">
@@ -1042,16 +1113,20 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
                           class="form-control" placeholder="Tipo" readonly="">
 
                       </div>
+                      <!--  class="input-group -->
                     </div>
+                    <!--  class="form-group -->
                   </div>
                 <!--  col-md-3 -->
 
                 </div>
-                <!--en row-->
+                <!--/class="row seccion1"-->
 
               </div>
+              <!--class="form-group card-body callout callout-success" -->
 
-              <!--ENTRADA PARA EDITAR CAMBIO DE CATEGORIA-->
+
+              <!--ENTRADA PARA EDITAR ENTREGAR PRESTAMO-->
 
               <div class="form-group card-body callout callout-warning mt-5 OcultarSeccion2">
 
@@ -1072,18 +1147,18 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
                           id="buscarEditarEntregarPrestamo" required="" disabled>
                           <option value="">Tipo de Préstamo</option>
 
-                          <?php
+                            <?php
 
-                            $item = null;
-                            $valor = null;
+                              $item = null;
+                              $valor = null;
 
-                            $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
+                              $mostrarTipoPrestamo = ControladorPrestamos::ctrMostrarTipoPrestamo($item, $valor);
 
-                            foreach ($mostrarTipoPrestamo as $key => $value) {
+                              foreach ($mostrarTipoPrestamo as $key => $value) {
 
-                              echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
-                            }
-                        ?>
+                                echo '<option value="'.$value["prestamo"].'">'.$value["prestamo"].'</option>';
+                              }
+                            ?>
 
                         </select>
 
@@ -1105,6 +1180,7 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
                   <!--ENTRADA PARA EDITAR MONTO -->
 
                   <div class="col-md-3 pl-4">
+
                     <div class="form-group  ">
                       <label for="EditarEntregarnuevoMontoPrestamo">Monto:</label>
                       <div class="input-group">
@@ -1123,10 +1199,11 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
                     <input class="form-control is-invalid" type="hidden" name="EditarEntregarMontoPrestamo"
                       id="EditarEntregarMontoPrestamo" autocomplete="off" required readonly=""
                       placeholder="EditarEntregarMontoPrestamo">
+
                   </div>
                 <!--/col-md-3 pl-4  -->
 
-                  <!--ENTRADA PARA EDITAR FECHA DE REGISTRO -->
+                  <!--ENTRADA PARA EDITAR ENTREGAR FECHA DE REGISTRO -->
 
                   <div class=" col-md-4  ">
                     <div class="form-group   ">
@@ -1141,6 +1218,7 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
                           <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
                       </div>
+                      <!--/input-group-->
 
                     </div>
                     <!--/form-group-->
@@ -1182,11 +1260,14 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
                   <!-- /"col-md-5" -->
 
                 </div>
-              </div>
+                <!--class="row " -->
 
-        <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+              </div>
+              <!--class="form-group card-body callout callout-warning mt-5 OcultarSeccion2"-->
+
+<!--==================================================
+            MODAL FOOTER 
+===================================================-->
 
               <div class="modal-footer">
                 <button type="button" id="CancelarEditarEntregar-Prestamos" class="btn btn-outline-danger "
@@ -1216,18 +1297,18 @@ CUERPO DEL MODAL ENTREGAR PRESTAMO
   </div>
   <!-- /finmodal fade bd-example-modal-lg-->
 
-<!--=====================================
-MODAL CANCELAR PRESTAMO
-======================================-->
+<!--==================================================
+            MODAL CANCELAR PRESTAMO 
+===================================================-->
 
   <div class="modal fade bd-example-modal-lg" id="modalCancelarPrestamo" role="dialog"
     aria-labelledby="myLargeModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
 
-        <!--=====================================
-CABEZA DEL MODAL CANCELAR PRESTAMO
-======================================-->
+<!--==================================================
+          CABEZA DEL MODAL CANCELAR PRESTAMO
+===================================================-->
 
         <div class="modal-header modal-header-danger">
 
@@ -1245,6 +1326,7 @@ CABEZA DEL MODAL CANCELAR PRESTAMO
                 size="1" readonly="">
 
             </div>
+            <!--/input-group -->
           </div>
           <!--/form-group -->
 
@@ -1252,9 +1334,11 @@ CABEZA DEL MODAL CANCELAR PRESTAMO
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <!--=====================================
-CUERPO DEL MODAL CANCELAR PRESTAMO
-======================================-->
+        <!--/class="modal-header modal-header-danger" -->
+
+<!--==================================================
+          CUERPO DEL MODAL CANCELAR PRESTAMO
+===================================================-->
         <div class="modal-body  modal-lg">
 
           <div class="card-header  ">
@@ -1264,7 +1348,7 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
 
                 <div class="row seccion1">
 
-                  <div class=" col-md-3  ">
+                  <div class=" col-md-3">
 
                     <!-- ENTRADA PARA BUSCAR Y CAPTURAR TRABAJADOR -->
                     <div class="form-group  ">
@@ -1282,17 +1366,17 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
 
                           <?php
 
-                      $item = null;
-                      $valor = null;
+                          $item = null;
+                          $valor = null;
 
-                      $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
+                          $mostrarTrabajador = ControladorTrabajadores::ctrMostrarTrabajadoresTipoSindicalizados($item, $valor);
 
-                      foreach ($mostrarTrabajador as $key => $value) {
+                          foreach ($mostrarTrabajador as $key => $value) {
 
-                        echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
-                      }
+                            echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                          }
 
-                      ?>
+                          ?>
 
                         </select>
 
@@ -1303,10 +1387,11 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
                     <input type="hidden" name="EditarCancelarTrabajadorId" id="EditarCancelarTrabajadorId"
                       class="form-control form-control is-invalid" readonly="">
                   </div>
+                  <!-- /class="col-md-3" -->
 
                   <!-- ENTRADA PARA MOSTRAR NOMBRE DEL TRABAJADOR -->
                   <div class=" col-md-6 pl-3">
-                    <div class="form-group  ">
+                    <div class="form-group">
                       <label for="EditarCancelarnomTrabajador">Empleado:</label>
 
                       <div class="input-group ">
@@ -1314,12 +1399,16 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-user "></i></span>
                         </div>
+
                         <input type="text" name="EditarCancelarnomTrabajador" id="EditarCancelarnomTrabajador"
                           class="form-control" placeholder="Empleado" readonly="">
 
                       </div>
+                      <!-- /class="input-group"-->
                     </div>
+                    <!-- /class="form-group"-->
                   </div>
+                  <!--/class=" col-md-6 pl-3" -->
 
                   <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR -->
                   <div class="col-md-3">
@@ -1333,6 +1422,7 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
                         <input type="text" name="EditarCancelartipoEmpleado" id="EditarCancelartipoEmpleado"
                           class="form-control" placeholder="Tipo" readonly="">
                       </div>
+                      <!--/input-group-->
 
                     </div>
                     <!--form-group-->
@@ -1347,14 +1437,15 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
 
               <div class="form-group card-body callout callout-default">
 
-                <div class="row ">
+                <div class="row">
 
                   <!-- ENTRADA PARA SELECCIONAR TIPO DE PRESTAMO -->
-                  <div class=" col-md-5">
+                  <div class="col-md-5">
 
-                    <div class="form-group  ">
+                    <div class="form-group">
                       <label for="buscarCancelaPrestamo">Tipo de Préstamo:</label>
-                      <div class="input-group ">
+
+                      <div class="input-group">
 
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-search "></i></span>
@@ -1381,7 +1472,9 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
                         </select>
 
                       </div>
+                      <!-- /class="input-group"-->
                     </div>
+                    <!-- /class="form-group"-->
 
                     <input type="hidden" name="EditarCancelarPrestamo" id="EditarCancelarPrestamo"
                       class="form-control form-control is-invalid" readonly="" placeholder="EditarCancelarPrestamo"
@@ -1391,13 +1484,16 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
                       required>
 
                   </div>
+                  <!-- /class="col-md-5" -->
+
                   <!-- FIN PARA SELECCIONAR TIPO DE PRESTAMO -->
 
                   <!--ENTRADA PARA EDITAR MONTO -->
-                  <div class=" col-md-3 pl-4  ">
+                  <div class="col-md-3 pl-4">
                     <div class="form-group  ">
                       <label for="EditarCancelarnuevoMontoPrestamo">Monto:</label>
                       <div class="input-group">
+
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
                         </div>
@@ -1405,53 +1501,82 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
                           id="EditarCancelarnuevoMontoPrestamo" autocomplete="off" placeholder="0,000.00" readonly="">
 
                       </div>
+                      <!-- /input-group-->
                     </div>
+                    <!-- /form-group-->
+
                     <input class="form-control is-invalid" type="hidden" name="EditarCancelarMontoPrestamo"
                       id="EditarCancelarMontoPrestamo" autocomplete="off" required readonly=""
                       placeholder="EditarCancelarMontoPrestamo">
                   </div>
+                  <!-- /class="col-md-3 pl-4"-->
+
                   <!--FIN PARA EDITAR MONTO -->
 
                   <!--ENTRADA PARA EDITAR FECHA DE REGISTRO -->
-                  <div class=" col-md-4  ">
+                  <div class="col-md-4">
                     <div class="form-group   ">
+
                       <label for="EditarCancelarFechaPrestamo">Fecha de Aplicación:</label>
+
                       <div class="input-group date" id="EditarCancelarFechaPrestamo" data-target-input="nearest">
+
                         <input type="text" class="form-control datetimepicker-input"
                           data-target="#EditarCancelarFechaPrestamo" name="EditarCancelarFechaPrestamo"
-                          id="EditarCancelarFechaPrestamo" readonly="" />
+                          id="EditarCancelarFechaPrestamo" readonly=""/>
+
                         <div class="input-group-append" data-target="#EditarCancelarFechaPrestamo"
                           data-toggle="datetimepicker">
                           <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                         </div>
-                      </div>
 
+                      </div>
+                      <!--/input-group date-->          
                     </div>
                     <!--/form-group-->
 
                     <input class="form-control is-invalid" type="hidden" name="EditarCancelaridPrestamo"
                       id="EditarCancelaridPrestamo" required placeholder="EditarCancelaridPrestamo" readonly="">
                   </div>
-                  <!--FIN PARA EDITAR FECHA DE REGISTRO -->
+                  <!--/class="col-md-4"-->
+
+
+                  <!--FIN PARA EDITAR CANCELAR FECHA DE REGISTRO -->
 
                   <input type="hidden" name="CapturistaCancelarEntregarPrestamo"
                     value="<?php  echo $_SESSION["nombre"]; ?>" class="form-control is-invalid" required
                     readonly="CapturistaCancelarEntregarPrestamo">
 
-                  <!--ENTRADA PARA LA DESCRIPCION-->
-                  <div class=" col-md-12 pr-4 pl-3 ">
+                  <!--ENTRADA PARA LA DESCRIPCION DE CANCELAR-->
+                  <div class="col-md-12 pr-4 pl-3">
 
-                    <div class="form-group">
+                    <div class="form-group  ">
 
-                      <label for="nuevoCancelarMotivo">Motivo de Cancelación:</label>
+                      <label for="nuevoCancelarMotivo">Cancelar Motivo:</label>
 
-                      <textarea class="form-control" id="nuevoCancelarMotivo" name="nuevoCancelarMotivo"
-                        placeholder="Descripción..." rows="3" autocomplete="off" autofocus="true"></textarea>
+                      <div class="input-group">
 
+                        <div class="input-group-prepend">
+                          <span class="input-group-text"><i class="fa fa-commenting-o" aria-hidden="true"></i></span>
+                        </div>
+
+                        <select class="form-control  " name="nuevoCancelarMotivo" id="nuevoCancelarMotivo"
+                          required="">
+                          <option value="">Seleccionar...</option>
+                          <!-- <option value="Autorizado" >Autorizado</option> -->
+                          <option value="Motivo 1">Motivo 1</option>
+                          <option value="Motivo 2">Motivo 2</option>
+                          <option value="Motivo 3">Motivo 3</option>
+                          <option value="Motivo 4">Motivo 4</option>
+                                                      
+                        </select>
+
+                      </div>
+                      <!-- class="input-group" -->
                     </div>
-                    <!--/form-group -->
-
+                    <!-- class="form-group" -->
                   </div>
+                  <!--class="col-md-12 pr-4 pl-3"-->
 
                   <!--ENTRADA PARA EDITAR ESTATUS DE PRESTAMO-->
                   <div class="col-md-5">
@@ -1477,16 +1602,18 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
                     <!-- class="form-group" -->
                   </div>
                   <!-- /"col-md-5" -->
+
                   <!--END ENTRADA PARA EDITAR ESTATUS DE PRESTAMO-->
 
                 </div>
-                <!--EN ROW-->
+                <!--/ class="row"-->
+
               </div>
               <!-- form-group card-body callout callout-default -->
 
-              <!--=====================================
-        PIE DEL MODAL
-        ======================================-->
+<!--==================================================
+            MODAL FOOTER 
+===================================================-->
 
               <div class="modal-footer">
                 <button type="button" id="CancelarEditarCancelar-Prestamos" class="btn btn-outline-danger "
@@ -1498,10 +1625,10 @@ CUERPO DEL MODAL CANCELAR PRESTAMO
 
               <?php 
 
-        $CancelarPrestamo = new ControladorPrestamos();
-        $CancelarPrestamo -> ctrCancelarPrestamo();
+              $CancelarPrestamo = new ControladorPrestamos();
+              $CancelarPrestamo -> ctrCancelarPrestamo();
 
-        ?>
+              ?>
 
             </form>
 

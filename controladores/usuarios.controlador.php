@@ -55,16 +55,6 @@ class ControladorUsuarios{
 						if($ultimoLogin == "ok"){
 
 							echo
-							// "<script>
-
-							// 	swal
-							// 	('Bienvenido!', 'Sistema SATS!', 'success');
-							// 	window.setTimeout (function(){
-							// 		window.location.href ='inicio';
-							// 		},1000);
-
-							// </script>";
-
 							'<script type="text/javascript">
 
 								$(document).ready(function() {
@@ -84,7 +74,10 @@ class ControladorUsuarios{
 								
 							</script>';
 
-						}				
+							
+						}
+						
+						
 						
 					}else{
 

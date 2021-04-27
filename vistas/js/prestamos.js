@@ -4,8 +4,24 @@
 ===============================================>>>>>*/
 
 $.fn.select2.defaults.set('language', 'es');
+var resetForm = function () { $(':text:not("[readonly],[disabled]")').val(''); }
+/* Resetting form when showing the modal */
+/* $('#modalAgregarPrestamo').on('hidden.bs.modal', function () {
+    $('#registrationForm-Prestamos').formValidation('resetForm', true);
+}); */
+/* END Resetting form when showing the modal */
+
+
 
 $('#modalAgregarPrestamo').on('shown.bs.modal', function () {
+
+    /* $(document).ready(function () {
+        $('#limpiar').click(function () {
+            $('input[type="text"]').val('');
+        });
+    });
+ */
+    //$('#registrationForm-Prestamos').formValidation('resetForm', true);
 
     /*==ACTIVAR AGREGAR CAMPOS SELECT2 ==*/
 
@@ -45,6 +61,8 @@ $('#modalAgregarPrestamo').on('shown.bs.modal', function () {
     });
 
 
+
+
     /*=FIN BOTON CANCELAR MODALES=*/
 
 
@@ -67,7 +85,11 @@ $('#modalAgregarPrestamo').on('shown.bs.modal', function () {
 
                 $("#trabajadorId").val(respuesta["id_trabajador"]);
 
+                $("#nuevoNumEmpleado").val(respuesta["num_empleado"]);
+
                 $("#nomTrabajador").val(respuesta["nombres"] + " " + (respuesta["a_paterno"]) + " " + (respuesta["a_materno"]));
+
+                $("#nuevoDepartamento").val(respuesta["departamento"]);
 
                 $("#tipoEmpleado").val(respuesta["tipo_empleado"]);
 
@@ -173,9 +195,11 @@ $('#modalEditarPrestamo').on('shown.bs.modal', function () {
             dataType: "json",
             success: function (respuesta) {
 
+                $("#editarNumEmpleado").val(respuesta["num_empleado"]);
                 $("#EditartrabajadorId").val(respuesta["id_trabajador"]);
                 $("#EditarnomTrabajador").val(respuesta["nombres"] + " " + (respuesta["a_paterno"]) + " " + (respuesta["a_materno"]));
                 $("#EditartipoEmpleado").val(respuesta["tipo_empleado"]);
+                $("#editarDepartamento").val(respuesta["departamento"]);
             }
         })
     });
@@ -255,7 +279,7 @@ $('#modalAplicarPrestamo').on('shown.bs.modal', function () {
 
     /*== BUSCA EL TRABAJADOR POR NUM DE EMPLEADO Y SE CARGAN LOS DATOS NOMBRES Y TIPO EMP ==*/
 
-    $('#EditarAplicarBuscaTrabajador').change(function () {
+    $('#EditarAplicarbuscaTrabajador').change(function () {
         var idTrabajador = $(this).val();
         var datos = new FormData();
         datos.append('idTrabajador', idTrabajador);
@@ -269,11 +293,15 @@ $('#modalAplicarPrestamo').on('shown.bs.modal', function () {
 
             dataType: "json",
             success: function (respuesta) {
+                console.log(respuesta)
 
-                // $("#EditarAplicarbuscaTrabajador").val(respuesta["num_empleado"]);
+                $("#EditarAplicarbuscaTrabajador").val(respuesta["num_empleado"]);
                 $("#EditarAplicarTrabajadorId").val(respuesta["id_trabajador"]);
                 $("#EditarAplicarnomTrabajador").val(respuesta["nombres"] + " " + (respuesta["a_paterno"]) + " " + (respuesta["a_materno"]));
-                $("#EditarAplicartipoEmpleado").val(respuesta["tipo_empleado"]);
+
+                $("#EditarAplicarNumEmpleado").val(respuesta["num_empleado"]);
+                $("#EditarAplicarDepartamento").val(respuesta["departamento"]);
+
             }
         })
 
@@ -645,8 +673,10 @@ $(".TablaPrestamos").on("click", ".btnEditar-Prestamo", function () {
             $("#EditarbuscaTrabajador").val(respuesta["id_trabajador"]);
             $("#EditarnomTrabajador").val(respuesta["nombre_completo"]);
             $("#EditartipoEmpleado").val(respuesta["tipo_empleado"]);
+            $("#editarNumEmpleado").val(respuesta["num_empleado"]);
+            $("#editarDepartamento").val(respuesta["departamento"]);
 
-            $("#EditarprestamoId").val(respuesta["id_finanzas_prestamo"]);
+            $("#EditarprestamoId").val(respuesta["id_tipo_prestamo"]);
             $("#buscarEditarPrestamo").val(respuesta["tipo_prestamo"]);
             $("#EditarPrestamo").val(respuesta["tipo_prestamo"]);
 
@@ -684,21 +714,21 @@ $(".TablaPrestamos").on("click", ".btnEditarAplicar-Prestamo", function () {
         success: function (respuesta) {
             //console.log('Línea 203. respuesta => ', respuesta);
 
-            $("#EditarAplicarTrabajadorId").val(respuesta["id_trabajador"]);
+
             $("#EditarAplicarbuscaTrabajador").val(respuesta["id_trabajador"]);
+            $("#EditarAplicarTrabajadorId").val(respuesta["id_trabajador"]);
+            $("#EditarAplicarNumEmpleado").val(respuesta["num_empleado"]);
             $("#EditarAplicarnomTrabajador").val(respuesta["nombre_completo"]);
             $("#EditarAplicartipoEmpleado").val(respuesta["tipo_empleado"]);
+            $("#EditarAplicarDepartamento").val(respuesta["departamento"]);
 
-            $("#EditarAplicarprestamoId").val(respuesta["id_tipo_prestamo"]);
             $("#buscarEditarAplicarPrestamo").val(respuesta["tipo_prestamo"]);
             $("#EditarAplicarPrestamo").val(respuesta["tipo_prestamo"]);
-
+            $("#EditarAplicarprestamoId").val(respuesta["id_tipo_prestamo"]);
             $("#EditarAplicarnuevoMontoPrestamo").val(respuesta["monto_tp"]);
             $("#EditarAplicarMontoPrestamo").val(respuesta["monto_tp"]);
-
-            /*  $("#EditarAplicarFechaPrestamo").val(respuesta["f_registro_tp"]); */
             $("#EditarAplicaridPrestamo").val(respuesta["id_finanzas_prestamo"]);
-            $("#EditaraplicarEstatus").val(respuesta["estatus_prestamo"]);
+            /*  $("#EditarAplicarEstatus").val(respuesta["estatus_prestamo"]); */
             $("#BarCodePrestamoAplicarId").val(respuesta["id_finanzas_prestamo"]);
         }
     })
@@ -828,6 +858,7 @@ $(document).ready(function () {
     $('#registrationForm-Prestamos')
         .formValidation({
             framework: 'bootstrap4',
+            excluded: ':disabled',
 
             icon: {
                 valid: 'fa fa-check',
@@ -996,7 +1027,9 @@ $(document).ready(function () {
                             min: 4,
                             max: 5,
                             message: 'El Campo Monto debe contener al menos 4 Digitos'
+
                         }
+
                     }
                 },
 
@@ -1023,7 +1056,7 @@ $(document).ready(function () {
             }
         });
 });
-/*=FIN FORMVALIDATION EDITAR Cambio de Categoría =*/
+/*=FIN FORMVALIDATION EDITAR  =*/
 /*=============================================<<<<<*/
 
 
@@ -1054,7 +1087,7 @@ $(document).ready(function () {
                 },
 
 
-                EditarAplicarnomTrabajador: {
+                EditarnomTrabajador: {
                     validators: {
                         Empty: {
                             message: 'El Campo Nombre de Trabajador es es obligatorio...'
@@ -1066,7 +1099,7 @@ $(document).ready(function () {
                     }
                 },
 
-                EditarAplicartipoEmpleado: {
+                EditartipoEmpleado: {
                     validators: {
                         Empty: {
                             message: 'El Campo Tipo de Empleado es es obligatorio...'
@@ -1080,25 +1113,30 @@ $(document).ready(function () {
 
                 buscarEditarAplicarPrestamo: {
                     validators: {
-                        Empty: {
-                            message: 'El Campo Prestamo es es obligatorio...'
+                        notEmpty: {
+                            message: 'El Campo Categoria es es obligatorio...'
                         },
                         stringLength: {
                             min: 3,
-                            message: 'El Campo Prestamo debe contener al menos 1 caracter'
+                            message: 'El Campo Categoria debe contener al menos 1 caracter'
                         }
                     }
                 },
 
-                EditarAplicarnuevoMontoPrestamo: {
+                EditarnuevoMontoPrestamo: {
                     validators: {
-                        Empty: {
+                        notEmpty: {
                             message: 'El Campo Monto es es obligatorio...'
                         },
                         stringLength: {
                             min: 4,
                             max: 5,
                             message: 'El Campo Monto debe contener al menos 4 Digitos'
+                        },
+                        lessThan: {
+                            max: "50,000.00",
+                            message: 'El monto maximo a prestar son $50,000.00'
+
                         }
                     }
                 },
@@ -1123,11 +1161,12 @@ $(document).ready(function () {
                         }
                     }
                 }
-
             }
         });
 });
-/*=FIN FORMVALIDATION EDITAR Cambio de Categoría =*/
+
+
+/*=FIN FORMVALIDATION EDITAR =*/
 /*=============================================<<<<<*/
 
 
@@ -1231,7 +1270,7 @@ $(document).ready(function () {
             }
         });
 });
-/*=FIN FORMVALIDATION EDITAR Cambio de Categoría =*/
+/*=FIN FORMVALIDATION EDITAR  =*/
 /*=============================================<<<<<*/
 
 
@@ -1352,7 +1391,7 @@ $(document).ready(function () {
             }
         });
 });
-/*=FIN FORMVALIDATION EDITAR Cambio de Categoría =*/
+/*=FIN FORMVALIDATION EDITAR  =*/
 /*=============================================<<<<<*/
 
 

@@ -21,14 +21,16 @@ CREAR Cambio de Categoría
 			$datos = array(
 
 							"id_trabajador"    => $_POST["trabajadorId"],
+							"num_empleado"         => $_POST["nuevoNumEmpleado"],
 							"nombre_completo"  => ucwords($_POST["nomTrabajador"]),
-							"tipo_empleado"    => ucwords($_POST["tipoEmpleado"]),	
-							"tipo_prestamo" => ucwords($_POST["nuevoPrestamo"]),
+							"tipo_empleado"    => ucwords($_POST["tipoEmpleado"]),
+							"departamento"    => ucwords($_POST["nuevoDepartamento"]),	
+							"tipo_prestamo"    => ucwords($_POST["nuevoPrestamo"]),
 							"monto_tp"         => $_POST["MontoPrestamo"],
 							"f_registro_tp"    => $_POST["nuevoFechaPrestamo"],
 							"capturista_tp"    => $_POST["Capturista-Prestamo"], 
-							"id_tipo_prestamo"    => $_POST["prestamoId"],
-							"estatus_prestamo"    => $_POST["nuevoEstatus"]
+							"id_tipo_prestamo" => $_POST["prestamoId"],
+							"estatus_prestamo" => $_POST["nuevoEstatus"]
 							
 						);
 
@@ -45,15 +47,17 @@ CREAR Cambio de Categoría
 							text: "Prestamo Autorizado Con Exito!",
 							type: "success",
 							showConfirmButton: false,
-							timer: 1500
+							timer: 2400
 
 						}).then(function() {
 						
-						window.location.href = "finanzas-prestamos";
+						//window.location.href = window.location.href;
 						})
-						},3000);
+						},200);
 					</script>';
+
 			}
+			
 
 		}else{
 
@@ -71,7 +75,7 @@ CREAR Cambio de Categoría
 						// Redirect the user
 						window.location.href = "finanzas-prestamos";
 						})
-						},1000);
+						},200);
 					</script>';
 		}
 	}
@@ -94,9 +98,11 @@ static public function ctrEditarPrestamo(){
 	
 			$datos = array(
 
+							"num_empleado"        => $_POST["editarNumEmpleado"],
 							"id_trabajador"        => $_POST["EditartrabajadorId"],
 							"nombre_completo"      => ucwords($_POST["EditarnomTrabajador"]),
 							"tipo_empleado"        => ucwords($_POST["EditartipoEmpleado"]),
+							"departamento"        => ucwords($_POST["editarDepartamento"]),
 							"tipo_prestamo"        => ucwords($_POST["EditarPrestamo"]),
 							"monto_tp"             => $_POST["EditarMontoPrestamo"],
 							"f_registro_tp"        => $_POST["EditarFechaPrestamo"],
@@ -120,11 +126,11 @@ static public function ctrEditarPrestamo(){
 							text: "Prestamo Actualizado Con Exito!",
 							type: "success",
 							showConfirmButton: false,
-							timer: 1500
+							timer: 2400
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "finanzas-prestamos";
+						//window.location.href = "finanzas-prestamos";
 						})
 						},200);
 					</script>';
@@ -172,19 +178,19 @@ static public function ctrEditarAplicarPrestamo(){
 	
 			$datos = array(
 
-							"id_trabajador"              => $_POST["EditarAplicarTrabajadorId"],
-							"nombre_completo"            => ucwords($_POST["EditarAplicarnomTrabajador"]),
-							"tipo_empleado"              => ucwords($_POST["EditarAplicartipoEmpleado"]),
-							"tipo_prestamo"              => ucwords($_POST["EditarAplicarPrestamo"]),
-							"monto_tp"                   => $_POST["EditarAplicarMontoPrestamo"],
-							"f_registro_tp"              => $_POST["EditarAplicarFechaPrestamo"],
-							"id_tipo_prestamo"           => $_POST["EditarAplicarprestamoId"],
-							"id_finanzas_prestamo"       => $_POST["EditarAplicaridPrestamo"],
-							// "capturista_tp"              => $_POST["Capturista-AplicarPrestamo"],
+							"num_empleado"                => $_POST["EditarAplicarNumEmpleado"],
+							"id_trabajador"               => $_POST["EditarAplicarTrabajadorId"],
+							"nombre_completo"             => ucwords($_POST["EditarAplicarnomTrabajador"]),
+							"tipo_empleado"               => ucwords($_POST["EditarAplicartipoEmpleado"]),
+							"departamento"                => ucwords($_POST["EditarAplicarDepartamento"]),
+							"tipo_prestamo"               => ucwords($_POST["EditarAplicarPrestamo"]),
+							"monto_tp"                    => $_POST["EditarAplicarMontoPrestamo"],
+							"f_aplicacion"                => $_POST["EditarAplicarFechaPrestamo"],
+							"id_tipo_prestamo"            => $_POST["EditarAplicarprestamoId"],
+							"id_finanzas_prestamo"        => $_POST["EditarAplicaridPrestamo"],
 							"capturista_aplica_prestamo" => $_POST["CapturistaEditarAplicaPrestamo"],
-							"estatus_prestamo"           => $_POST["EditarAplicarEstatus"]
-							
-							
+							"estatus_prestamo"            => $_POST["EditarAplicarEstatus"]
+													
 						);
 		
 			$respuesta = ModeloPrestamos::mdlEditarAplicarPrestamo($tabla, $datos);
@@ -200,11 +206,11 @@ static public function ctrEditarAplicarPrestamo(){
 							text: "Prestamo Aplicado Con Exito!",
 							type: "success",
 							showConfirmButton: false,
-							timer: 1500
+							timer: 2400
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "finanzas-prestamos";
+						//window.location.href = "finanzas-prestamos";
 						})
 						},200);
 					</script>';
@@ -277,14 +283,14 @@ static public function ctrEditarEntregarPrestamo(){
 							swal({ 
 							position: "center",
 							title: "Excelente..",
-							text: "Prestamo Entregado Con Exito!",
+							text: "Entregado Con Exito!",
 							type: "success",
 							showConfirmButton: false,
-							timer: 1500
+							timer: 2400
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "finanzas-prestamos";
+						//window.location.href = "finanzas-prestamos";
 						})
 						},200);
 					</script>';
@@ -357,15 +363,15 @@ static public function ctrCancelarPrestamo(){
 						$(document).ready(function() {
 							swal({ 
 							position: "center",
-							title: "Excelente..",
-							text: "Prestamo Entregado Con Exito!",
-							type: "success",
+							title: "OK..",
+							text: "Prestamo Cancelado!",
+							type: "info",
 							showConfirmButton: false,
-							timer: 1500
+							timer: 2400
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "finanzas-prestamos";
+						//window.location.href = "finanzas-prestamos";
 						})
 						},200);
 					</script>';

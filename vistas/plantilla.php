@@ -2,6 +2,37 @@
 
 session_start();
 
+  //Comprobamos si esta definida la sesión 'tiempo'.
+  if(isset($_SESSION['ultimo_login']) ) {
+
+  //Tiempo en segundos para dar vida a la sesión.
+  $inactivo = 30;  //20min en este caso.
+
+  //Calculamos tiempo de vida inactivo.
+  $vida_session = time() - $_SESSION['ultimo_login'];
+
+  //Compraración para redirigir página, si la vida de sesión sea mayor a el tiempo insertado en inactivo.
+  if($vida_session > $inactivo)
+  
+  {
+  //Removemos sesión.
+  session_unset();
+
+  //Destruimos sesión.
+  session_destroy();
+
+  //Redirigimos pagina.
+    echo "<script>
+    window.location = 'login';
+  </script>";
+
+							exit();
+						}
+				} else {
+					//Activamos sesion tiempo.
+					$_SESSION['ultimo_login'] = time();
+				}
+
 ?>
 
 <!DOCTYPE html>
@@ -226,6 +257,8 @@ $.widget.bridge('uibutton', $.ui.button)
 
 if(isset($_SESSION["iniciarSesion"]) && $_SESSION["iniciarSesion"] == "ok"){
 
+  
+
   echo '<div class="wrapper">';
 
 /*=============================================
@@ -333,6 +366,7 @@ include "modulos/footer.php";
 <script src="vistas/js/cambio-adscripcion.js"></script>
 <script src="vistas/js/comision.js"></script>
 <script src="vistas/js/prestamos.js"></script>
+<script src="vistas/js/evitar-reenvio.js"></script>
 
 
 

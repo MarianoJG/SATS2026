@@ -39,13 +39,13 @@ class TablaHijos {
       /*=============================================
     TRAEMOS LA CATEGORÍA
       =============================================*/
-
+/* 
       $item = "id_trabajador";
       $valor = $hijos[$i]["id_trabajador"];
 
       $trabajadores = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor); 
 
-      if (is_array($trabajadores) && $trabajadores["id_trabajador"]) {
+      if (is_array($trabajadores) && $trabajadores["id_trabajador"]) { */
 
           /*=============================================
                 TRAEMOS LAS ACCIONES
@@ -59,12 +59,12 @@ class TablaHijos {
           "'.$hijos[$i]["id_hijo"].'",
           "'.$hijos[$i]["nombre_completo"].'",
           "'.$hijos[$i]["f_nacimiento"].'",
-          "'.$trabajadores["nombres"].' '.$trabajadores["a_paterno"].' '.$trabajadores["a_materno"].'",
-          "'.$trabajadores["num_empleado"].'",
-          "'.$trabajadores["departamento"].'",
+          "'.$hijos[$i]["nombre_completo_trabajador"].'",
+          "'.$hijos[$i]["num_empleado"].'",
+          "'.$hijos[$i]["departamento"].'",
           "'.$botonEditar.'"
         ],';
-      } /* fin array */
+      /*}  fin array */
     }
 
     $datosJson = substr($datosJson, 0, -1);

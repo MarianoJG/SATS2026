@@ -37,13 +37,13 @@ $datosJson = '{
 "data": [';
 
 for ($i = 0; $i < count($mostrarTipoPrestamo); $i++) {
-    $item = "id_trabajador";
+   /*  $item = "id_trabajador";
     $valor = $mostrarTipoPrestamo[$i]["id_trabajador"];
 
     $trabajadores = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor);
 
 
-    if (is_array($trabajadores) && $trabajadores["id_trabajador"]) {
+    if (is_array($trabajadores) && $trabajadores["id_trabajador"]) { */
 
 
         /*=============================================
@@ -60,7 +60,7 @@ for ($i = 0; $i < count($mostrarTipoPrestamo); $i++) {
         }
         elseif ($mostrarTipoPrestamo[$i]["estatus_prestamo"] == 'Cancelado') {
 
-            $estatusprestamo = "<span class='btn btn-danger btn-sm '><i class='fa fa-times' aria-hidden='true'></i>&nbsp; ".$mostrarTipoPrestamo[$i]["estatus_prestamo"]."</span><pre><span class='badge badge-light mt-1'>".$mostrarTipoPrestamo[$i]["f_cancelacion"]."</span>";
+            $estatusprestamo = "<span class='btn btn-danger btn-sm data-toggle='tooltip' data-placement='bottom' title='".$mostrarTipoPrestamo[$i]["cancelar_motivo"]."' '><i class='fa fa-times' aria-hidden='true'></i>&nbsp; ".$mostrarTipoPrestamo[$i]["estatus_prestamo"]."</span><pre><span class='badge badge-light mt-1'>".$mostrarTipoPrestamo[$i]["f_cancelacion"]."</span>";
         } 
         else {
             $estatusprestamo = "<span class='btn btn-success btn-sm'><i class='fa fa-check' style='color:#e52d27;' aria-hidden='true'></i> ".$mostrarTipoPrestamo[$i]["estatus_prestamo"]."</span><pre><span class='badge badge-secondary mt-1'>".$mostrarTipoPrestamo[$i]["f_entrega"]."</span>";
@@ -269,9 +269,9 @@ for ($i = 0; $i < count($mostrarTipoPrestamo); $i++) {
 
         $datosJson .='[
     "'.$mostrarTipoPrestamo[$i]["id_finanzas_prestamo"].'",
-    "'.$trabajadores["num_empleado"].'",
-    "'.$trabajadores["nombres"].' '.$trabajadores["a_paterno"].' '.$trabajadores["a_materno"].'",
-    "'.$trabajadores["departamento"].'",
+    "'.$mostrarTipoPrestamo[$i]["num_empleado"].'",
+    "'.$mostrarTipoPrestamo[$i]["nombre_completo"].'",
+    "'.$mostrarTipoPrestamo[$i]["departamento"].'",
     "'.$tipo_prestamo.'",
     "'."$".''.number_format($mostrarTipoPrestamo[$i]["monto_tp"], 2).'",
     "'.$estatusprestamo.'",
@@ -279,7 +279,7 @@ for ($i = 0; $i < count($mostrarTipoPrestamo); $i++) {
     "'.$mostrarTipoPrestamo[$i]["f_registro_tp"].'",
     "'.$botonEditar.' '.$botonAplicar.' '.$botonCancelado.' '.$botonEntregar.' '.$botonEntregado.'"
     ],';
-    }
+    /* } */
 } /* class prestamos */
 
 $datosJson = substr($datosJson, 0, -1);

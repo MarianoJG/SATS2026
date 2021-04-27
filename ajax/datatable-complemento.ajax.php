@@ -40,23 +40,26 @@ class TablaComplemento {
 
         $trabajadores = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor); 
 
+        if (is_array($trabajadores) && $trabajadores["id_trabajador"]) {
+
         /*=============================================
       TRAEMOS LAS ACCIONES
         ============================================= */
 
-          $botonEditar ="<div class='btn-group'><span data-toggle='modal' data-target='#modalEditarComplemento'><button class='btn btn-info btnEditar-Complemento' idComplemento='".$complemento[$i]["id_complemento"]."' data-toggle='tooltip' data-placement='top' title='Editar'><i class='fa fa-pencil-square-o'></i></button></span></div>";
+            $botonEditar ="<div class='btn-group'><span data-toggle='modal' data-target='#modalEditarComplemento'><button class='btn btn-info btnEditar-Complemento' idComplemento='".$complemento[$i]["id_complemento"]."' data-toggle='tooltip' data-placement='top' title='Editar'><i class='fa fa-pencil-square-o'></i></button></span></div>";
 
      
-        $datosJson .='[
+            $datosJson .='[
             "'.$complemento[$i]["id_complemento"].'",
             "'.$trabajadores["num_empleado"].'",
             "'.$trabajadores["nombres"].' '.$trabajadores["a_paterno"].' '.$trabajadores["a_materno"].'",
             "'.$trabajadores["departamento"].'",
             "'.$complemento[$i]["complemento"].'",
-            "'."$".''.number_format($complemento[$i]["monto_complemento"],2).'",
+            "'."$".''.number_format($complemento[$i]["monto_complemento"], 2).'",
             "'.$complemento[$i]["f_registro_complemento"].'",
             "'.$botonEditar.'"
           ],';
+        }
 
       }
 
