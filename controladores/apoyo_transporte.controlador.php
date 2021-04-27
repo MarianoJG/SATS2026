@@ -49,7 +49,7 @@ class Controlador_ApoyoTransporte{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-apoyo-transporte";
+							//window.location.href = "escalafon-apoyo-transporte";
 							})
 							},200);
 						</script>';
@@ -132,7 +132,7 @@ class Controlador_ApoyoTransporte{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-apoyo-transporte";
+							//window.location.href = "escalafon-apoyo-transporte";
 							})
 							},200);
 						</script>';

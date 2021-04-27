@@ -6,7 +6,7 @@ class Controlador_Complemento{
 	CREAR APOYO DE TRANSPORTE
 	=============================================*/
 
-	 static public function ctr_CrearComplemento(){
+	static public function ctr_CrearComplemento(){
 
 		if(isset($_POST["nuevoComplemento"])){
 
@@ -16,7 +16,7 @@ class Controlador_Complemento{
 
 		){
 			
-		   
+		
 				$tabla = "escalafon_complemento";
 		
 				$datos = array(
@@ -49,7 +49,7 @@ class Controlador_Complemento{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-complemento";
+							//window.location.href = "escalafon-complemento";
 							})
 							},200);
 						</script>';
@@ -98,7 +98,7 @@ class Controlador_Complemento{
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["EditarComplemento"])){
 
 					
-		   
+		
 				$tabla = "escalafon_complemento";
 		
 				$datos = array(
@@ -131,7 +131,7 @@ class Controlador_Complemento{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-complemento";
+							//window.location.href = "escalafon-complemento";
 							})
 							},200);
 						</script>';
@@ -175,16 +175,16 @@ class Controlador_Complemento{
 
 
 /*=============================================
-  MOSTRAR APOYO DE TRANSPORTE (CUALQUIER TIPO DE TRABAJADOR)
-  =============================================*/
+MOSTRAR APOYO DE TRANSPORTE (CUALQUIER TIPO DE TRABAJADOR)
+=============================================*/
 
-  static public function ctr_MostrarComplemento($item, $valor){
+static public function ctr_MostrarComplemento($item, $valor){
 
     $tabla = "escalafon_complemento";
 
     $respuesta = ModeloComplemento::mdl_MostrarComplemento($tabla, $item, $valor);
 
     return $respuesta;
-  
-  }
+
+}
 }

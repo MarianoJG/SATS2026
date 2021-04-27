@@ -6,7 +6,7 @@ session_start();
   if(isset($_SESSION['ultimo_login']) ) {
 
   //Tiempo en segundos para dar vida a la sesión.
-  $inactivo = 30;  //20min en este caso.
+  $inactivo = 600;  //20min en este caso.
 
   //Calculamos tiempo de vida inactivo.
   $vida_session = time() - $_SESSION['ultimo_login'];
@@ -27,11 +27,13 @@ session_start();
   </script>";
 
 							exit();
-						}
+						 } else {  // si no ha caducado la sesion, actualizamos
+            $_SESSION['ultimo_login'] = time();
+        }
 				} else {
-					//Activamos sesion tiempo.
-					$_SESSION['ultimo_login'] = time();
-				}
+    //Activamos sesion tiempo.
+    $_SESSION['ultimo_login'] = time();
+}
 
 ?>
 

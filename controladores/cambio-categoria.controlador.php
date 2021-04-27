@@ -65,7 +65,7 @@ CREAR Cambio de Categoría
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "escalafon-cambio-categoria";
+						//window.location.href = "escalafon-cambio-categoria";
 						})
 						},200);
 					</script>';
@@ -149,7 +149,7 @@ static public function ctr_EditarCambioCategoria(){
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "escalafon-cambio-categoria";
+						//window.location.href = "escalafon-cambio-categoria";
 						})
 						},200);
 					</script>';

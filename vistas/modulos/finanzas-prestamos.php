@@ -716,7 +716,7 @@
                         </div>
 
                         <select class="form-control  " name="EditarAplicarbuscaTrabajador"
-                          id="EditarAplicarbuscaTrabajador" >
+                          id="EditarAplicarbuscaTrabajador" disabled >
                           <option value=""># Empleado</option>
 
                           <?php
@@ -813,7 +813,7 @@
                         </div>
 
                         <select class="form-control  " name="buscarEditarAplicarPrestamo"
-                          id="buscarEditarAplicarPrestamo" required="" >
+                          id="buscarEditarAplicarPrestamo" required="" disabled >
                           <option value="">Seleccionar Tipo de Préstamo</option>
 
                             <?php

@@ -133,7 +133,7 @@ static public function ctrCrearTrabajador(){
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "registro-trabajadores";
+						//window.location.href = "registro-trabajadores";
 						})
 						},200);
 					</script>';
@@ -423,7 +423,7 @@ static public function ctrEditarTrabajador(){
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "registro-trabajadores";
+						//window.location.href = "registro-trabajadores";
 						})
 						},200);
 					</script>';

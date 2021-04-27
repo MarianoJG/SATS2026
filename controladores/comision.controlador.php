@@ -6,7 +6,7 @@ class Controlador_Comision{
 	CREAR Comision
 	=============================================*/
 
-	 static public function ctr_CrearComision(){
+	static public function ctr_CrearComision(){
 
 		if(isset($_POST["Tipo_Movimiento_Comision"])){
 
@@ -16,7 +16,7 @@ class Controlador_Comision{
 
 		){
 			
-		   
+		
 				$tabla = "escalafon_comision";
 		
 				$datos = array(
@@ -55,7 +55,7 @@ class Controlador_Comision{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-comision";
+							//window.location.href = "escalafon-comision";
 							})
 							},200);
 						</script>';
@@ -77,7 +77,7 @@ class Controlador_Comision{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-comision";
+							//window.location.href = "escalafon-comision";
 							})
 							},1000);
 						</script>';
@@ -104,7 +104,7 @@ class Controlador_Comision{
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["editar_Tipo_Movimiento_Comision"])){
 
 					
-		   
+		
 				$tabla = "escalafon_comision";
 		
 				$datos = array(
@@ -149,7 +149,7 @@ class Controlador_Comision{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-comision";
+							//window.location.href = "escalafon-comision";
 							})
 							},200);
 						</script>';
@@ -192,16 +192,16 @@ class Controlador_Comision{
 
 
 /*=============================================
-  MOSTRAR Cambio de Categoría (CUALQUIER TIPO DE TRABAJADOR)
-  =============================================*/
+MOSTRAR Cambio de Categoría (CUALQUIER TIPO DE TRABAJADOR)
+=============================================*/
 
-  static public function ctr_MostrarComision($item, $valor){
+static public function ctr_MostrarComision($item, $valor){
 
     $tabla = "escalafon_comision";
 
     $respuesta = ModeloComision::mdl_MostrarComision($tabla, $item, $valor);
 
     return $respuesta;
-  
-  }
+
+}
 }

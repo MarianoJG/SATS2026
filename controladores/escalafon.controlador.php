@@ -6,14 +6,14 @@ class Controlador_Escalafon{
 	CREAR CAMBIO DE CATEGORIA
 	=============================================*/
 
-	 static public function ctr_CrearCambioCategoria(){
+	static public function ctr_CrearCambioCategoria(){
 
 		if(isset($_POST["nuevoCCategoria"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["nuevoCCategoria"])){
 			
 			
-		   
+		
 				$tabla = "escalafon_cambio_categoria";
 		
 				$datos = array(
@@ -57,7 +57,7 @@ class Controlador_Escalafon{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-cambio-categoria";
+							//window.location.href = "escalafon-cambio-categoria";
 							})
 							},200);
 						</script>';
@@ -103,14 +103,14 @@ class Controlador_Escalafon{
 	EDITAR CAMBIO DE CATEGORIA
 	=============================================*/	
 
-	 static public function ctrEditarCambioCategoria(){
+	static public function ctrEditarCambioCategoria(){
 
 		if(isset($_POST["EditarCCategoria"])){
 
 			if(preg_match('/^[a-zA-Z0-9ñÑáéíóúÁÉÍÓÚ ]+$/', $_POST["EditarCCategoria"])){
 			
 			
-		   
+		
 				$tabla = "escalafon_cambio_categoria";
 		
 				$datos = array(
@@ -140,7 +140,7 @@ class Controlador_Escalafon{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-cambio-categoria";
+							//window.location.href = "escalafon-cambio-categoria";
 							})
 							},200);
 						</script>';
@@ -185,16 +185,16 @@ class Controlador_Escalafon{
 
 
 /*=============================================
-  MOSTRAR ESCALAFON CAMBIO DE CATEGORIA
-  =============================================*/
+MOSTRAR ESCALAFON CAMBIO DE CATEGORIA
+=============================================*/
 
-  static public function ctr_MostrarCambioCategoria($item, $valor){
+static public function ctr_MostrarCambioCategoria($item, $valor){
 
     $tabla = "escalafon_cambio_categoria";
 
     $respuesta = ModeloEscalafon::mdl_MostrarCambioCategoria($tabla, $item, $valor);
 
     return $respuesta;
-  
-  }
+
+}
 }

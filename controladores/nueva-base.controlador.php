@@ -60,7 +60,7 @@ CREAR APOYO DE TRANSPORTE
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "nuevas-bases";
+						//window.location.href = "nuevas-bases";
 						})
 						},200);
 					</script>';
@@ -140,7 +140,7 @@ static public function ctr_EditarNuevaBase(){
 
 						}).then(function() {
 						// Redirect the user
-						window.location.href = "nuevas-bases";
+						//window.location.href = "nuevas-bases";
 						})
 						},200);
 					</script>';

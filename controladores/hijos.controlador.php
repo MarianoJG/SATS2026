@@ -45,7 +45,7 @@ class ControladorHijos{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "registro-hijos";
+							//window.location.href = "registro-hijos";
 							})
 							},70);
 						</script>';
@@ -132,7 +132,7 @@ class ControladorHijos{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "registro-hijos";
+							//window.location.href = "registro-hijos";
 							})
 							},70);
 						</script>';

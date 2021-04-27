@@ -74,9 +74,7 @@ class ControladorUsuarios{
 								
 							</script>';
 
-							
 						}
-						
 						
 						
 					}else{

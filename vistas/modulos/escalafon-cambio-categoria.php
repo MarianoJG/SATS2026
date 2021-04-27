@@ -236,7 +236,7 @@ MODAL AGREGAR
 
                 </div>
                 </div>
-                    <input type="text" name="categoriaId" id="categoriaId" class="form-control" readonly=""   >
+                    <input type="hidden" name="categoriaId" id="categoriaId" class="form-control" readonly=""   >
               </div>
 
           

@@ -64,7 +64,7 @@ class Controlador_CambioAdscripcion{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-cambio-adscripcion";
+							//window.location.href = "escalafon-cambio-adscripcion";
 							})
 							},200);
 						</script>';
@@ -162,7 +162,7 @@ class Controlador_CambioAdscripcion{
 
 							}).then(function() {
 							// Redirect the user
-							window.location.href = "escalafon-cambio-adscripcion";
+							//window.location.href = "escalafon-cambio-adscripcion";
 							})
 							},200);
 						</script>';

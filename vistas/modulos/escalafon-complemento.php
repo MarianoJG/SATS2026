@@ -10,7 +10,7 @@
 
 <body class="hold-transition sidebar-mini bg-p2-pages" style="height: auto;">
 
-   <div class="content-wrapper ">
+  <div class="content-wrapper ">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -22,7 +22,7 @@
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
               <li class="breadcrumb-item active">Escalafon</li>
-               <li class="breadcrumb-item active">Complemento</li>
+              <li class="breadcrumb-item active">Complemento</li>
             </ol>
           </div>
         </div>
@@ -35,10 +35,10 @@
         <div class="row">
           <!-- left column  buttom-->
           <div>
-           <button type="button" class="btn btn-primary btnAgregarComplemento" data-toggle="modal" data-target="#modalAgregarComplemento"><i class="fa fa-plus nav-icon"></i>&nbsp;
-             Agregar Registro
-           </button>
-         </div>
+          <button type="button" class="btn btn-primary btnAgregarComplemento" data-toggle="modal" data-target="#modalAgregarComplemento"><i class="fa fa-plus nav-icon"></i>&nbsp;
+            Agregar Registro
+          </button>
+        </div>
           <!--/.col (left) -->
           <!-- right column -->
           
@@ -54,14 +54,14 @@
           <thead>
             <tr>
 
-             <th>Id</th>
-             <th>Nº Empleado</th>
-             <th>Nombre del Trabajador</th>
-             <th>Adscripción</th>
-             <th>Movimiento </th>
-             <th>Monto </th>
-             <th>Fecha de Movimiento</th>
-             <th>Acciones</th>
+            <th>Id</th>
+            <th>Nº Empleado</th>
+            <th>Nombre del Trabajador</th>
+            <th>Adscripción</th>
+            <th>Movimiento </th>
+            <th>Monto </th>
+            <th>Fecha de Movimiento</th>
+            <th>Acciones</th>
 
             </tr>
           </thead>
@@ -84,7 +84,7 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
 
-       <!--=====================================
+      <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
@@ -96,7 +96,7 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
         </button>
       </div>
 
-       <!--=====================================
+      <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
@@ -108,7 +108,7 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
 
             <!--AQUI-->
 
-             <!--SECCION 1-->
+            <!--SECCION 1-->
 
             <div class="form-group card-body callout callout-success ">
 
@@ -129,10 +129,10 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
                         <span class="input-group-text"><i class="fa fa-search "></i></span>
                       </div>
 
-                       <select class="form-control  " name="buscaTrabajador" id="buscaTrabajador" required="" >
+                      <select class="form-control  " name="buscaTrabajador" id="buscaTrabajador" required="" >
                           <option value="" ># Empleado</option>
 
-                           <?php
+                          <?php
 
                           $item = null;
                           $valor = null;
@@ -141,15 +141,15 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
 
                           foreach ($mostrarTrabajador as $key => $value) {
 
-                           echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
-                         }
+                          echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                        }
 
-                         ?>
- 
+                        ?>
+
                         </select>
 
                         
-                       </div>
+                      </div>
                   </div>
                   
                         <input type="hidden" name="trabajadorId" id="trabajadorId" class="form-control" readonly=""   >
@@ -168,14 +168,14 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
                         <span class="input-group-text"><i class="fa fa-user "></i></span>
                       </div>
                         <input type="text" name="nomTrabajador" id="nomTrabajador" class="form-control" placeholder="Empleado" readonly=""  >
-                     
-                       </div>
+                    
+                      </div>
                   </div>
                   
                 </div> 
 
-                 <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR --> 
-                 <div class=" col-md-3  ">
+                <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR --> 
+                <div class=" col-md-3  ">
                   <div class="form-group  ">
                     <label for="tipoEmpleado">Tipo Empleado:</label>
                     
@@ -185,8 +185,8 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
                         <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
                       </div>
                         <input type="text" name="tipoEmpleado" id="tipoEmpleado" class="form-control" placeholder="Tipo" readonly="" >
-                     
-                       </div>
+                    
+                      </div>
                   </div>
                 </div> 
 
@@ -195,8 +195,8 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
             </div>
 
 
-             <!--ENTRADA PARA AGREGAR APOYO DE TRANSPORTE-->
-             <!--SECCION 2-->
+            <!--ENTRADA PARA AGREGAR APOYO DE TRANSPORTE-->
+            <!--SECCION 2-->
 
             <div class="form-group card-body callout callout-warning mt-5 OcultarSeccion2">
               <div class="row">
@@ -208,15 +208,15 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
                   <input type="hidden" name="Capturista-Complemento" value="<?php  echo $_SESSION["nombre"]; ?>" class="form-control"  >
                   <div class="form-group  ">
                   <label for="nuevoComplemento">Descripción:</label>
-                   <div class="input-group ">
+                  <div class="input-group ">
 
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-tags"></i></span>
                         </div>
 
-                         <input type="text" name="nuevoComplemento" id="nuevoComplemento" class="form-control" value="Complemento" readonly="" >
+                        <input type="text" name="nuevoComplemento" id="nuevoComplemento" class="form-control" value="Complemento" readonly="" >
 
-                     
+                    
                   </div>
                   </div>
                   
@@ -236,15 +236,15 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
                       </div>
                       <input class="form-control" type="text"  name="nuevoMontoComplemento" id="nuevoMontoComplemento" autocomplete="off" placeholder="0,000.00" >
 
-                     
+                    
 
                     </div>
                   </div>
-                   <input class="form-control" type="hidden"  name="MontoComplemento" id="MontoComplemento" autocomplete="off" >
+                  <input class="form-control" type="hidden"  name="MontoComplemento" id="MontoComplemento" autocomplete="off" >
                 </div> 
 
 
-                 <!--ENTRADA PARA AGREGAR FECHA DE REGISTRO EN APOYO DE TRANSPORTE-->
+                <!--ENTRADA PARA AGREGAR FECHA DE REGISTRO EN APOYO DE TRANSPORTE-->
 
                 <div class=" col-md-4  ">
                   <div class="form-group  ">
@@ -270,8 +270,8 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
 
             <div class="modal-footer">
 
-             <!--   <button type="button" id="CancelarRegrescar-ApoyoTransporte" class="btn btn-outline-info " data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Refrescar</button> -->
-           
+            <!--   <button type="button" id="CancelarRegrescar-ApoyoTransporte" class="btn btn-outline-info " data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Refrescar</button> -->
+          
               <button type="button" id="CancelarAgregar-Complemento" class="btn btn-outline-danger " data-dismiss="modal"><i class="fa fa-times" aria-hidden="true"></i>&nbsp;Cancelar</button>
 
               <button type="submit" id="btnGuardar" class="btn btn-outline-success"><i class="fa fa-check" aria-hidden="true"></i>&nbsp;Guardar</button>
@@ -284,10 +284,10 @@ MODAL AGREGAR NUEVO APOYO DE TRANSPORTE
             $CrearComplemento -> ctr_CrearComplemento();
 
             ?>  
- 
-       </form>
 
-     </div>
+      </form>
+
+    </div>
 
       </div>
       
@@ -308,7 +308,7 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-content">
 
-       <!--=====================================
+      <!--=====================================
         CABEZA DEL MODAL
         ======================================-->
 
@@ -320,7 +320,7 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
         </button>
       </div>
 
-       <!--=====================================
+      <!--=====================================
         CUERPO DEL MODAL
         ======================================-->
 
@@ -352,10 +352,10 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
                         <span class="input-group-text"><i class="fa fa-search "></i></span>
                       </div>
 
-                       <select class="form-control  " name="EditarbuscaTrabajador" id="EditarbuscaTrabajador" >
+                      <select class="form-control  " name="EditarbuscaTrabajador" id="EditarbuscaTrabajador" >
                           <option value="" ># Empleado</option>
 
-                           <?php
+                          <?php
 
                           $item = null;
                           $valor = null;
@@ -364,17 +364,17 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
 
                           foreach ($mostrarTrabajador as $key => $value) {
 
-                           echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
-                         }
+                          echo '<option value="'.$value["id_trabajador"].'">'.$value["num_empleado"].'</option>';
+                        }
 
-                         ?>
- 
-                        </select>
- 
+                        ?>
+
                         </select>
 
-                         <input type="hidden" name="EditartrabajadorId" id="EditartrabajadorId" class="form-control"   >
-                       </div>
+                        </select>
+
+                        <input type="hidden" name="EditartrabajadorId" id="EditartrabajadorId" class="form-control"   >
+                      </div>
                   </div>
 
                 </div> 
@@ -390,13 +390,13 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
                         <span class="input-group-text"><i class="fa fa-user "></i></span>
                       </div>
                         <input type="text" name="EditarnomTrabajador" id="EditarnomTrabajador" class="form-control" placeholder="Empleado" readonly="" >
-                     
-                       </div>
+                    
+                      </div>
                   </div>
                 </div> 
 
-                 <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR --> 
-                 <div class=" col-md-3  ">
+                <!-- ENTRADA PARA MOSTRAR TIPO DE EMPLEADO DEL TRABAJADOR --> 
+                <div class=" col-md-3  ">
                   <div class="form-group  ">
                     <label for="EditartipoEmpleado">Tipo Empleado:</label>
                     
@@ -406,8 +406,8 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
                         <span class="input-group-text"><i class="fa fa-id-card-o "></i></span>
                       </div>
                         <input type="text" name="EditartipoEmpleado" id="EditartipoEmpleado" class="form-control" placeholder="Tipo" readonly="" >
-                     
-                       </div>
+                    
+                      </div>
                   </div>
                 </div> 
 
@@ -429,15 +429,15 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
                   <input type="hidden" name="Capturista-EditarComplemento" value="<?php  echo $_SESSION["nombre"]; ?>" class="form-control"  >
                   <div class="form-group  ">
                   <label for="EditarComplemento">Descripción:</label>
-                   <div class="input-group ">
+                  <div class="input-group ">
 
                         <div class="input-group-prepend">
                           <span class="input-group-text"><i class="fa fa-tags"></i></span>
                         </div>
 
-                         <input type="text" name="EditarComplemento" id="EditarComplemento" class="form-control"  readonly="" >
+                        <input type="text" name="EditarComplemento" id="EditarComplemento" class="form-control"  readonly="" >
 
-                       
+                      
                   </div>
                   </div>
                   
@@ -453,7 +453,7 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
                     <label for="EditarnuevoMontoComplemento">Monto:</label>
                     <div class="input-group">
                       <div class="input-group-prepend">
-                        <span class="input-group-text"><i class="ion ion-social-usd"></i></span>
+                        <span class="input-group-text"><i class="ion ion-logo-usd"></i></span>
                       </div>
                       <input class="form-control" type="text"  name="EditarnuevoMontoComplemento" id="EditarnuevoMontoComplemento" autocomplete="off" >
 
@@ -464,7 +464,7 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
                 </div> 
 
 
-                 <!--ENTRADA PARA EDITAR FECHA DE REGISTRO EN APOYO DE TRANSPORTE-->
+                <!--ENTRADA PARA EDITAR FECHA DE REGISTRO EN APOYO DE TRANSPORTE-->
 
                 <div class=" col-md-4  ">
                   <div class="form-group  ">
@@ -503,9 +503,9 @@ MODAL EDITAR NUEVO APOYO DE TRANSPORTE
 
             ?>  
 
-       </form>
+      </form>
 
-     </div>
+    </div>
 
       </div>
       

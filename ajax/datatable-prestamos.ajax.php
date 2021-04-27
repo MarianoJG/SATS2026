@@ -37,7 +37,7 @@ $datosJson = '{
 "data": [';
 
 for ($i = 0; $i < count($mostrarTipoPrestamo); $i++) {
-   /*  $item = "id_trabajador";
+/*  $item = "id_trabajador";
     $valor = $mostrarTipoPrestamo[$i]["id_trabajador"];
 
     $trabajadores = ControladorTrabajadores::ctrMostrarTrabajadores($item, $valor);
