@@ -2,39 +2,6 @@
 
 session_start();
 
-  //Comprobamos si esta definida la sesión 'tiempo'.
-  if(isset($_SESSION['ultimo_login']) ) {
-
-  //Tiempo en segundos para dar vida a la sesión.
-  $inactivo = 600;  //20min en este caso.
-
-  //Calculamos tiempo de vida inactivo.
-  $vida_session = time() - $_SESSION['ultimo_login'];
-
-  //Compraración para redirigir página, si la vida de sesión sea mayor a el tiempo insertado en inactivo.
-  if($vida_session > $inactivo)
-  
-  {
-  //Removemos sesión.
-  session_unset();
-
-  //Destruimos sesión.
-  session_destroy();
-
-  //Redirigimos pagina.
-    echo "<script>
-    window.location = 'login';
-  </script>";
-
-							exit();
-						 } else {  // si no ha caducado la sesion, actualizamos
-            $_SESSION['ultimo_login'] = time();
-        }
-				} else {
-    //Activamos sesion tiempo.
-    $_SESSION['ultimo_login'] = time();
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -316,6 +283,7 @@ include "modulos/header.php";
       $_GET["ruta"]    == "educacion-registro-movimientos" ||
       $_GET["ruta"]    == "educacion-listado-trabajadores" ||
       $_GET["ruta"]    == "educacion-reportes" ||
+       $_GET["ruta"]    == "sessionexpirada" ||
       $_GET["ruta"]    == "educacion-graficas" ){
 
       include "modulos/".$_GET["ruta"].".php";

@@ -4703,6 +4703,17 @@ input[type="button"].btn-block {
   background-color: #e83e8c;
 }
 
+.badge-lightblue {
+  color: #ffffff;
+  background-color: #3c8dbc;
+}
+
+.badge-lightblue[href]:hover, .badge-danger[href]:focus {
+  color: #ffffff;
+  text-decoration: none;
+  background-color: #3c8dbc;
+}
+
 .badge-light {
   color: #1F2D3D;
   background-color: #f8f9fa;
@@ -4724,6 +4735,7 @@ input[type="button"].btn-block {
   text-decoration: none;
   background-color: #1d2124;
 }
+
 
 .jumbotron {
   padding: 2rem 1rem;

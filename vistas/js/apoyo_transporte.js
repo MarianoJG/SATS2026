@@ -112,7 +112,7 @@ $('#modalAgregarApoyoTransporte').on('shown.bs.modal', function () {
           $("#trabajadorId").val('');//limpia campo id_trabajador
           $("#trabajadorId").html('');//limpia campo id_trabajador
 
-          $(".seccion1").parent().after('<div class="alert alert-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp; Este empleado ya cuenta con APOYO DE TRANSPORTE...</div>');//envia alerta
+          $(".seccion1").parent().after('<div class="alert alert-danger"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>&nbsp; Este empleado ya cuenta con APOYO DE TRANSPORTE...x</div>');//envia alerta
 
           $(".OcultarSeccion2").hide();
           $("#btnGuardar").hide();

@@ -117,7 +117,7 @@ for ($i = 0; $i < count($mostrarTipoPrestamo); $i++) {
         } elseif ($mostrarTipoPrestamo[$i]["tipo_prestamo"] == 'Caja 150') {
             $tipo_prestamo = "<span class='badge2 badge-primary'>&nbsp; ".$mostrarTipoPrestamo[$i]["tipo_prestamo"]."</span>";
         } elseif ($mostrarTipoPrestamo[$i]["tipo_prestamo"] == 'Directo') {
-            $tipo_prestamo = "<span class='badge2 badge-success'>&nbsp;</i>".$mostrarTipoPrestamo[$i]["tipo_prestamo"]."</span>&nbsp; </span>";
+            $tipo_prestamo = "<span class='badge2 badge-lightblue'>&nbsp;</i>".$mostrarTipoPrestamo[$i]["tipo_prestamo"]."</span>&nbsp; </span>";
         }
         // otros
         else {
