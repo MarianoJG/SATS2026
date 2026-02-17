@@ -1,0 +1,33 @@
+# ===== Sistema operativo =====
+.DS_Store
+Thumbs.db
+
+# ===== XAMPP / Apache =====
+logs/
+*.log
+
+# ===== PHP =====
+vendor/
+composer.lock
+
+# ===== Cache / temporales =====
+tmp/
+cache/
+
+# ===== Variables sensibles =====
+.env
+.env.local
+
+# ===== VS Code =====
+.vscode/
+
+# ===== Node si algún día usas =====
+node_modules/
+
+# ===== Builds =====
+dist/
+build/
+
+# ===== Backups =====
+*.bak
+*.old
