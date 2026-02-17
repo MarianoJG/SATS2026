@@ -1,2 +1,2 @@
-# Sistema2026HS
+# SISTEMA2026
 Sistema de Administración de Trabajadores Sindicalizados
